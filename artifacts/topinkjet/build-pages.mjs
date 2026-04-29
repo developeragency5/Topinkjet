@@ -166,7 +166,7 @@ function footer() {
 
 <div class="cookie-banner" id="cookie-banner" hidden>
   <div class="cookie-inner">
-    <p>We use cookies to make TopInkjet work, keep it secure, measure performance, and personalize your experience. Read our <a href="/cookie-policy.html">Cookie Policy</a> for details.</p>
+    <p>We use cookies to enhance your browsing experience and analyze site traffic. With your consent, we also load third-party advertising and conversion-tracking tags to measure ad performance and deliver relevant ads. Read our <a href="/privacy-policy.html">Privacy Policy</a> and <a href="/cookie-policy.html">Cookie Policy</a> for full details on advertising and analytics tracking.</p>
     <div class="cookie-actions">
       <button class="btn btn-outline" id="cookie-necessary">Necessary Only</button>
       <button class="btn btn-soft" id="cookie-manage">Manage Preferences</button>
