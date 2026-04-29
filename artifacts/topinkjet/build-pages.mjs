@@ -358,9 +358,9 @@ function pageHome(products) {
         <a class="btn btn-outline btn-lg" href="/category-home-inkjet.html">Shop Home Printers</a>
       </div>
       <div class="hero-mini">
-        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> Free US shipping <strong>over&nbsp;$99</strong></span>
-        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-6h6"/></svg> <strong>30-day</strong> easy returns</span>
-        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3z"/></svg> <strong>Real humans</strong> in&nbsp;Austin</span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.5h11v9h-11z"/><path d="M13.5 10.5h4l4 4v2h-8z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg><span class="mp-text">Free US shipping <strong>over&nbsp;$99</strong></span></span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 1 0 2.4-5.7"/><path d="M3 4v5h5"/></svg><span class="mp-text"><strong>30-day</strong> easy returns</span></span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 4 5v6c0 5 3.5 9 8 10.5 4.5-1.5 8-5.5 8-10.5V5z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg><span class="mp-text"><strong>Authorized</strong> HP&nbsp;retailer</span></span>
       </div>
     </div>
     <div class="hero-art">
