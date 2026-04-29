@@ -1,0 +1,10 @@
+{
+  "name": "@workspace/topinkjet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node serve.mjs site",
+    "build": "rm -rf dist && mkdir -p dist/public && cp -r site/. dist/public/",
+    "typecheck": "node -e \"process.exit(0)\""
+  }
+}

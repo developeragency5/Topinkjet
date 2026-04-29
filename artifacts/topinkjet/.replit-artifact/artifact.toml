@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "TopInkjet"
+version = "1.0.0"
+id = "artifacts/topinkjet"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26109
+
+[services.development]
+run = "pnpm --filter @workspace/topinkjet run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/topinkjet", "run", "build" ]
+publicDir = "artifacts/topinkjet/dist/public"
+serve = "static"
+
+[services.env]
+PORT = "26109"
+BASE_PATH = "/"

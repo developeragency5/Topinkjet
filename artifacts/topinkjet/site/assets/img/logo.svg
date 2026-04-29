@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="TopInkjet">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c5cff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(4 6)">
+    <rect x="0" y="6" width="34" height="22" rx="4" fill="url(#lg)"/>
+    <rect x="6" y="0" width="22" height="10" rx="2" fill="#1f2937"/>
+    <rect x="6" y="22" width="22" height="14" rx="2" fill="#fff" stroke="#1f2937" stroke-width="1.5"/>
+    <circle cx="29" cy="17" r="2" fill="#FFF4D2"/>
+  </g>
+  <text x="50" y="32" font-family="Inter,Segoe UI,Helvetica,Arial,sans-serif" font-weight="800" font-size="24" fill="#1f2937">Top<tspan fill="#7c5cff">Inkjet</tspan></text>
+</svg>

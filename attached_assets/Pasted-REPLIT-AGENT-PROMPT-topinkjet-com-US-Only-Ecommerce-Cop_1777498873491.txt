@@ -1,0 +1,330 @@
+REPLIT AGENT PROMPT — topinkjet.com (US-Only Ecommerce)
+
+Copy and paste the ENTIRE prompt below into your Replit Agent. Attach the product ZIP file in the same message.
+
+
+CRITICAL TECH STACK RULE — READ FIRST AND OBEY EVERYWHERE
+THE ENTIRE WEBSITE MUST BE BUILT IN PURE HTML, CSS, AND JAVASCRIPT ONLY.
+
+NO React, NO Vue, NO Angular, NO Svelte, NO Next.js, NO Nuxt, NO any frontend framework.
+NO Node backend, NO Express, NO Python backend, NO PHP, NO databases.
+NO build tools, NO bundlers, NO Webpack, NO Vite, NO npm packages on the frontend.
+NO server-side rendering, NO SSR, NO SSG generators (no Hugo, no Jekyll, no Astro).
+100% static .html files + plain .css files + vanilla .js files.
+All product data must live in a plain products.json file or hardcoded in the HTML so search bots can crawl it.
+All content (headings, paragraphs, product names, prices, descriptions, links, footer text, legal text) must exist directly inside the static HTML source, NOT injected by JavaScript after page load. When I open View Page Source in the browser I MUST see all visible text and all internal links in the raw HTML. This is non-negotiable.
+
+REPEAT TO YOURSELF AT EVERY STEP: "HTML, CSS, JAVASCRIPT ONLY. NO FRAMEWORKS. NO BACKEND. ALL CONTENT MUST BE IN THE RAW HTML SOURCE FOR CRAWLERS."
+
+1. PROJECT OVERVIEW
+Build a complete, production-ready, fully authentic-looking ecommerce website for the brand TopInkjet (domain: topinkjet.com). The store is US market only — all prices in USD, US states in checkout, US-style address fields, English (US) language, US tax behavior.
+Two product categories sourced from the attached ZIP file:
+
+Office Inkjet Printers
+Home Inkjet Printers
+
+Extract the ZIP. Inside you will find product images and a JSON file describing each SKU. Use that JSON as the source of truth for product name, price, description, specifications, and image filename. Move the images into /assets/products/ and reference them in the HTML.
+
+2. STRICT FILE & FOLDER STRUCTURE
+Create exactly this structure:
+/index.html
+/shop.html
+/category-office-inkjet.html
+/category-home-inkjet.html
+/product/<short-slug>.html       (one file per product, short SEO slug, e.g. /product/hp-officejet-pro-9015.html)
+/cart.html
+/wishlist.html
+/checkout.html                   (single page, controls 5 steps via sections + JS)
+/order-confirmation.html
+/account/sign-in.html
+/account/sign-up.html
+/account/dashboard.html
+/about.html
+/contact.html
+/privacy-policy.html
+/terms-of-service.html
+/return-policy.html
+/shipping-policy.html
+/refund-policy.html
+/cookie-policy.html
+/do-not-sell-my-personal-info.html
+/accessibility.html
+/disclaimer.html
+/faq.html
+/blog.html                       (with at least 3 real-content blog posts as static HTML)
+/blog/<post-slug>.html
+/sitemap.xml                     (all URLs listed)
+/robots.txt                      (allow all, point to sitemap)
+/404.html
+/assets/css/styles.css
+/assets/css/checkout.css
+/assets/js/main.js
+/assets/js/cart.js
+/assets/js/wishlist.js
+/assets/js/checkout.js
+/assets/js/avs.js
+/assets/js/cookie-consent.js
+/assets/js/products.js           (loads products.json or has data inline)
+/assets/products/*.jpg|png       (extracted from ZIP)
+/assets/img/logo.svg
+/assets/img/banners/*
+/data/products.json              (extracted/derived from ZIP)
+Every internal link in the site must work and point to a real file in this structure. No dead links. No # placeholder links.
+
+3. DESIGN, BRANDING, COLOR PALETTE
+
+Logo: text "TopInkjet" with a small printer/dot icon, SVG.
+Background base: white (#FFFFFF).
+Accent palette (use these EXACT hex codes for badges, hero blocks, cards, hover states, buttons, banners):
+
+#ECF2FF (soft blue)
+#E3DFFD (soft lavender)
+#E5D1FA (light purple)
+#FFF4D2 (soft cream)
+
+
+Typography: clean modern sans-serif (Inter or system stack). Headings bold and confident. Plenty of whitespace.
+Look and feel: premium, authentic, trustworthy US retail store. NOT a dropshipping template. Custom-feeling layout.
+Fully responsive: mobile, tablet, desktop. Test breakpoints at 360px, 768px, 1024px, 1440px.
+Sticky header with logo (left), main nav (center: Home, Shop, Office Inkjet, Home Inkjet, About, Contact, Blog), and right-side icons (Search, Account, Wishlist, Cart with item-count badge).
+
+
+4. HOMEPAGE — MUST BE CONTENT-RICH
+The homepage must be long, content-heavy, SEO-strong, and crawlable. All text must live in the raw HTML.
+4.1 Hero Banner (above the fold)
+
+Big bold headline: "If You Can Dream It, We Can Print It."
+Subheading: "Powerful office printers. Smart home companions. Built for speed, designed for life — one click is all it takes."
+Primary CTA button: "Shop Office Printers" → /category-office-inkjet.html
+Secondary CTA button: "Shop Home Printers" → /category-home-inkjet.html
+Background: layered pastel gradient using the four palette colors. Add a clean printer product image on the right.
+
+4.2 Trust Strip (below hero)
+4 mini-cards in a row:
+
+Free US Shipping Over $99
+30-Day Hassle-Free Returns
+US-Based Customer Support
+Secure Checkout
+
+4.3 Category Showcase
+Two large cards: "Office Inkjet Printers" and "Home Inkjet Printers". Each card has a short descriptive paragraph (2–3 sentences of unique content) and links to its category page.
+4.4 Featured Products Grid
+8 product cards pulled from the ZIP JSON. Each card: image, product name (clickable to its product page), price in USD, "Add to Cart" button, "Add to Wishlist" heart icon. No star ratings. No review counts. No "X people bought this". No fake urgency timers. No fake stock counters.
+4.5 Keyword-Targeted Content Blocks
+Add 4 separate full-width content sections on the homepage, each with a heading, a 90-character lead description, and 2–3 paragraphs of supporting body copy (250+ words each section, original, US-tone, helpful). Use these EXACT pairs for the heading + lead line:
+Block 1 — Office Printer
+
+H2: Office Printers for Every Desk
+Lead: Office printers that print, scan, copy, and handle all your paperwork in one handy device.
+
+Block 2 — Laser Printer
+
+H2: Laser Printers for Your Office
+Lead: Laser printers deliver sharp text, fast speeds, and low cost per page for any busy office.
+
+Block 3 — Color Laser Printer
+
+H2: Color Laser Printers Made Easy
+Lead: Color laser printers produce vibrant prints, detailed output, and accurate color printing.
+
+Block 4 — Small Office Printer
+
+H2: Small Office Printers in Stock
+Lead: Small office printers fit tight spaces and deliver reliable printing for your daily tasks.
+
+Each block ends with an internal link to the most relevant category or product page. All 4 blocks must be present in the static HTML so crawlers see them on view-source.
+4.6 Why Choose TopInkjet
+6 short value-prop cards (Genuine inventory, Fast US dispatch, 30-day returns, Real human support, Secure payments, Curated lineup). Each card has a headline + 2-sentence body.
+4.7 Buying Guide Snippet
+A 300+ word "How to choose your inkjet printer" section. Real, useful, original copy. Internal links to category pages and a couple of product pages.
+4.8 FAQ Block (homepage version)
+6 questions answered inline (not collapsed inside JS-only accordions — the answers must be in the raw HTML; you can use <details>/<summary> for the toggle, since that keeps content crawlable).
+4.9 Newsletter Section
+Email signup form (frontend-only, JS captures and shows a thank-you message). No backend needed.
+4.10 Footer (site-wide)
+
+Column 1: Brand + tagline + address (use a placeholder US business address) + phone + support email.
+Column 2: Shop (Office Inkjet, Home Inkjet, All Products, Blog).
+Column 3: Help (Contact Us, FAQ, Shipping Policy, Return Policy, Refund Policy, Order Tracking).
+Column 4: Legal (About, Privacy Policy, Terms of Service, Cookie Policy, Do Not Sell My Personal Info, Accessibility, Disclaimer).
+Bottom bar: copyright, payment-method icons (Visa, MC, Amex, Discover, Apple Pay, Google Pay — image only, no real processing), and a clear Disclaimer line: "TopInkjet is an independent retailer. Brand names and logos are the property of their respective owners and are used for descriptive purposes only. All prices are in USD. Shipping within the United States only."
+Every footer link must point to an existing file and resolve with content. No #.
+
+
+5. PRODUCT LISTING + PRODUCT DETAIL PAGES
+Listing pages (/shop.html, category pages)
+
+Filter sidebar: by category, by price range, by brand (read from JSON). Filters work via vanilla JS, but the full unfiltered product list must still be rendered in the raw HTML so bots can crawl it.
+Sort dropdown: Featured / Price low–high / Price high–low / Name A–Z. Vanilla JS.
+Product cards identical to homepage card style. NO ratings, NO reviews.
+
+Product detail page (one static .html per SKU)
+
+URL slug must be short and SEO-friendly, derived from the product name (e.g. /product/hp-officejet-pro-9015.html, NOT /product?id=12345).
+Page contains: large image, gallery thumbnails, product title (H1), price in USD, short description, full description, full specs table, "Add to Cart" button, quantity selector, "Add to Wishlist" button, shipping info, return policy summary, and a "You may also like" suggested-products row (4 items from the same category, randomized client-side but the underlying products are present in the HTML).
+Unique meta title and meta description per product, length-optimized for Google (~55 char title, ~155 char description).
+Open Graph + Twitter card tags.
+JSON-LD Product schema in <script type="application/ld+json"> with name, image, description, sku, brand, price, priceCurrency USD, availability InStock. Do NOT include aggregateRating or review schema.
+
+
+6. CART + WISHLIST + ADD-TO-CART POPUP
+
+Cart and wishlist persist via localStorage.
+When user clicks Add to Cart anywhere on the site, a slide-in side drawer appears from the right showing: the just-added product, mini cart summary (subtotal, item count), a "Continue Shopping" button, and a prominent "Checkout" button that goes to /checkout.html. The drawer must be smooth, accessible, closable with X or Esc.
+Cart page (/cart.html): line-items with image, name, qty (+/-), price, remove button, subtotal, estimated tax (8%), shipping (free if subtotal ≥ $99 else flat $9.99), grand total, "Proceed to Checkout" button.
+Empty cart and empty wishlist: show a friendly empty state PLUS a "Suggested for You" grid of 4–6 products pulled from the catalog so the user has something to add. Same for empty wishlist.
+Wishlist page mirrors cart layout but with a "Move to Cart" button on each item.
+
+
+7. CHECKOUT — 5-STEP SYSTEM (CRITICAL)
+Implement EXACTLY 5 steps inside /checkout.html. A visible progress bar at the top shows steps 1–5 with the active step highlighted in palette color.
+Step 1 — Contact Info
+
+Email, full name, phone (US format).
+Note: "Already have an account? Sign in" link — but signing in is OPTIONAL. The checkout works fully for guests. Make this very clear.
+
+Step 2 — Shipping Address (with AVS)
+
+Fields: street address, apt/suite, city, US state dropdown (50 states + DC), ZIP code, country locked to "United States".
+Implement an Address Verification System (AVS) in avs.js: validate ZIP is 5 digits or ZIP+4 format, validate state is in the US list, run a basic street-format check (must contain a number and letters), require non-empty city. Show inline errors in red and a green "Address verified" message when all checks pass. Block progression to Step 3 until AVS passes.
+Offer a "Billing address same as shipping" checkbox.
+
+Step 3 — Shipping Method
+
+Standard Shipping (3–5 business days) — free if order ≥ $99, otherwise $9.99.
+Expedited Shipping (2 business days) — $19.99.
+Express Shipping (1 business day) — $34.99.
+Update order summary live.
+
+Step 4 — Payment
+
+Card number, name on card, expiry, CVV, billing ZIP.
+Frontend-only validation (Luhn check on card number, MM/YY in future, CVV 3–4 digits). Show card-brand icon based on first digit.
+Make it visually clear this is a demo/static site BUT the form must look real and complete. Do NOT actually transmit anywhere.
+
+Step 5 — Review & Place Order
+
+Display all entered info read-only with "Edit" links back to each step.
+Itemized summary: subtotal, shipping cost, tax 8%, grand total.
+Required disclosure line ABOVE the Place Order button: "By placing your order, you agree to our Terms of Service, Privacy Policy, and Return Policy." — every one of these is a real working hyperlink.
+"Place Order" button generates a random order number (format TI-XXXXXXXX), stores order details in localStorage, and redirects to /order-confirmation.html.
+
+Order Confirmation page
+
+Big "Thank you for your order!" headline.
+Display order number, customer name, email, shipping address, list of items, totals.
+"An order confirmation has been sent to your email." (cosmetic line, no real email is sent).
+Links: Continue Shopping, View Return Policy, Contact Support.
+
+
+8. ACCOUNT (SIGN IN / SIGN UP) — OPTIONAL, NEVER BLOCKING
+
+Sign In and Sign Up pages exist with full forms (email + password, frontend-only validation).
+Signing in / up stores a fake user object in localStorage.
+A logged-in user sees their name in the header and gets a Dashboard with order history (read from localStorage).
+Checkout NEVER requires sign-in. Guest checkout is the default and must be friction-free.
+
+
+9. COOKIE CONSENT BANNER
+Bottom-fixed banner on first visit with:
+
+Short message about cookies + link to /cookie-policy.html.
+Three buttons: Accept All, Necessary Only, Manage Preferences.
+"Manage Preferences" opens a modal with toggles for separate categories: Strictly Necessary (always on, locked), Functional, Performance/Analytics, Marketing/Advertising. Each toggle independently controls a flag stored in localStorage.
+Choice persists. Banner does not reappear unless user clears storage.
+
+
+10. LEGAL & POLICY PAGES — ALL MUST HAVE REAL CONTENT
+Each of the pages below must have 600+ words of well-written, US-compliant, original content (not Lorem Ipsum, not 2 sentences). Use a professional retail tone.
+
+Privacy Policy
+Terms of Service
+Return Policy (mention 30-day return window explicitly, condition requirements, RMA process, who pays return shipping)
+Refund Policy
+Shipping Policy (US only, free over $99, processing times, carriers)
+Cookie Policy
+Do Not Sell or Share My Personal Information (CCPA-style page with an opt-out form)
+Accessibility Statement
+Disclaimer
+About Us (real brand story, mission, values, US business positioning)
+Contact Us (form + email + phone + business hours + mailing address)
+FAQ (15+ Q&A pairs)
+
+
+11. SEO — TOP NOTCH
+Apply on every page:
+
+Unique <title> (≤ 60 chars).
+Unique <meta name="description"> (≤ 160 chars).
+Canonical link tag.
+Open Graph + Twitter card meta.
+Proper heading hierarchy (one H1, then H2/H3).
+Descriptive alt text on every image.
+Internal linking between related pages.
+Breadcrumbs on category and product pages, with BreadcrumbList JSON-LD.
+Organization JSON-LD on homepage (name TopInkjet, url, logo, contact, sameAs social placeholders).
+Product JSON-LD on product pages (no ratings, no reviews).
+Clean, short, hyphenated URL slugs for products.
+Generate a real sitemap.xml listing every page and product URL.
+robots.txt with Sitemap: directive.
+Lazy-load product images with loading="lazy".
+Pre-rendered HTML — no client-side rendering of core content. Bot-crawlable on view-source.
+
+
+12. AUTHENTICITY RULES — DO NOT VIOLATE
+
+NO fake reviews, NO star ratings, NO "verified buyer" snippets, NO testimonials with stock photos.
+NO fake countdown timers, NO "23 people viewing now", NO fake stock-running-out flags.
+NO made-up awards, NO fake press logos.
+Use real, generic, factual product descriptions taken from the ZIP JSON.
+Every claim on the site must be defensible and modest.
+The site should look authentic, premium, and trustworthy without manufactured social proof.
+
+
+13. TAX, SHIPPING, CURRENCY
+
+All prices in USD with $ prefix.
+Sales tax: flat 8% on subtotal, applied at checkout.
+Shipping: free over $99, $9.99 standard, $19.99 expedited, $34.99 express.
+Country fixed to United States. No international option.
+
+
+14. ZIP FILE INSTRUCTIONS
+I am attaching a ZIP file containing product images and a JSON file. When building the site:
+
+Extract the ZIP.
+Move all images into /assets/products/.
+Save the JSON to /data/products.json (clean it if needed: ensure each product has id, slug, name, category (office-inkjet or home-inkjet), brand, price, shortDescription, longDescription, specs object, image filename, optional gallery array).
+Generate one static product detail page per item using the slug.
+Reflect every product in /shop.html, the appropriate category page, and sitemap.xml.
+
+
+15. ACCEPTANCE CHECKLIST — VERIFY BEFORE YOU FINISH
+Tick every box:
+
+ Entire site is pure HTML/CSS/JS — no frameworks, no backend, no build step.
+ Right-clicking any page → View Page Source shows ALL visible text and links in raw HTML.
+ Every internal link in header, footer, body, and policy pages resolves to a real file with real content.
+ Homepage contains the exact hero text, all 4 keyword content blocks (verbatim H2 + lead lines), trust strip, category showcase, featured products, why-choose section, buying guide, FAQ, newsletter, and full footer.
+ Color palette uses only white + the 4 specified hex values for accents.
+ Add to Cart triggers the slide-in drawer with a Checkout CTA.
+ Cart and Wishlist persist in localStorage; empty states show suggested products.
+ Checkout has exactly 5 steps with progress indicator.
+ AVS validates US address, ZIP, state before allowing Step 3.
+ Tax = 8%, free shipping over $99 enforced in all summaries.
+ Guest checkout works without sign-in.
+ Review step shows the "By placing your order…" line with real working links to Terms, Privacy, Return Policy.
+ Order confirmation page shows generated order number TI-XXXXXXXX.
+ Cookie banner has Accept All / Necessary Only / Manage Preferences with a working toggle modal.
+ All legal pages exist with 600+ words of original content, including Do Not Sell My Personal Info and 30-day Return Policy.
+ Each product has its own short-slug HTML page with unique meta tags, JSON-LD Product schema (no ratings/reviews), and a "You may also like" row.
+ No fake reviews, ratings, testimonials, or urgency tactics anywhere on the site.
+ sitemap.xml and robots.txt exist and reference every page.
+ Site is fully responsive on mobile/tablet/desktop.
+ Footer disclaimer line is present and visible on every page.
+
+
+FINAL REMINDER (REPEAT)
+THE WHOLE WEBSITE MUST BE BUILT IN PURE HTML, CSS, AND JAVASCRIPT ONLY. NO FRAMEWORKS. NO BACKEND. ALL TEXT AND LINKS MUST BE PRESENT IN THE RAW HTML SOURCE SO SEARCH-ENGINE BOTS CAN CRAWL EVERY WORD AND EVERY URL.
+Build it now. After scaffolding, walk through the Acceptance Checklist and confirm each item is satisfied.
