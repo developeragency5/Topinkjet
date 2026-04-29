@@ -747,9 +747,18 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart" }])}
     <h1>Your Cart</h1>
     <div class="cart-page">
       <div id="cart-list">
-        <div class="empty-state" id="cart-empty">
-          <h2>Your cart is empty.</h2>
-          <p class="lead">Browse our <a href="/shop.html">printer catalog</a> or pick from one of our suggestions below.</p>
+        <div class="empty-state empty-state-card" id="cart-empty">
+          <div class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="32" fill="#ECF2FF"/>
+              <path d="M18 22h4l3 18a3 3 0 0 0 3 2.5h12a3 3 0 0 0 3-2.4L46 27H24" stroke="#7c5cff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="28" cy="48" r="2.6" fill="#7c5cff"/>
+              <circle cx="40" cy="48" r="2.6" fill="#7c5cff"/>
+            </svg>
+          </div>
+          <h2>Your cart is empty</h2>
+          <p>Browse our <a href="/shop.html">printer catalog</a> or pick from one of our suggestions below.</p>
+          <a class="btn btn-accent" href="/shop.html">Shop All Printers</a>
         </div>
         <div class="cart-items" id="cart-items"></div>
       </div>
@@ -790,9 +799,16 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Wishlist" }])}
   <div class="container">
     <h1>Your Wishlist</h1>
     <p class="lead">Save printers you love and come back to them later.</p>
-    <div class="empty-state" id="wishlist-empty">
-      <h2>Your wishlist is empty.</h2>
-      <p>Heart any product to save it here.</p>
+    <div class="empty-state empty-state-card" id="wishlist-empty">
+      <div class="empty-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#FFF4D2"/>
+          <path d="M32 46s-12-7.4-12-16a7 7 0 0 1 12-4.9A7 7 0 0 1 44 30c0 8.6-12 16-12 16z" stroke="#7c5cff" stroke-width="2.4" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <h2>Your wishlist is empty</h2>
+      <p>Tap the heart on any product to save it for later.</p>
+      <a class="btn btn-accent" href="/shop.html">Browse Printers</a>
     </div>
     <div class="product-grid" id="wishlist-items"></div>
   </div>

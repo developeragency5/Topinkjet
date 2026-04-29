@@ -7,16 +7,23 @@
 
   function fmt(n) { return "$" + n.toFixed(2); }
 
+  const page = document.querySelector(".cart-page");
+  const summary = document.getElementById("cart-summary");
+
   function render() {
     const cart = window.TI.cart.read();
     const products = window.TI.products || [];
     if (!cart.length) {
       empty.style.display = "block";
       list.innerHTML = "";
+      if (page) page.classList.add("is-empty");
+      if (summary) summary.style.display = "none";
       updateSummary(0);
       return;
     }
     empty.style.display = "none";
+    if (page) page.classList.remove("is-empty");
+    if (summary) summary.style.display = "";
     list.innerHTML = cart.map((item) => {
       const p = products.find((x) => x.id === item.id);
       if (!p) return "";

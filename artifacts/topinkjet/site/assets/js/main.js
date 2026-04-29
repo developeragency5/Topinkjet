@@ -2,6 +2,16 @@
 (function () {
   "use strict";
 
+  // ----- Sticky header shadow on scroll -----
+  const siteHeader = document.querySelector(".site-header");
+  if (siteHeader) {
+    const onScroll = () => {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   // ----- Mobile menu -----
   const menuToggle = document.getElementById("menu-toggle");
   const mainNav = document.querySelector(".main-nav");
