@@ -357,7 +357,7 @@ function pageHome(products) {
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Built in the USA · Shipped from Austin</span>
+      <span class="eyebrow">The Smarter Way to Buy a Printer</span>
       <h1>If You Can Dream It, We Can Print It.</h1>
       <p class="lead">Powerful office printers. Smart home companions. Built for speed, designed for life — one click is all it takes.</p>
       <div class="hero-ctas">
@@ -365,9 +365,9 @@ function pageHome(products) {
         <a class="btn btn-outline btn-lg" href="/category-home-inkjet.html">Shop Home Printers</a>
       </div>
       <div class="hero-mini">
-        <span>✓ Free US shipping over $99</span>
-        <span>✓ 30-day returns</span>
-        <span>✓ Real-human support</span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg> Free US shipping <strong>over&nbsp;$99</strong></span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-6h6"/></svg> <strong>30-day</strong> easy returns</span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3z"/></svg> <strong>Real humans</strong> in&nbsp;Austin</span>
       </div>
     </div>
     <div class="hero-art">
@@ -520,34 +520,32 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Shop" }])}
       <h1>All Printers</h1>
       <p class="lead">Browse our complete inkjet lineup — ${products.length} models across office and home categories.</p>
     </header>
-    <div class="shop-layout">
-      <aside class="filters" aria-label="Filters">
-        <h3>Category</h3>
-        <label><input type="checkbox" class="filter" data-key="category" value="office-inkjet"/> Office Inkjet</label>
-        <label><input type="checkbox" class="filter" data-key="category" value="home-inkjet"/> Home Inkjet</label>
-        <h3>Brand</h3>
-        ${brands.map((b) => `<label><input type="checkbox" class="filter" data-key="brand" value="${esc(b)}"/> ${esc(b)}</label>`).join("")}
-        <h3>Price</h3>
-        <label><input type="checkbox" class="filter" data-key="price" value="0-150"/> Under $150</label>
-        <label><input type="checkbox" class="filter" data-key="price" value="150-250"/> $150 – $250</label>
-        <label><input type="checkbox" class="filter" data-key="price" value="250-350"/> $250 – $350</label>
-        <label><input type="checkbox" class="filter" data-key="price" value="350-9999"/> $350 and up</label>
-        <button class="btn btn-outline btn-sm" id="filter-clear" type="button">Clear Filters</button>
-      </aside>
-      <div>
-        <div class="shop-toolbar">
-          <span id="shop-count">${products.length} products</span>
-          <select id="sort">
-            <option value="featured">Sort: Featured</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="name">Name: A–Z</option>
-          </select>
-        </div>
-        <div class="product-grid" id="shop-grid">
-          ${products.map(productCard).join("")}
-        </div>
+    <div class="shop-filterbar" aria-label="Filters">
+      <div class="filter-group">
+        <span class="filter-label">Type</span>
+        <label class="filter-chip"><input type="checkbox" class="filter" data-key="category" value="office-inkjet"/><span>Office</span></label>
+        <label class="filter-chip"><input type="checkbox" class="filter" data-key="category" value="home-inkjet"/><span>Home</span></label>
       </div>
+      <div class="filter-group">
+        <span class="filter-label">Price</span>
+        <label class="filter-chip"><input type="checkbox" class="filter" data-key="price" value="0-150"/><span>Under $150</span></label>
+        <label class="filter-chip"><input type="checkbox" class="filter" data-key="price" value="150-250"/><span>$150 – $250</span></label>
+        <label class="filter-chip"><input type="checkbox" class="filter" data-key="price" value="250-350"/><span>$250 – $350</span></label>
+        <label class="filter-chip"><input type="checkbox" class="filter" data-key="price" value="350-9999"/><span>$350+</span></label>
+      </div>
+      <button class="btn btn-ghost btn-sm filter-clear-btn" id="filter-clear" type="button">Clear</button>
+    </div>
+    <div class="shop-toolbar">
+      <span id="shop-count">${products.length} products</span>
+      <select id="sort">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name">Name: A–Z</option>
+      </select>
+    </div>
+    <div class="product-grid" id="shop-grid">
+      ${products.map(productCard).join("")}
     </div>
   </div>
 </section>
