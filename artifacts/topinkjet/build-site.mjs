@@ -650,11 +650,40 @@ function extByPicker(name) {
   return path.extname(name) || ".jpg";
 }
 
+// Discover ALL real product images per folder so the gallery uses every photo
+// the supplier shipped (5–7 per SKU), not just the first 4.
+function discoverFolderImages(folder, hardcoded) {
+  const dir = path.join(SRC_IMG, folder);
+  if (!fs.existsSync(dir)) return hardcoded.slice();
+  const allowed = new Set([".png", ".jpg", ".jpeg", ".webp", ".avif"]);
+  const found = fs.readdirSync(dir).filter((f) => {
+    const ext = path.extname(f).toLowerCase();
+    // accept doubled extensions like ".png.webp" / ".png.jpg" / ".png.avif"
+    if (allowed.has(ext)) return true;
+    const lower = f.toLowerCase();
+    return lower.endsWith(".png.webp") || lower.endsWith(".jpg.webp") ||
+           lower.endsWith(".png.avif") || lower.endsWith(".png.jpg");
+  });
+  // start with the curated/hardcoded order so the lead photo stays editorial
+  const ordered = [];
+  const seen = new Set();
+  for (const h of hardcoded) {
+    if (found.includes(h) && !seen.has(h)) { ordered.push(h); seen.add(h); }
+  }
+  // append any extras the curator missed (sorted for stable order)
+  for (const f of found.sort()) {
+    if (!seen.has(f) && !f.toLowerCase().includes(" copy.")) {
+      ordered.push(f); seen.add(f);
+    }
+  }
+  return ordered.slice(0, 6); // cap at 6 so the gallery thumbnail row stays sane
+}
+
 function processImages() {
   for (const p of PRODUCTS) {
-    p.image = `${p.slug}-1${extByPicker(p.images[0])}`;
+    const srcs = discoverFolderImages(p.folder, p.images || []);
     p.gallery = [];
-    p.images.forEach((src, i) => {
+    srcs.forEach((src, i) => {
       const ext = extByPicker(src);
       const destName = `${p.slug}-${i + 1}${ext}`;
       const srcAbs = path.join(SRC_IMG, p.folder, src);
@@ -665,6 +694,7 @@ function processImages() {
       copyImg(srcAbs, `assets/products/${destName}`);
       p.gallery.push(destName);
     });
+    p.image = p.gallery[0] || `${p.slug}-1.jpg`;
   }
 }
 

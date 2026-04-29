@@ -211,7 +211,7 @@ function footer() {
 `;
 }
 
-function shell({ title, description, canonical, body, extraCss = "", extraJs = "", jsonld = "", active = "", ogImage = "/assets/img/hero.svg" }) {
+function shell({ title, description, canonical, body, extraCss = "", extraJs = "", jsonld = "", active = "", ogImage = "/assets/img/logo.svg" }) {
   const fullCanonical = SITE_URL + canonical;
   return `<!doctype html>
 <html lang="en">
@@ -308,6 +308,11 @@ function pageHome(products) {
   const featured = products.slice(0, 8);
   const office = products.find((p) => p.category === "office-inkjet");
   const home = products.find((p) => p.category === "home-inkjet");
+  // Use the flagship 9135e as the hero photo (real product image, not abstract art)
+  const heroProduct =
+    products.find((p) => p.slug === "hp-officejet-pro-9135e") ||
+    products.find((p) => p.slug === "hp-officejet-pro-9125e") ||
+    office;
   const orgJsonLd = `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -366,7 +371,7 @@ function pageHome(products) {
       </div>
     </div>
     <div class="hero-art">
-      <img src="/assets/img/hero.svg" alt="TopInkjet hero illustration"/>
+      <img src="/assets/products/${esc(heroProduct.image)}" alt="${esc(heroProduct.name)}" loading="eager" width="640" height="520"/>
     </div>
   </div>
 </section>
