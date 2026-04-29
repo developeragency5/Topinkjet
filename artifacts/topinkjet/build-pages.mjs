@@ -481,17 +481,6 @@ function pageHome(products) {
   </div>
 </section>
 
-<section class="section section-cream">
-  <div class="container narrow newsletter-box">
-    <h2>Stay in the loop</h2>
-    <p class="lead">New printer launches, restock alerts, and a quarterly buyer's guide. No spam — unsubscribe any time.</p>
-    <form id="newsletter-form" class="newsletter-form" novalidate>
-      <input type="email" required placeholder="you@example.com" aria-label="Email address"/>
-      <button class="btn btn-accent" type="submit">Subscribe</button>
-    </form>
-    <p class="newsletter-msg" id="newsletter-msg" hidden>Thanks for subscribing — keep an eye on your inbox!</p>
-  </div>
-</section>
 `;
   return shell({
     title: "TopInkjet — Office & Home Inkjet Printers, Free US Shipping",
@@ -1249,7 +1238,7 @@ function pagePrivacy() {
 <p>TopInkjet ("we", "us", "our") respects your privacy. This Privacy Policy explains what information we collect when you visit topinkjet.com or place an order with us, how we use that information, who we share it with, and the choices you have. By using our site, you agree to the practices described below.</p>
 
 <h2>Information We Collect</h2>
-<p>We collect information that you provide directly when you create an account, place an order, contact support, or sign up for our newsletter. This includes your name, email address, mailing and billing addresses, phone number, payment information, and any messages you send to us. When you place an order, your card payment is processed by an encrypted PCI-compliant payment gateway and we do not store full card numbers on our servers.</p>
+<p>We collect information that you provide directly when you create an account, place an order, or contact support. This includes your name, email address, mailing and billing addresses, phone number, payment information, and any messages you send to us. When you place an order, your card payment is processed by an encrypted PCI-compliant payment gateway and we do not store full card numbers on our servers.</p>
 <p>We also collect information automatically when you visit the site, including your IP address, browser type, operating system, the pages you view, the time you spent on each page, and the URL that referred you. This information is collected through standard web logs and through small cookies described in our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
 
 <h2>How We Use Your Information</h2>

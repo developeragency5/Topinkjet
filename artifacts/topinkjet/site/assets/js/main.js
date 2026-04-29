@@ -163,22 +163,6 @@
   }
   window.TI.paintWishlistButtons = paintWishlistButtons;
 
-  // ----- Newsletter form -----
-  const nl = document.getElementById("newsletter-form");
-  const nlMsg = document.getElementById("newsletter-msg");
-  if (nl) {
-    nl.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = nl.querySelector('input[type="email"]');
-      if (!input || !input.checkValidity()) {
-        input && input.focus();
-        return;
-      }
-      nl.style.display = "none";
-      if (nlMsg) nlMsg.hidden = false;
-    });
-  }
-
   // ----- User name in header -----
   try {
     const user = JSON.parse(localStorage.getItem("topinkjet:user") || "null");
