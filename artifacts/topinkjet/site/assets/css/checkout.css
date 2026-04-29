@@ -71,10 +71,15 @@
   font-family: inherit;
 }
 .form-grid input:focus, .form-grid select:focus { border-color: var(--c-accent); outline: none; box-shadow: 0 0 0 3px rgba(124,92,255,.15); }
-.form-grid input.invalid { border-color: var(--c-error); }
+.form-grid input.invalid, .form-grid select.invalid { border-color: var(--c-error); background: #fff7f7; }
+.form-grid input.invalid:focus, .form-grid select.invalid:focus { box-shadow: 0 0 0 3px rgba(225,29,72,.18); }
 .field-error {
-  color: var(--c-error); font-size: .82rem; margin-top: 4px;
+  display: none;
+  color: var(--c-error); font-size: .82rem; margin-top: 6px;
+  font-weight: 500;
 }
+.field-error:not(:empty) { display: block; }
+.field-error::before { content: "⚠ "; }
 .address-status {
   margin: 18px 0; padding: 12px 16px; border-radius: 10px;
   font-size: .92rem; display: none;

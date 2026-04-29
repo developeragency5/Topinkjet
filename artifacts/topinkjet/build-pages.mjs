@@ -238,6 +238,7 @@ ${header(active)}
 ${body}
 </main>
 ${footer()}
+<script src="/assets/js/catalog.js" defer></script>
 <script src="/assets/js/products.js" defer></script>
 <script src="/assets/js/cart.js" defer></script>
 <script src="/assets/js/wishlist.js" defer></script>
@@ -847,9 +848,9 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
           <h2>Step 1 — Contact Info</h2>
           <p class="step-sub">We use this to send your order confirmation and shipping updates.</p>
           <div class="form-grid">
-            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email"/></label>
-            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name"/></label>
-            <label><span>Phone (US) <em>*</em></span><input type="tel" name="phone" required pattern="[0-9\\-\\(\\)\\s\\+]+" placeholder="(555) 555-1234" autocomplete="tel"/></label>
+            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email" data-validate="email"/><small class="field-error" data-error-for="email"></small></label>
+            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name" data-validate="name"/><small class="field-error" data-error-for="fullName"></small></label>
+            <label><span>Phone (US) <em>*</em></span><input type="tel" name="phone" required placeholder="(555) 555-1234" autocomplete="tel" maxlength="14" inputmode="numeric" data-validate="phone"/><small class="field-error" data-error-for="phone"></small></label>
           </div>
           <div class="step-actions"><span></span><button class="btn btn-accent btn-lg" type="button" data-next="2">Continue to Shipping</button></div>
         </section>
@@ -859,16 +860,17 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
           <h2>Step 2 — Shipping Address</h2>
           <p class="step-sub">United States only. We verify the address before continuing.</p>
           <div class="form-grid">
-            <label class="span-2"><span>Street Address <em>*</em></span><input type="text" name="street" required autocomplete="address-line1" placeholder="123 Main St"/></label>
+            <label class="span-2"><span>Street Address <em>*</em></span><input type="text" name="street" required autocomplete="address-line1" placeholder="123 Main St" data-validate="street"/><small class="field-error" data-error-for="street"></small></label>
             <label class="span-2"><span>Apt / Suite (optional)</span><input type="text" name="apt" autocomplete="address-line2"/></label>
-            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2"/></label>
+            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2" data-validate="city"/><small class="field-error" data-error-for="city"></small></label>
             <label><span>State <em>*</em></span>
-              <select name="state" required autocomplete="address-level1">
+              <select name="state" required autocomplete="address-level1" data-validate="state">
                 <option value="">Select…</option>
                 ${states.map((s) => `<option value="${s}">${stateNames[s]}</option>`).join("")}
               </select>
+              <small class="field-error" data-error-for="state"></small>
             </label>
-            <label><span>ZIP Code <em>*</em></span><input type="text" name="zip" required pattern="[0-9]{5}(-[0-9]{4})?" placeholder="78758" autocomplete="postal-code"/></label>
+            <label><span>ZIP Code <em>*</em></span><input type="text" name="zip" required placeholder="78758" autocomplete="postal-code" maxlength="10" inputmode="numeric" data-validate="zip"/><small class="field-error" data-error-for="zip"></small></label>
             <label><span>Country</span><input type="text" name="country" value="United States" readonly disabled/></label>
             <label class="span-2 inline"><input type="checkbox" name="billingSame" checked/> Billing address same as shipping</label>
           </div>
@@ -900,16 +902,17 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
           <h2>Step 4 — Payment</h2>
           <p class="step-sub">Encrypted at the browser. Your card is never stored on our servers.</p>
           <div class="form-grid">
-            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name"/></label>
+            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name" data-validate="name"/><small class="field-error" data-error-for="cardName"></small></label>
             <label class="span-2"><span>Card Number <em>*</em></span>
               <div class="card-row">
-                <input type="text" name="cardNumber" required inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19"/>
+                <input type="text" name="cardNumber" required inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23" data-validate="cardNumber"/>
                 <span class="card-brand-icon" id="card-brand">CARD</span>
               </div>
+              <small class="field-error" data-error-for="cardNumber"></small>
             </label>
-            <label><span>Expiry (MM/YY) <em>*</em></span><input type="text" name="cardExpiry" required pattern="(0[1-9]|1[0-2])\\/[0-9]{2}" placeholder="08/29" maxlength="5" autocomplete="cc-exp"/></label>
-            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required pattern="[0-9]{3,4}" maxlength="4" autocomplete="cc-csc"/></label>
-            <label><span>Billing ZIP <em>*</em></span><input type="text" name="billingZip" required pattern="[0-9]{5}(-[0-9]{4})?"/></label>
+            <label><span>Expiry (MM/YY) <em>*</em></span><input type="text" name="cardExpiry" required placeholder="08/29" maxlength="5" autocomplete="cc-exp" inputmode="numeric" data-validate="cardExpiry"/><small class="field-error" data-error-for="cardExpiry"></small></label>
+            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required maxlength="4" autocomplete="cc-csc" inputmode="numeric" data-validate="cardCvv"/><small class="field-error" data-error-for="cardCvv"></small></label>
+            <label><span>Billing ZIP <em>*</em></span><input type="text" name="billingZip" required maxlength="10" inputmode="numeric" data-validate="zip"/><small class="field-error" data-error-for="billingZip"></small></label>
           </div>
           <p class="disclosure">This is a demonstration storefront. Form data is validated locally and stored in your browser only — no card information is transmitted to any server.</p>
           <div class="step-actions">
