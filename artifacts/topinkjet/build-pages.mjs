@@ -424,43 +424,39 @@ function pageHome(products) {
   </div>
 </section>
 
+<section class="section section-soft" id="buying-guide">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Buying Guide</span>
+      <h2>Find the Right Inkjet in 30 Seconds</h2>
+      <p class="lead">Pick by how much you actually print each month. Three honest tiers — no spec-sheet fatigue.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="ti">1</div>
+        <h3>Light · Under 100 pgs/mo</h3>
+        <p>Homework, forms, the occasional photo. Start with the <a href="/product/hp-deskjet-2855e.html">HP DeskJet 2855e</a> — compact, friendly, and wallet-light.</p>
+      </div>
+      <div class="why-card">
+        <div class="ti">2</div>
+        <h3>Mixed · 100–500 pgs/mo</h3>
+        <p>Hybrid work, family scans, color projects. The <a href="/product/hp-officejet-pro-8125e.html">OfficeJet Pro 8125e</a> or <a href="/product/hp-envy-inspire-7255e.html">ENVY Inspire 7255e</a> hit the sweet spot.</p>
+      </div>
+      <div class="why-card">
+        <div class="ti">3</div>
+        <h3>Heavy · 500+ pgs/mo</h3>
+        <p>High-volume offices and busy households. Refillable tanks like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> drop cost-per-page to pennies.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:32px"><a class="btn btn-outline" href="/shop.html">Browse All 22 Models</a></div>
+  </div>
+</section>
+
 <section class="kw-block alt">
   <div class="container">
-    <h2>Office Printers for Every Desk</h2>
-    <p class="lead">Office printers that print, scan, copy, and handle all your paperwork in one handy device.</p>
-    <p>The modern office runs on documents — contracts, invoices, proposals, agendas, and the daily blizzard of paperwork that keeps a business moving. A well-chosen office inkjet quietly absorbs all of that work in the background, so your team can focus on what they actually came in to do. The latest generation of business inkjets, like the HP OfficeJet Pro family, deliver near-laser sharpness on text, vivid color on charts and presentations, and per-page costs that compete with much larger laser MFPs.</p>
-    <p>Even the smallest desk-side printer in our office lineup brings auto-duplex two-sided printing, a 35-sheet automatic document feeder, and dual-band Wi-Fi as standard. Step up the range and you add Gigabit Ethernet, mobile fax, and the kind of paper capacity that lets a small team print a whole quarter's worth of meeting handouts without thinking about reloading. Across the board, you can manage every device from the HP Smart app on iOS or Android, push secure print jobs from any laptop, and stay confident that supplies will arrive before you run out.</p>
-    <p>If your team is split between in-office and remote, the same printer that powers the conference room can be reached securely from a home Wi-Fi network. Pick the model that matches your monthly volume, and let the rest of the office stop thinking about printers entirely. Browse the full <a href="/category-office-inkjet.html">Office Inkjet collection</a> to compare side by side.</p>
-  </div>
-</section>
-
-<section class="kw-block alt2">
-  <div class="container">
-    <h2>Laser Printers for Your Office</h2>
-    <p class="lead">Laser printers deliver sharp text, fast speeds, and low cost per page for any busy office.</p>
-    <p>While our specialty is inkjet, we know the question always comes up: should you go laser instead? Laser remains the gold standard for super-high black-and-white text volumes thanks to fused toner, near-instant first-page output, and a low cost per page when you push thousands of pages a month. If your office prints long contracts, invoices, and HR paperwork all day every day, a laser may still be the right pick.</p>
-    <p>That said, the gap has closed dramatically. A modern business inkjet like the <a href="/product/hp-officejet-pro-9135e.html">HP OfficeJet Pro 9135e</a> can match a mid-range color laser on text quality, beats almost every laser on color photo and graphic output, runs cooler, weighs less, and doesn't require warm-up. For most small offices printing a few thousand mixed pages a month, an inkjet wins on total cost, energy, and the variety of paper it can use.</p>
-    <p>If you'd like a side-by-side comparison or a recommendation for your specific workload, our <a href="/contact.html">US-based support team</a> is happy to help. Either way, we believe in transparent specs and honest comparisons — pick the right tool for the job, not the loudest marketing.</p>
-  </div>
-</section>
-
-<section class="kw-block alt3">
-  <div class="container">
-    <h2>Color Laser Printers Made Easy</h2>
-    <p class="lead">Color laser printers produce vibrant prints, detailed output, and accurate color printing.</p>
-    <p>Color laser is ideal when you print a lot of color, you need consistency between every page, and the work tends toward presentations and infographics rather than photos. A good color laser produces uniform, dense color that doesn't smudge, dries instantly, and looks great on cheap copy paper. For marketing teams, sales teams, education, and small print shops, that combination is hard to beat.</p>
-    <p>What modern color inkjets bring to the table is something different: photo-grade output on a wider variety of papers, dramatically lower hardware cost, and a friendlier total energy footprint. The <a href="/product/hp-envy-inspire-7955e.html">HP ENVY Inspire 7955e</a> and the <a href="/product/hp-smart-tank-7602.html">HP Smart Tank 7602</a> show what's possible — vivid color, dedicated photo trays, and refillable ink tanks that drop cost per page well below traditional laser supplies.</p>
-    <p>If you tell us how you actually use color, we can help you decide which technology and which model is the better long-term value. Start with our <a href="/category-office-inkjet.html">Office Inkjet category</a> to see what's stocked.</p>
-  </div>
-</section>
-
-<section class="kw-block">
-  <div class="container">
-    <h2>Small Office Printers in Stock</h2>
-    <p class="lead">Small office printers fit tight spaces and deliver reliable printing for your daily tasks.</p>
-    <p>A small office is often the hardest space to outfit — you need real productivity in a footprint that won't dominate the room and at a price that doesn't blow the quarter's budget. The good news is that this is the sweet spot of the modern inkjet lineup. The <a href="/product/hp-officejet-pro-8125e.html">HP OfficeJet Pro 8125e</a> is a great example: 17 inches wide, less than 19 pounds, and yet a true all-in-one with a 35-sheet document feeder, auto-duplex printing, and a 250-sheet paper tray.</p>
-    <p>If quiet operation matters — the printer is going right behind your desk, in a co-working booth, or in a conference room — consider the <a href="/product/hp-envy-inspire-7255e.html">HP ENVY Inspire 7255e</a>, which is built specifically to run quietly while still producing serious output. And if you want to forget about cartridges entirely, the <a href="/product/hp-smart-tank-6001.html">HP Smart Tank 6001</a> ships with up to two years of refillable ink and a sleek look that fits anywhere.</p>
-    <p>Whichever model you pick, you get the same TopInkjet promise: free US shipping over $99, 30-day no-hassle returns, and real human support when you need a question answered. Browse the full <a href="/shop.html">printer catalog</a> when you're ready.</p>
+    <h2>Office &amp; Home Inkjets, Carefully Curated</h2>
+    <p>Every printer in our lineup is a current-generation HP inkjet — DeskJet, ENVY, OfficeJet Pro, or Smart Tank — chosen for the way real US homes and offices actually print today. Auto-duplex, mobile printing from the HP Smart app, and wireless setup come standard across the catalog. Step up the range and you add a 35-sheet automatic document feeder, mobile fax, and refillable ink tanks that last up to two years.</p>
+    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet promise: free US shipping over $99, 30-day returns, and a real human in Austin on the phone.</p>
   </div>
 </section>
 
@@ -475,17 +471,6 @@ function pageHome(products) {
       <div class="why-card"><div class="ti">✓</div><h3>Secure Payments</h3><p>256-bit TLS, PCI-compliant checkout, and no surprise fees.</p></div>
       <div class="why-card"><div class="ti">✓</div><h3>Curated Lineup</h3><p>We carry only printers we'd buy ourselves. No filler, no clearance bait.</p></div>
     </div>
-  </div>
-</section>
-
-<section class="section section-soft" id="buying-guide">
-  <div class="container narrow">
-    <span class="eyebrow">Buying Guide</span>
-    <h2>How to Choose Your Inkjet Printer</h2>
-    <p>Buying a printer used to be straightforward. Today, the inkjet category alone spans cartridge-free tank systems, photo-grade home all-in-ones, and full-blown business workhorses with mobile fax. The trick is matching the printer to your real workflow rather than to a feature checklist that may not apply to you.</p>
-    <p>Start with monthly volume. If you print fewer than 100 pages a month, almost any modern inkjet — including a friendly entry-level model like the <a href="/product/hp-deskjet-2855e.html">HP DeskJet 2855e</a> — will cost less per page than a more expensive printer because the supplies last longer than they should. Between 100 and 500 pages a month, look at mid-range Envy or OfficeJet models that strike a balance between purchase price and supply cost. Above 500 pages, the math swings hard toward refillable Smart Tank designs like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> — they cost more upfront but pay back in supplies within months.</p>
-    <p>Next think about who and what you print. Photo enthusiasts and crafters benefit from a dedicated photo tray, found on the ENVY Inspire family. Home offices that scan and copy long PDFs need an automatic document feeder; even a 35-sheet ADF transforms how you work with paperwork. If you fax, look for mobile fax via the HP Smart app — it routes faxes through your phone and works without a landline. And if your office has more than a handful of people, a duplex ADF (so you can scan two-sided documents in one pass) is a legitimate productivity upgrade.</p>
-    <p>Finally, think about how the printer will live in its space. Office printers belong on Gigabit Ethernet wherever possible for reliability — every <a href="/category-office-inkjet.html">OfficeJet Pro 9000-series</a> model in our store includes wired networking. Home printers benefit from quiet operation and a clean design that won't clash with the room. We've selected our lineup with all of these factors in mind, so you can buy with confidence and trust the result.</p>
   </div>
 </section>
 
@@ -1788,26 +1773,26 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Blog", href: "/blog.html"
 
 const BLOG_POSTS = [
   {
-    slug: "inkjet-vs-laser-2026",
-    title: "Inkjet vs Laser in 2026: Which Is Actually Right for You?",
-    excerpt: "The old rules of thumb about inkjet and laser printers haven't held up. Here's how to choose in 2026.",
+    slug: "choosing-an-inkjet-2026",
+    title: "Choosing an Inkjet Printer in 2026: A Plain-English Guide",
+    excerpt: "Cartridge or refillable tank? Compact or all-in-one? Here's the simple way to choose your next inkjet.",
     date: "January 12, 2026",
-    readTime: "7 min",
+    readTime: "5 min",
     category: "Buying Guide",
     author: "TopInkjet Team",
     body: `
-<p>If you last bought a printer in 2015, the rule of thumb was simple: laser for the office, inkjet for photos at home. In 2026 that rule of thumb is wrong, and following it will probably cost you money. Modern business inkjets — like the <a href="/product/hp-officejet-pro-9135e.html">HP OfficeJet Pro 9135e</a> — match or beat color lasers on text crispness, color accuracy, and total cost of ownership for almost every small office. Meanwhile, refillable cartridge-free inkjets like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> have demolished cost-per-page assumptions for any home that prints regularly.</p>
+<p>Inkjet printers have changed more in the last three years than in the previous ten. Refillable Smart Tank designs have demolished cost-per-page expectations, OfficeJet Pro models have closed the gap on text crispness, and ENVY Inspire all-in-ones now produce truly photo-grade output at home. The catch is that all of those choices live under the same word — "inkjet" — and the right pick comes down to one honest question: how much do you actually print?</p>
 
-<h2>Where Laser Still Wins</h2>
-<p>Laser is still the right answer in three specific situations. First, if you print thousands of pages a month of black-and-white text, a workgroup mono laser will outpace any inkjet on speed and cost per page. Second, if you need duplicate documents to look identical for legal or compliance reasons, the toner-fused page is more uniform than ink-on-paper. Third, if your printer sits idle for weeks at a time, a laser handles the silence better — inkjets need occasional use to keep the printheads clear.</p>
+<h2>Pick by Volume First</h2>
+<p>Under 100 pages a month, an entry-level model like the <a href="/product/hp-deskjet-2855e.html">HP DeskJet 2855e</a> is the right answer. Between 100 and 500 pages a month, the mid-range ENVY and OfficeJet families balance purchase price with reasonable supply cost. Above 500 pages a month, refillable Smart Tank designs like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> pay back the higher hardware price in supply savings within months.</p>
 
-<h2>Where Inkjet Wins</h2>
-<p>For everything else, inkjet has caught up or pulled ahead. Inkjets produce better color photos, work with a wider range of paper, run cooler, weigh less, and cost dramatically less to buy. Refillable Smart Tank designs deliver cost per page below most laser supplies. Modern OfficeJet Pro models match laser on text crispness in everyday viewing.</p>
+<h2>Then Pick by What You Print</h2>
+<p>Photos and crafts? Look at the ENVY Inspire family — every model includes a dedicated photo tray. Long PDFs that you scan and copy regularly? You want a 35-sheet automatic document feeder; a duplex ADF on the <a href="/product/hp-officejet-pro-9125e.html">OfficeJet Pro 9125e</a> can scan two-sided documents in a single pass. Still need fax? Mobile fax via the HP Smart app routes faxes through your phone — no landline required.</p>
 
-<h2>The Honest Decision Tree</h2>
-<p>Print fewer than 100 pages a month, mostly text, occasionally photos? Get an entry-level inkjet. Print 100–500 pages a month, mixed content? Get a mid-range inkjet all-in-one. Print over 500 pages a month? Get a refillable Smart Tank. Print over 2,000 pages a month, almost all monochrome? Get a workgroup mono laser. Print thousands of color pages a month for marketing handouts? Get a color laser.</p>
+<h2>Don't Forget the Room</h2>
+<p>Office printers belong on a wired Ethernet jack wherever possible — it's faster, more reliable, and survives router reboots. Home printers benefit from quiet operation and a clean design that won't clash with the rest of the room. Match the printer to the space, the volume, and the work — and you'll dodge the regret most printer buyers feel six months in.</p>
 
-<p>The point is to match the printer to your actual usage, not to a stereotype from a decade ago. We're happy to help you figure out where you fit — drop us a line on the <a href="/contact.html">contact page</a>.</p>
+<p>Need a personal recommendation? Our <a href="/contact.html">US-based support team</a> is happy to help you choose.</p>
 `
   },
   {
@@ -1822,7 +1807,7 @@ const BLOG_POSTS = [
 <p>Most small offices buy a printer in a panic — the old one died, you Googled, and you bought whatever Amazon ranked first. Here's a calmer checklist of the seven things that actually matter for an office printer in 2026, in roughly the order you should think about them.</p>
 
 <h2>1. Monthly Volume</h2>
-<p>Be honest about how many pages your office actually prints. If it's under 500, almost any modern inkjet works. Above 1,000, look at high-yield supplies or refillable Smart Tanks. Above 5,000, a small workgroup laser may make sense.</p>
+<p>Be honest about how many pages your office actually prints. If it's under 500, almost any modern inkjet works. Above 1,000, look at high-yield supplies. Above 2,500, a refillable Smart Tank like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> drops your supply cost to pennies per page.</p>
 
 <h2>2. Auto-Duplex</h2>
 <p>Automatic two-sided printing should be a hard requirement, not a nice-to-have. It saves paper, reduces filing, and makes long documents readable. Every office printer in our lineup includes auto-duplex.</p>

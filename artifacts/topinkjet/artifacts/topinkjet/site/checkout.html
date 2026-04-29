@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Secure Checkout — TopInkjet</title>
+<meta name="description" content="Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99."/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#5b3df5"/>
+<link rel="canonical" href="https://topinkjet.com/checkout.html"/>
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg"/>
+<meta property="og:title" content="Secure Checkout — TopInkjet"/>
+<meta property="og:description" content="Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://topinkjet.com/checkout.html"/>
+<meta property="og:image" content="https://topinkjet.com/assets/img/logo.svg"/>
+<meta property="og:site_name" content="TopInkjet"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Secure Checkout — TopInkjet"/>
+<meta name="twitter:description" content="Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99."/>
+<meta name="twitter:image" content="https://topinkjet.com/assets/img/logo.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/styles.css"/>
+<link rel="stylesheet" href="/assets/css/checkout.css"/>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand-link" href="/" aria-label="TopInkjet home">
+      <img src="/assets/img/logo.svg" alt="TopInkjet logo" width="160" height="36"/>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/">Home</a><a href="/shop.html">Shop</a><a href="/category-office-inkjet.html">Office Inkjet</a><a href="/category-home-inkjet.html">Home Inkjet</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/blog.html">Blog</a>
+    </nav>
+    <div class="header-icons">
+      <button class="icon-btn" id="search-toggle" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <a class="icon-btn" href="/account/sign-in.html" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+        <span class="user-name" id="user-name-label"></span>
+      </a>
+      <a class="icon-btn" href="/wishlist.html" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4 6.5 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3C20 4 22.5 8 21.5 12 19 16.5 12 21 12 21z"/></svg>
+        <span class="cart-badge" id="wishlist-badge" data-count="0">0</span>
+      </a>
+      <a class="icon-btn" href="/cart.html" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l3 12h11l3-9H7"/><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/></svg>
+        <span class="cart-badge" id="cart-badge" data-count="0">0</span>
+      </a>
+      <button class="menu-toggle icon-btn" id="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-box">
+    <input type="search" id="search-input" placeholder="Search printers, brands, models…" autocomplete="off"/>
+    <div class="search-results" id="search-results" aria-live="polite"></div>
+  </div>
+</div>
+
+<main id="main">
+
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol><li><a href="/">Home</a></li><li class="sep" aria-hidden="true">/</li><li><a href="/cart.html">Cart</a></li><li class="sep" aria-hidden="true">/</li><li aria-current="page">Checkout</li></ol>
+  </nav>
+<section class="section">
+  <div class="container">
+    <h1>Secure Checkout</h1>
+    <p class="lead">Guest checkout — no account required. <a href="/account/sign-in.html">Already have an account? Sign in</a> (optional).</p>
+    <div class="progress-bar" role="list">
+      <div class="progress-step active" data-step="1" role="listitem"><span class="num">1</span><br/><span class="label">Contact</span></div>
+      <div class="progress-step" data-step="2" role="listitem"><span class="num">2</span><br/><span class="label">Shipping</span></div>
+      <div class="progress-step" data-step="3" role="listitem"><span class="num">3</span><br/><span class="label">Method</span></div>
+      <div class="progress-step" data-step="4" role="listitem"><span class="num">4</span><br/><span class="label">Payment</span></div>
+      <div class="progress-step" data-step="5" role="listitem"><span class="num">5</span><br/><span class="label">Review</span></div>
+    </div>
+
+    <div class="checkout-layout">
+      <form id="checkout-form" novalidate>
+        <!-- STEP 1 -->
+        <section class="checkout-step active" data-step="1">
+          <h2>Step 1 — Contact Info</h2>
+          <p class="step-sub">We use this to send your order confirmation and shipping updates.</p>
+          <div class="form-grid">
+            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email"/></label>
+            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name"/></label>
+            <label><span>Phone (US) <em>*</em></span><input type="tel" name="phone" required pattern="[0-9\-\(\)\s\+]+" placeholder="(555) 555-1234" autocomplete="tel"/></label>
+          </div>
+          <div class="step-actions"><span></span><button class="btn btn-accent btn-lg" type="button" data-next="2">Continue to Shipping</button></div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="checkout-step" data-step="2">
+          <h2>Step 2 — Shipping Address</h2>
+          <p class="step-sub">United States only. We verify the address before continuing.</p>
+          <div class="form-grid">
+            <label class="span-2"><span>Street Address <em>*</em></span><input type="text" name="street" required autocomplete="address-line1" placeholder="123 Main St"/></label>
+            <label class="span-2"><span>Apt / Suite (optional)</span><input type="text" name="apt" autocomplete="address-line2"/></label>
+            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2"/></label>
+            <label><span>State <em>*</em></span>
+              <select name="state" required autocomplete="address-level1">
+                <option value="">Select…</option>
+                <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+              </select>
+            </label>
+            <label><span>ZIP Code <em>*</em></span><input type="text" name="zip" required pattern="[0-9]{5}(-[0-9]{4})?" placeholder="78758" autocomplete="postal-code"/></label>
+            <label><span>Country</span><input type="text" name="country" value="United States" readonly disabled/></label>
+            <label class="span-2 inline"><input type="checkbox" name="billingSame" checked/> Billing address same as shipping</label>
+          </div>
+          <div class="address-status" id="address-status" role="status"></div>
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-prev="1">Back</button>
+            <button class="btn btn-accent btn-lg" type="button" data-next="3" id="verify-btn">Verify &amp; Continue</button>
+          </div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="checkout-step" data-step="3">
+          <h2>Step 3 — Shipping Method</h2>
+          <p class="step-sub">Choose how fast you'd like your printer to arrive.</p>
+          <div class="shipping-options">
+            <label class="shipping-option selected"><input type="radio" name="shipping" value="standard" checked/><div><div class="name">Standard Shipping</div><div class="desc">3–5 business days</div></div><div class="price" data-shipping-price="standard">$9.99</div></label>
+            <label class="shipping-option"><input type="radio" name="shipping" value="expedited"/><div><div class="name">Expedited Shipping</div><div class="desc">2 business days</div></div><div class="price">$19.99</div></label>
+            <label class="shipping-option"><input type="radio" name="shipping" value="express"/><div><div class="name">Express Shipping</div><div class="desc">1 business day</div></div><div class="price">$34.99</div></label>
+          </div>
+          <p class="ship-note">Standard Shipping is free on orders $99 and over.</p>
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-prev="2">Back</button>
+            <button class="btn btn-accent btn-lg" type="button" data-next="4">Continue to Payment</button>
+          </div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section class="checkout-step" data-step="4">
+          <h2>Step 4 — Payment</h2>
+          <p class="step-sub">Encrypted at the browser. Your card is never stored on our servers.</p>
+          <div class="form-grid">
+            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name"/></label>
+            <label class="span-2"><span>Card Number <em>*</em></span>
+              <div class="card-row">
+                <input type="text" name="cardNumber" required inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19"/>
+                <span class="card-brand-icon" id="card-brand">CARD</span>
+              </div>
+            </label>
+            <label><span>Expiry (MM/YY) <em>*</em></span><input type="text" name="cardExpiry" required pattern="(0[1-9]|1[0-2])\/[0-9]{2}" placeholder="08/29" maxlength="5" autocomplete="cc-exp"/></label>
+            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required pattern="[0-9]{3,4}" maxlength="4" autocomplete="cc-csc"/></label>
+            <label><span>Billing ZIP <em>*</em></span><input type="text" name="billingZip" required pattern="[0-9]{5}(-[0-9]{4})?"/></label>
+          </div>
+          <p class="disclosure">This is a demonstration storefront. Form data is validated locally and stored in your browser only — no card information is transmitted to any server.</p>
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-prev="3">Back</button>
+            <button class="btn btn-accent btn-lg" type="button" data-next="5">Continue to Review</button>
+          </div>
+        </section>
+
+        <!-- STEP 5 -->
+        <section class="checkout-step" data-step="5">
+          <h2>Step 5 — Review &amp; Place Order</h2>
+          <p class="step-sub">Confirm everything looks right before placing your order.</p>
+          <div class="review-section">
+            <h3>Contact <a href="#" data-edit="1">Edit</a></h3>
+            <p id="rev-contact"></p>
+          </div>
+          <div class="review-section">
+            <h3>Shipping Address <a href="#" data-edit="2">Edit</a></h3>
+            <p id="rev-address"></p>
+          </div>
+          <div class="review-section">
+            <h3>Shipping Method <a href="#" data-edit="3">Edit</a></h3>
+            <p id="rev-shipping"></p>
+          </div>
+          <div class="review-section">
+            <h3>Payment <a href="#" data-edit="4">Edit</a></h3>
+            <p id="rev-payment"></p>
+          </div>
+          <div class="review-section">
+            <h3>Order Items</h3>
+            <ul id="rev-items"></ul>
+          </div>
+          <p class="disclosure">By placing your order, you agree to our <a href="/terms-of-service.html">Terms of Service</a>, <a href="/privacy-policy.html">Privacy Policy</a>, and <a href="/return-policy.html">Return Policy</a>.</p>
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-prev="4">Back</button>
+            <button class="btn btn-accent btn-lg" type="button" id="place-order">Place Order</button>
+          </div>
+        </section>
+      </form>
+
+      <aside class="cart-summary checkout-summary" id="checkout-summary">
+        <h3>Order Summary</h3>
+        <div id="checkout-items"></div>
+        <hr/>
+        <div class="row"><span>Subtotal</span><strong id="co-subtotal">$0.00</strong></div>
+        <div class="row"><span>Shipping</span><strong id="co-shipping">$0.00</strong></div>
+        <div class="row"><span>Tax (8%)</span><strong id="co-tax">$0.00</strong></div>
+        <div class="row total"><span>Total</span><strong id="co-total">$0.00</strong></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand-link" href="/" aria-label="TopInkjet home"><img src="/assets/img/logo.svg" alt="TopInkjet" width="160" height="36"/></a>
+      <p class="footer-tagline">Premium inkjet printers for US homes and offices. Curated, dispatched, and supported from Austin, Texas.</p>
+      <p class="footer-contact">
+        1450 Innovation Way, Suite 220<br/>
+        Austin, TX 78758<br/>
+        <a href="tel:8335550188">(833) 555-0188</a><br/>
+        <a href="mailto:support@topinkjet.com">support@topinkjet.com</a>
+      </p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="/category-office-inkjet.html">Office Inkjet Printers</a></li>
+        <li><a href="/category-home-inkjet.html">Home Inkjet Printers</a></li>
+        <li><a href="/shop.html">All Products</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul>
+        <li><a href="/contact.html">Contact Us</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/shipping-policy.html">Shipping Policy</a></li>
+        <li><a href="/return-policy.html">Return Policy</a></li>
+        <li><a href="/refund-policy.html">Refund Policy</a></li>
+        <li><a href="/account/dashboard.html">Order Tracking</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/about.html">About TopInkjet</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="/do-not-sell-my-personal-info.html">Do Not Sell My Personal Info</a></li>
+        <li><a href="/accessibility.html">Accessibility</a></li>
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <div class="pay-icons" aria-label="Accepted payment methods">
+      <span class="pay-pill">VISA</span>
+      <span class="pay-pill">MASTERCARD</span>
+      <span class="pay-pill">AMEX</span>
+      <span class="pay-pill">DISCOVER</span>
+      <span class="pay-pill">APPLE PAY</span>
+      <span class="pay-pill">GOOGLE PAY</span>
+    </div>
+    <p class="copyright">&copy; 2026 TopInkjet. All rights reserved.</p>
+    <p class="disclaimer">TopInkjet is an independent retailer. Brand names and logos are the property of their respective owners and are used for descriptive purposes only. All prices are in USD. Shipping within the United States only.</p>
+  </div>
+</footer>
+
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Added to Cart</h3>
+    <button class="icon-btn" id="cart-drawer-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cart-drawer-body"></div>
+  <div class="drawer-foot">
+    <div class="drawer-totals">
+      <span>Subtotal (<span id="drawer-count">0</span> items)</span>
+      <strong id="drawer-subtotal">$0.00</strong>
+    </div>
+    <a href="/checkout.html" class="btn btn-accent btn-block btn-lg">Checkout</a>
+    <button class="btn btn-outline btn-block" id="drawer-continue">Continue Shopping</button>
+    <a href="/cart.html" class="btn btn-ghost btn-block">View Full Cart</a>
+  </div>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="cookie-inner">
+    <p>We use cookies to make TopInkjet work, keep it secure, measure performance, and personalize your experience. Read our <a href="/cookie-policy.html">Cookie Policy</a> for details.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-outline" id="cookie-necessary">Necessary Only</button>
+      <button class="btn btn-soft" id="cookie-manage">Manage Preferences</button>
+      <button class="btn btn-accent" id="cookie-accept">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="cookie-modal" hidden>
+  <div class="modal-card">
+    <header class="modal-head">
+      <h3>Cookie Preferences</h3>
+      <button class="icon-btn" id="cookie-modal-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="modal-body">
+      <p>Choose which cookie categories TopInkjet may use. You can change your choice anytime by clearing your browser storage and reloading the site.</p>
+      <label class="toggle-row">
+        <span><strong>Strictly Necessary</strong><br/><small>Required for sign-in, cart, and checkout. Always on.</small></span>
+        <input type="checkbox" checked disabled/>
+      </label>
+      <label class="toggle-row">
+        <span><strong>Functional</strong><br/><small>Remembers your preferences such as wishlist and recent views.</small></span>
+        <input type="checkbox" id="pref-functional"/>
+      </label>
+      <label class="toggle-row">
+        <span><strong>Performance / Analytics</strong><br/><small>Helps us measure performance and improve the site.</small></span>
+        <input type="checkbox" id="pref-analytics"/>
+      </label>
+      <label class="toggle-row">
+        <span><strong>Marketing / Advertising</strong><br/><small>Used to make ads more relevant. Off by default.</small></span>
+        <input type="checkbox" id="pref-marketing"/>
+      </label>
+    </div>
+    <footer class="modal-foot">
+      <button class="btn btn-outline" id="cookie-modal-save">Save Preferences</button>
+      <button class="btn btn-accent" id="cookie-modal-accept-all">Accept All</button>
+    </footer>
+  </div>
+</div>
+
+<script src="/assets/js/products.js" defer></script>
+<script src="/assets/js/cart.js" defer></script>
+<script src="/assets/js/wishlist.js" defer></script>
+<script src="/assets/js/cookie-consent.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/avs.js" defer></script><script src="/assets/js/checkout.js" defer></script>
+</body>
+</html>
