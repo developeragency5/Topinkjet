@@ -88,7 +88,7 @@ function footer() {
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand-link" href="/" aria-label="TopInkjet home"><img src="/assets/img/logo.svg" alt="TopInkjet" width="160" height="36"/></a>
+      <a class="brand-link" href="/" aria-label="TopInkjet home"><img src="/assets/img/logo-light.svg" alt="TopInkjet" width="160" height="36"/></a>
       <p class="footer-tagline">Premium inkjet printers for US homes and offices. Curated, dispatched, and supported from Austin, Texas.</p>
       <p class="footer-contact">
         ${esc(BIZ.address.street)}<br/>
@@ -396,19 +396,19 @@ function pageHome(products) {
         <div class="cat-text">
           <span class="eyebrow">Office</span>
           <h3>Office Inkjet Printers</h3>
-          <p>Reliable, fast, all-in-one inkjets for small and mid-size offices. Auto-duplex, mobile fax, and high-yield options that handle real workloads without breaking the bank.</p>
+          <p>Reliable, fast, all-in-one inkjets for small and mid-size offices. Auto-duplex, mobile fax, and high-yield options.</p>
           <span class="btn btn-accent">Shop Office</span>
         </div>
-        <img src="/assets/products/${esc(office.image)}" alt="${esc(office.name)}"/>
+        <div class="cat-img-wrap"><img src="/assets/products/${esc(office.image)}" alt="${esc(office.name)}" loading="lazy"/></div>
       </a>
       <a class="cat-card home" href="/category-home-inkjet.html">
         <div class="cat-text">
           <span class="eyebrow">Home</span>
           <h3>Home Inkjet Printers</h3>
-          <p>Compact, quiet, photo-capable printers for homework, hobbies, and hybrid work. Stylish designs that look great on the counter and produce stunning color when it counts.</p>
+          <p>Compact, quiet, photo-capable printers for homework, hobbies, and hybrid work. Stylish designs that print stunning color.</p>
           <span class="btn btn-accent">Shop Home</span>
         </div>
-        <img src="/assets/products/${esc(home.image)}" alt="${esc(home.name)}"/>
+        <div class="cat-img-wrap"><img src="/assets/products/${esc(home.image)}" alt="${esc(home.name)}" loading="lazy"/></div>
       </a>
     </div>
   </div>

@@ -14,9 +14,15 @@
     return value >= min && value <= max;
   }
 
+  function syncChipState(f) {
+    const chip = f.closest(".filter-chip");
+    if (chip) chip.classList.toggle("is-checked", f.checked);
+  }
+
   function apply() {
     const checked = {};
     filters.forEach((f) => {
+      syncChipState(f);
       if (!f.checked) return;
       const key = f.dataset.key;
       (checked[key] = checked[key] || []).push(f.value);
