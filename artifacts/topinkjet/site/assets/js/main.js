@@ -163,13 +163,6 @@
   }
   window.TI.paintWishlistButtons = paintWishlistButtons;
 
-  // ----- User name in header -----
-  try {
-    const user = JSON.parse(localStorage.getItem("topinkjet:user") || "null");
-    const label = document.getElementById("user-name-label");
-    if (user && label) label.textContent = user.name ? user.name.split(" ")[0] : "Account";
-  } catch (e) { /* ignore */ }
-
   // ----- Initial paint -----
   function init() {
     updateBadges();

@@ -40,7 +40,6 @@ function header(active = "") {
     ["/category-home-inkjet.html", "Home Inkjet", "home-cat"],
     ["/about.html", "About", "about"],
     ["/contact.html", "Contact", "contact"],
-    ["/blog.html", "Blog", "blog"],
   ];
   return `
 <header class="site-header">
@@ -55,10 +54,8 @@ function header(active = "") {
       <button class="icon-btn" id="search-toggle" aria-label="Search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       </button>
-      <a class="icon-btn" href="/account/sign-in.html" aria-label="Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-        <span class="user-name" id="user-name-label"></span>
-      </a>
+      <a class="header-auth-btn header-signin" href="/account/sign-in.html">Sign In</a>
+      <a class="header-auth-btn header-signup" href="/account/sign-up.html">Sign Up</a>
       <a class="icon-btn" href="/wishlist.html" aria-label="Wishlist">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4 6.5 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3C20 4 22.5 8 21.5 12 19 16.5 12 21 12 21z"/></svg>
         <span class="cart-badge" id="wishlist-badge" data-count="0">0</span>
@@ -103,7 +100,6 @@ function footer() {
         <li><a href="/category-office-inkjet.html">Office Inkjet Printers</a></li>
         <li><a href="/category-home-inkjet.html">Home Inkjet Printers</a></li>
         <li><a href="/shop.html">All Products</a></li>
-        <li><a href="/blog.html">Blog</a></li>
       </ul>
     </div>
     <div>
@@ -1876,7 +1872,7 @@ function page404() {
 }
 
 // ----- Sitemap & robots -----
-function buildSitemap(products, blog) {
+function buildSitemap(products) {
   const urls = [
     "/", "/shop.html",
     "/category-office-inkjet.html", "/category-home-inkjet.html",
@@ -1887,12 +1883,10 @@ function buildSitemap(products, blog) {
     "/return-policy.html", "/refund-policy.html",
     "/shipping-policy.html", "/cookie-policy.html",
     "/do-not-sell-my-personal-info.html", "/accessibility.html", "/disclaimer.html",
-    "/blog.html",
   ];
   const allUrls = [
     ...urls,
     ...products.map((p) => `/product/${p.slug}.html`),
-    ...blog.map((p) => `/blog/${p.slug}.html`),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1942,15 +1936,10 @@ export function buildPages(PRODUCTS, write) {
   write("do-not-sell-my-personal-info.html", pageDoNotSell());
   write("accessibility.html", pageAccessibility());
   write("disclaimer.html", pageDisclaimer());
-  // Blog
-  write("blog.html", pageBlogIndex(BLOG_POSTS));
-  for (const post of BLOG_POSTS) {
-    write(`blog/${post.slug}.html`, pageBlogPost(post));
-  }
   // 404
   write("404.html", page404());
   // Sitemap & robots
-  write("sitemap.xml", buildSitemap(PRODUCTS, BLOG_POSTS));
+  write("sitemap.xml", buildSitemap(PRODUCTS));
   write("robots.txt", ROBOTS);
   console.log("[pages] generated all HTML pages");
 }
