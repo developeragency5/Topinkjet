@@ -670,13 +670,14 @@ function discoverFolderImages(folder, hardcoded) {
   for (const h of hardcoded) {
     if (found.includes(h) && !seen.has(h)) { ordered.push(h); seen.add(h); }
   }
-  // append any extras the curator missed (sorted for stable order)
+  // append every other image the supplier shipped (sorted for stable order).
+  // No cap and no filtering — the user wants every single image on the site.
   for (const f of found.sort()) {
-    if (!seen.has(f) && !f.toLowerCase().includes(" copy.")) {
+    if (!seen.has(f)) {
       ordered.push(f); seen.add(f);
     }
   }
-  return ordered.slice(0, 6); // cap at 6 so the gallery thumbnail row stays sane
+  return ordered;
 }
 
 function processImages() {
