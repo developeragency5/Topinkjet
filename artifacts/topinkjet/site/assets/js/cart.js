@@ -14,8 +14,15 @@ function write(items) {
   document.dispatchEvent(new CustomEvent("ti:cart-changed"));
 }
 
+function resolveProduct(productOrId) {
+  if (productOrId && typeof productOrId === "object") return productOrId;
+  const list = (window.TI && window.TI.products) || [];
+  return list.find((p) => p.id === productOrId) || null;
+}
+
 window.TI.cart = {
   list() { return read(); },
+  read() { return read(); },
   count() {
     return read().reduce((s, i) => s + i.qty, 0);
   },
@@ -33,7 +40,9 @@ window.TI.cart = {
   total(method = "standard") {
     return Math.round((this.subtotal() + this.shipping(method) + this.tax()) * 100) / 100;
   },
-  add(product, qty = 1) {
+  add(productOrId, qty = 1) {
+    const product = resolveProduct(productOrId);
+    if (!product) return;
     const items = read();
     const existing = items.find((i) => i.id === product.id);
     if (existing) existing.qty += qty;
@@ -56,6 +65,12 @@ window.TI.cart = {
       if (it) it.qty = qty;
     }
     write(items);
+  },
+  set(id, qty) { this.setQty(id, qty); },
+  update(id, delta) {
+    const it = read().find((i) => i.id === id);
+    const next = (it ? it.qty : 0) + delta;
+    this.setQty(id, next);
   },
   remove(id) {
     write(read().filter((i) => i.id !== id));
