@@ -1,0 +1,107 @@
+REPLIT AGENT PROMPT — topinkjet.com (US-Only Ecommerce)
+
+Copy and paste the ENTIRE prompt below into your Replit Agent. Attach the product ZIP file in the same message.
+
+
+CRITICAL TECH STACK RULE — READ FIRST AND OBEY EVERYWHERE
+THE ENTIRE WEBSITE MUST BE BUILT IN PURE HTML, CSS, AND JAVASCRIPT ONLY.
+
+NO React, NO Vue, NO Angular, NO Svelte, NO Next.js, NO Nuxt, NO any frontend framework.
+NO Node backend, NO Express, NO Python backend, NO PHP, NO databases.
+NO build tools, NO bundlers, NO Webpack, NO Vite, NO npm packages on the frontend.
+NO server-side rendering, NO SSR, NO SSG generators (no Hugo, no Jekyll, no Astro).
+100% static .html files + plain .css files + vanilla .js files.
+All product data must live in a plain products.json file or hardcoded in the HTML so search bots can crawl it.
+All content (headings, paragraphs, product names, prices, descriptions, links, footer text, legal text) must exist directly inside the static HTML source, NOT injected by JavaScript after page load. When I open View Page Source in the browser I MUST see all visible text and all internal links in the raw HTML. This is non-negotiable.
+
+REPEAT TO YOURSELF AT EVERY STEP: "HTML, CSS, JAVASCRIPT ONLY. NO FRAMEWORKS. NO BACKEND. ALL CONTENT MUST BE IN THE RAW HTML SOURCE FOR CRAWLERS."
+
+1. PROJECT OVERVIEW
+Build a complete, production-ready, fully authentic-looking ecommerce website for the brand TopInkjet (domain: topinkjet.com). The store is US market only — all prices in USD, US states in checkout, US-style address fields, English (US) language, US tax behavior.
+Two product categories sourced from the attached ZIP file:
+
+Office Inkjet Printers
+Home Inkjet Printers
+
+Extract the ZIP. Inside you will find product images and a JSON file describing each SKU. Use that JSON as the source of truth for product name, price, description, specifications, and image filename. Move the images into /assets/products/ and reference them in the HTML.
+
+2. STRICT FILE & FOLDER STRUCTURE
+Create exactly this structure:
+/index.html
+/shop.html
+/category-office-inkjet.html
+/category-home-inkjet.html
+/product/<short-slug>.html       (one file per product, short SEO slug, e.g. /product/hp-officejet-pro-9015.html)
+/cart.html
+/wishlist.html
+/checkout.html                   (single page, controls 5 steps via sections + JS)
+/order-confirmation.html
+/account/sign-in.html
+/account/sign-up.html
+/account/dashboard.html
+/about.html
+/contact.html
+/privacy-policy.html
+/terms-of-service.html
+/return-policy.html
+/shipping-policy.html
+/refund-policy.html
+/cookie-policy.html
+/do-not-sell-my-personal-info.html
+/accessibility.html
+/disclaimer.html
+/faq.html
+/blog.html                       (with at least 3 real-content blog posts as static HTML)
+/blog/<post-slug>.html
+/sitemap.xml                     (all URLs listed)
+/robots.txt                      (allow all, point to sitemap)
+/404.html
+/assets/css/styles.css
+/assets/css/checkout.css
+/assets/js/main.js
+/assets/js/cart.js
+/assets/js/wishlist.js
+/assets/js/checkout.js
+/assets/js/avs.js
+/assets/js/cookie-consent.js
+/assets/js/products.js           (loads products.json or has data inline)
+/assets/products/*.jpg|png       (extracted from ZIP)
+/assets/img/logo.svg
+/assets/img/banners/*
+/data/products.json              (extracted/derived from ZIP)
+Every internal link in the site must work and point to a real file in this structure. No dead links. No # placeholder links.
+
+3. DESIGN, BRANDING, COLOR PALETTE
+
+Logo: text "TopInkjet" with a small printer/dot icon, SVG.
+Background base: white (#FFFFFF).
+Accent palette (use these EXACT hex codes for badges, hero blocks, cards, hover states, buttons, banners):
+
+#ECF2FF (soft blue)
+#E3DFFD (soft lavender)
+#E5D1FA (light purple)
+#FFF4D2 (soft cream)
+
+
+Typography: clean modern sans-serif (Inter or system stack). Headings bold and confident. Plenty of whitespace.
+Look and feel: premium, authentic, trustworthy US retail store. NOT a dropshipping template. Custom-feeling layout.
+Fully responsive: mobile, tablet, desktop. Test breakpoints at 360px, 768px, 1024px, 1440px.
+Sticky header with logo (left), main nav (center: Home, Shop, Office Inkjet, Home Inkjet, About, Contact, Blog), and right-side icons (Search, Account, Wishlist, Cart with item-count badge).
+
+
+4. HOMEPAGE — MUST BE CONTENT-RICH
+The homepage must be long, content-heavy, SEO-strong, and crawlable. All text must live in the raw HTML.
+4.1 Hero Banner (above the fold)
+
+Big bold headline: "If You Can Dream It, We Can Print It."
+Subheading: "Powerful office printers. Smart home companions. Built for speed, designed for life — one click is all it takes."
+Primary CTA button: "Shop Office Printers" → /category-office-inkjet.html
+Secondary CTA button: "Shop Home Printers" → /category-home-inkjet.html
+Background: layered pastel gradient using the four palette colors. Add a clean printer product image on the right.
+
+4.2 Trust Strip (below hero)
+4 mini-cards in a row:
+
+Free US Shipping Over $99
+30-Day Hassle-Free Returns
+US-Based Cu...

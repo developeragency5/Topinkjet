@@ -547,7 +547,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "TI-ST-7001", slug: "hp-smart-tank-7001", category: "home-inkjet",
+    id: "TI-ST-7001", slug: "hp-smart-tank-7001", category: "office-inkjet",
     brand: "HP", name: "HP Smart Tank 7001 All-in-One Printer",
     price: 289.99, sku: "28B49A",
     folder: "7001",
@@ -575,7 +575,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "TI-ST-7301", slug: "hp-smart-tank-7301", category: "home-inkjet",
+    id: "TI-ST-7301", slug: "hp-smart-tank-7301", category: "office-inkjet",
     brand: "HP", name: "HP Smart Tank 7301 All-in-One Printer",
     price: 319.99, sku: "28B69A",
     folder: "7301",
@@ -604,7 +604,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "TI-ST-7602", slug: "hp-smart-tank-7602", category: "home-inkjet",
+    id: "TI-ST-7602", slug: "hp-smart-tank-7602", category: "office-inkjet",
     brand: "HP", name: "HP Smart Tank 7602 All-in-One Printer",
     price: 349.99, sku: "28C20A",
     folder: "7602",
