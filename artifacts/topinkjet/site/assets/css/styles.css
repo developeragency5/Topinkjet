@@ -340,7 +340,7 @@ input[type="date"]:focus, select:focus, textarea:focus {
 .product-card a.title:hover { color: var(--c-accent); text-decoration: none; }
 .product-card .price { font-weight: 800; font-size: 1.18rem; color: var(--c-ink); margin-top: 6px; }
 .product-card .actions { display: flex; gap: 8px; margin-top: 12px; }
-.product-card .actions .btn { flex: 1; }
+.product-card .actions .btn { flex: 1; min-width: 0; white-space: nowrap; padding-left: 10px; padding-right: 10px; }
 .heart-btn {
   position: absolute; top: 12px; right: 12px; z-index: 2;
   width: 36px; height: 36px;

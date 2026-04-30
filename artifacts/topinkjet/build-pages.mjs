@@ -238,7 +238,7 @@ ${footer()}
 <script src="/assets/js/catalog.js?v=3" defer></script>
 <script src="/assets/js/products.js" defer></script>
 <script src="/assets/js/cart.js?v=3" defer></script>
-<script src="/assets/js/wishlist.js?v=3" defer></script>
+<script src="/assets/js/wishlist.js?v=4" defer></script>
 <script src="/assets/js/cookie-consent.js" defer></script>
 <script src="/assets/js/main.js?v=3" defer></script>
 ${extraJs}
@@ -805,7 +805,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Wishlist" }])}
     description: "Your saved printers and accessories from TopInkjet. Move items to your cart anytime.",
     canonical: "/wishlist.html",
     body,
-    extraJs: `<script src="/assets/js/wishlist-page.js" defer></script>`,
+    extraJs: `<script src="/assets/js/wishlist-page.js?v=4" defer></script>`,
   });
 }
 
