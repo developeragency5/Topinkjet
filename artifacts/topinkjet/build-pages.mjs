@@ -112,7 +112,6 @@ function footer() {
         <li><a href="/shipping-policy.html">Shipping Policy</a></li>
         <li><a href="/return-policy.html">Return Policy</a></li>
         <li><a href="/refund-policy.html">Refund Policy</a></li>
-        <li><a href="/account/dashboard.html">Order Tracking</a></li>
       </ul>
     </div>
     <div>
@@ -130,7 +129,7 @@ function footer() {
   </div>
   <div class="footer-bottom container">
     <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
-    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent retailer. Brand names and logos are the property of their respective owners and are used for descriptive purposes only. All prices are in USD. Shipping within the United States only.</p>
+    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. Shipping within the contiguous United States only. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
   </div>
 </footer>
 
@@ -1263,7 +1262,7 @@ function pageFaq() {
     ["Can I cancel my order?", "If your order has not yet shipped, contact us right away at <a href=\"mailto:${BIZ.email}\">${BIZ.email}</a> and we'll cancel it. Once an order has shipped, you'll need to follow the return process after delivery."],
     ["Do you price match competitors?", "We don't currently offer formal price matching, but if you find a major US retailer offering the same product at a lower advertised price, email us and we'll do our best to make it right."],
     ["What if my printer arrives damaged?", "If your shipment arrives with visible carrier damage, photograph the box and contents and email us within 48 hours. We'll arrange a free replacement and a return label for the damaged unit."],
-    ["How do I track my order?", "Your shipping confirmation email contains a tracking link. You can also sign in to your <a href=\"/account/dashboard.html\">account dashboard</a> to view tracking for any order placed while signed in."],
+    ["How will I know when my order ships?", "We'll send a shipment confirmation email with the carrier name and tracking number as soon as your printer leaves our warehouse. The link in that email is the easiest way to follow your delivery."],
     ["Do you sell ink cartridges or paper?", "Not at this time. We focus exclusively on printer hardware. For ink, we recommend purchasing genuine OEM cartridges directly from the manufacturer or an authorized retailer."],
   ];
   const body = `
@@ -1563,7 +1562,7 @@ function pageShipping() {
 <p>Please double-check your shipping address at checkout. If you provide an incorrect or incomplete address and the carrier returns the package to us, we will reship at our cost the first time. If a second reship is required due to address issues, you will be responsible for the reshipment shipping cost.</p>
 
 <h2>Tracking Your Order</h2>
-<p>You'll receive a tracking number by email when your order ships. You can also sign in to your <a href="/account/dashboard.html">account dashboard</a> to view tracking for any order placed while signed in.</p>
+<p>You'll receive a shipment confirmation email with the carrier name and tracking number as soon as your printer leaves our warehouse. Use the tracking link in that email to follow your package — it updates as soon as the carrier scans the label.</p>
 
 <h2>Lost or Stolen Packages</h2>
 <p>If a tracking page shows your order as delivered but you cannot find the package, please:</p>
