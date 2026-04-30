@@ -8,11 +8,27 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 
 const ROOT = path.resolve("artifacts/topinkjet");
 const SITE = path.join(ROOT, "site");
 const SRC_IMG = path.resolve("attached_assets/_extracted");
+
+// Detect which ImageMagick binary is available.
+//   - ImageMagick 7 (Replit, Homebrew) → `magick`
+//   - ImageMagick 6 (Ubuntu apt default, used in CI) → `convert`
+// All flags used below (-auto-orient/-strip/-background/-flatten/-resize/-quality)
+// are supported by both versions, so swapping the binary is enough.
+function detectImageMagick() {
+  for (const bin of ["magick", "convert"]) {
+    const r = spawnSync(bin, ["-version"], { stdio: "ignore" });
+    if (r.status === 0) return bin;
+  }
+  throw new Error(
+    "ImageMagick not found. Install `imagemagick` (provides `convert`) or ImageMagick 7 (provides `magick`)."
+  );
+}
+const IM_BIN = detectImageMagick();
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 function write(rel, content) {
@@ -41,7 +57,7 @@ function resizeImg(srcAbs, destAbs, { maxWidth, quality }) {
     "-quality", String(quality),
     destAbs,
   ];
-  execFileSync("magick", args, { stdio: "pipe" });
+  execFileSync(IM_BIN, args, { stdio: "pipe" });
 }
 
 // ---------- Product catalog (real HP printers from the attached zips) ----------
