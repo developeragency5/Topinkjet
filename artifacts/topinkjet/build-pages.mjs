@@ -142,8 +142,11 @@ function footer() {
     </div>
   </div>
   <div class="footer-bottom container">
-    <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
     <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
+    <div class="footer-meta">
+      <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
+      <p class="footer-meta-links"><a href="/privacy-policy.html">Privacy</a> <span aria-hidden="true">·</span> <a href="/terms-of-service.html">Terms</a> <span aria-hidden="true">·</span> <a href="/cookie-policy.html">Cookies</a></p>
+    </div>
   </div>
 </footer>
 

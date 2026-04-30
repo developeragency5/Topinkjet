@@ -577,16 +577,31 @@ input[type="date"]:focus, select:focus, textarea:focus {
   font-feature-settings: "tnum";
 }
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.1);
-  margin-top: 40px; padding-top: 20px;
-  display: flex; flex-wrap: wrap; gap: 16px;
-  justify-content: space-between; align-items: center;
+  margin-top: 48px;
   font-size: .82rem; color: #94a3b8;
 }
-.footer-bottom .copyright, .footer-bottom .disclaimer { margin: 0; }
-.footer-bottom .copyright { color: #94a3b8; font-size: .82rem; }
-.footer-bottom .disclaimer { flex: 1 0 100%; max-width: 1100px; font-size: .78rem; line-height: 1.6; color: #94a3b8; }
-.footer-bottom .disclaimer strong { color: #cbd5e1; font-weight: 700; }
+.footer-bottom .disclaimer {
+  margin: 0;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(255, 255, 255, .06);
+  border-radius: 10px;
+  font-size: .76rem; line-height: 1.65; color: #94a3b8;
+}
+.footer-bottom .disclaimer strong { color: #e2e8f0; font-weight: 600; }
+.footer-bottom .disclaimer a { color: #cbd5e1; text-decoration: underline; text-decoration-color: rgba(203, 213, 225, .4); text-underline-offset: 2px; }
+.footer-bottom .disclaimer a:hover { color: #fff; text-decoration-color: #fff; }
+.footer-meta {
+  margin-top: 22px; padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  display: flex; flex-wrap: wrap; gap: 10px 24px;
+  justify-content: space-between; align-items: center;
+}
+.footer-meta .copyright { margin: 0; color: #94a3b8; font-size: .78rem; letter-spacing: .01em; }
+.footer-meta-links { margin: 0; font-size: .78rem; color: #64748b; display: inline-flex; gap: 10px; align-items: center; }
+.footer-meta-links a { color: #94a3b8; }
+.footer-meta-links a:hover { color: #fff; text-decoration: none; }
+.footer-meta-links span { color: rgba(255, 255, 255, .2); }
 .pay-icons { display: flex; gap: 6px; flex-wrap: wrap; }
 .pay-pill { background: #fff; color: #1f2937; padding: 4px 8px; border-radius: 6px; font-size: .68rem; font-weight: 700; letter-spacing: .03em; }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
