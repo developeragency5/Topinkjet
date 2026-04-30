@@ -14,3 +14,58 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * Creates a new user with email + password and starts an authenticated session.
+ * @summary Create a new user account
+ */
+export const authSignUpBodyEmailMax = 254;
+
+export const authSignUpBodyPasswordMin = 8;
+export const authSignUpBodyPasswordMax = 128;
+
+export const authSignUpBodyNameMax = 120;
+
+export const AuthSignUpBody = zod.object({
+  email: zod.string().email().max(authSignUpBodyEmailMax),
+  password: zod
+    .string()
+    .min(authSignUpBodyPasswordMin)
+    .max(authSignUpBodyPasswordMax),
+  name: zod.string().min(1).max(authSignUpBodyNameMax).nullish(),
+});
+
+/**
+ * Verifies credentials and starts an authenticated session.
+ * @summary Sign in with email and password
+ */
+export const authSignInBodyEmailMax = 254;
+
+export const authSignInBodyPasswordMax = 128;
+
+export const AuthSignInBody = zod.object({
+  email: zod.string().email().max(authSignInBodyEmailMax),
+  password: zod.string().min(1).max(authSignInBodyPasswordMax),
+});
+
+export const AuthSignInResponse = zod.object({
+  user: zod.object({
+    id: zod.string().uuid(),
+    email: zod.string().email(),
+    name: zod.string().nullable(),
+    createdAt: zod.coerce.date(),
+  }),
+});
+
+/**
+ * Returns the current user when signed in, otherwise 401.
+ * @summary Get the current authenticated user
+ */
+export const AuthMeResponse = zod.object({
+  user: zod.object({
+    id: zod.string().uuid(),
+    email: zod.string().email(),
+    name: zod.string().nullable(),
+    createdAt: zod.coerce.date(),
+  }),
+});

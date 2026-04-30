@@ -47,6 +47,13 @@ jobs:
         run: pnpm run typecheck
 
       - name: Build topinkjet static site
+        env:
+          # Production API URL — read by artifacts/topinkjet/build-pages.mjs and
+          # injected as window.__TOPINKJET_API_BASE_URL into every page so the
+          # static site (Cloudflare Pages) can call the Render-hosted API.
+          # Override at the repo level via Settings → Secrets and variables →
+          # Actions → Variables, or change here if you rename the Render service.
+          API_BASE_URL: ${{ vars.API_BASE_URL || 'https://topinkjet-api.onrender.com/api' }}
         run: node artifacts/topinkjet/build-site.mjs
 
       - name: Upload topinkjet site artifact

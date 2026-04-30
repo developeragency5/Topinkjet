@@ -1,0 +1,65 @@
+###############################################################################
+# Render Blueprint for TopInkjet
+#
+# Defines:
+#   - Postgres database `topinkjet-db` (free tier, US-East/Ohio).
+#   - Web service `topinkjet-api` running the @workspace/api-server artifact.
+#
+# How to use:
+#   1. In Render, click "New +" → "Blueprint" and connect this GitHub repo
+#      (developeragency5/Topinkjet, branch main). Render will detect this file
+#      and provision both resources in one step.
+#   2. After the first deploy succeeds, run the database migration locally:
+#        DATABASE_URL="<external URL from Render dashboard>" \
+#          pnpm --filter @workspace/db run push
+#   3. Visit https://topinkjet-api.onrender.com/api/healthz — expect {"status":"ok"}.
+#
+# See RENDER_DEPLOY.md for the full step-by-step guide and manual setup
+# instructions if you prefer not to use the Blueprint.
+###############################################################################
+
+databases:
+  - name: topinkjet-db
+    plan: free
+    region: ohio
+    databaseName: topinkjet
+    user: topinkjet
+    postgresMajorVersion: "16"
+
+services:
+  - type: web
+    name: topinkjet-api
+    runtime: node
+    plan: free
+    region: ohio
+    branch: main
+    rootDir: .
+    # Render runs this once per deploy. We need pnpm (via corepack), then
+    # install workspace deps and bundle the api-server into ./dist with esbuild.
+    buildCommand: |
+      corepack enable
+      corepack prepare pnpm@10.26.1 --activate
+      pnpm install --frozen-lockfile
+      pnpm --filter @workspace/api-server run build
+    # Render sets $PORT for us; the api-server reads it via process.env.PORT.
+    startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
+    healthCheckPath: /api/healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "24"
+      # Auto-wire DATABASE_URL from the Postgres database created above.
+      - key: DATABASE_URL
+        fromDatabase:
+          name: topinkjet-db
+          property: connectionString
+      # Render generates a strong random value on first deploy.
+      # 64+ chars; never commit a real secret to this file.
+      - key: JWT_SECRET
+        generateValue: true
+      # Comma-separated list of allowed browser origins. Must match the
+      # production frontend exactly (scheme + host, no trailing slash).
+      - key: FRONTEND_ORIGIN
+        value: https://topinkjet.com,https://www.topinkjet.com

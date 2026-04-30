@@ -8,3 +8,46 @@
 export interface HealthStatus {
   status: string;
 }
+
+export interface AuthSignUpRequest {
+  /** @maxLength 254 */
+  email: string;
+  /**
+   * @minLength 8
+   * @maxLength 128
+   */
+  password: string;
+  /**
+   * @minLength 1
+   * @maxLength 120
+   */
+  name?: string | null;
+}
+
+export interface AuthSignInRequest {
+  /** @maxLength 254 */
+  email: string;
+  /**
+   * @minLength 1
+   * @maxLength 128
+   */
+  password: string;
+}
+
+export interface PublicUser {
+  id: string;
+  email: string;
+  name: string | null;
+  createdAt: string;
+}
+
+export interface AuthUserResponse {
+  user: PublicUser;
+}
+
+export type ErrorResponseDetails = { [key: string]: unknown };
+
+export interface ErrorResponse {
+  error: string;
+  details?: ErrorResponseDetails;
+}

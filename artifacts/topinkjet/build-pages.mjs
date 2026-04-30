@@ -3,6 +3,10 @@
 
 const SITE_URL = "https://topinkjet.com";
 const ASSET_VERSION = String(Math.floor(Date.now() / 1000));
+// API base URL for the backend (Express on Render). Defaults to "/api"
+// so local dev (which proxies /api → api-server via the Replit gateway) just works.
+// In CI we set API_BASE_URL=https://topinkjet-api.onrender.com/api before building.
+const API_BASE_URL = process.env.API_BASE_URL || "/api";
 const BIZ = {
   name: "TopInkjet",
   tagline: "If you can dream it, we can print it.",
@@ -229,6 +233,7 @@ function shell({ title, description, canonical, body, extraCss = "", extraJs = "
 <link rel="stylesheet" href="/assets/css/styles.css?v=${ASSET_VERSION}"/>
 ${extraCss}
 ${jsonld}
+<script>window.__TOPINKJET_API_BASE_URL=${JSON.stringify(API_BASE_URL)};</script>
 </head>
 <body>
 ${header(active)}
@@ -242,6 +247,7 @@ ${footer()}
 <script src="/assets/js/wishlist.js?v=4" defer></script>
 <script src="/assets/js/cookie-consent.js" defer></script>
 <script src="/assets/js/main.js?v=3" defer></script>
+<script src="/assets/js/auth.js?v=${ASSET_VERSION}" defer></script>
 ${extraJs}
 </body>
 </html>`;
@@ -1412,7 +1418,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Sign In" }])}
     description: "Sign in to your TopInkjet account to view orders and manage your profile.",
     canonical: "/account/sign-in.html",
     body,
-    extraJs: `<script src="/assets/js/account.js" defer></script>`,
+    extraJs: "",
   });
 }
 
@@ -1438,7 +1444,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Create Account" }])}
     description: "Create a TopInkjet account to track your orders and save your shipping addresses.",
     canonical: "/account/sign-up.html",
     body,
-    extraJs: `<script src="/assets/js/account.js" defer></script>`,
+    extraJs: "",
   });
 }
 
@@ -1467,7 +1473,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Account Dashboard" }])}
     description: "View your TopInkjet order history, saved addresses, and account settings.",
     canonical: "/account/dashboard.html",
     body,
-    extraJs: `<script src="/assets/js/account.js" defer></script>`,
+    extraJs: "",
   });
 }
 

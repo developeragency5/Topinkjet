@@ -5,18 +5,27 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import type {
+  MutationFunction,
   QueryFunction,
   QueryKey,
+  UseMutationOptions,
+  UseMutationResult,
   UseQueryOptions,
   UseQueryResult,
 } from "@tanstack/react-query";
 
-import type { HealthStatus } from "./api.schemas";
+import type {
+  AuthSignInRequest,
+  AuthSignUpRequest,
+  AuthUserResponse,
+  ErrorResponse,
+  HealthStatus,
+} from "./api.schemas";
 
 import { customFetch } from "../custom-fetch";
-import type { ErrorType } from "../custom-fetch";
+import type { ErrorType, BodyType } from "../custom-fetch";
 
 type AwaitedInput<T> = PromiseLike<T> | T;
 
@@ -92,6 +101,326 @@ export function useHealthCheck<
   request?: SecondParameter<typeof customFetch>;
 }): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
   const queryOptions = getHealthCheckQueryOptions(options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * Creates a new user with email + password and starts an authenticated session.
+ * @summary Create a new user account
+ */
+export const getAuthSignUpUrl = () => {
+  return `/api/auth/signup`;
+};
+
+export const authSignUp = async (
+  authSignUpRequest: AuthSignUpRequest,
+  options?: RequestInit,
+): Promise<AuthUserResponse> => {
+  return customFetch<AuthUserResponse>(getAuthSignUpUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(authSignUpRequest),
+  });
+};
+
+export const getAuthSignUpMutationOptions = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authSignUp>>,
+    TError,
+    { data: BodyType<AuthSignUpRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof authSignUp>>,
+  TError,
+  { data: BodyType<AuthSignUpRequest> },
+  TContext
+> => {
+  const mutationKey = ["authSignUp"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof authSignUp>>,
+    { data: BodyType<AuthSignUpRequest> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return authSignUp(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AuthSignUpMutationResult = NonNullable<
+  Awaited<ReturnType<typeof authSignUp>>
+>;
+export type AuthSignUpMutationBody = BodyType<AuthSignUpRequest>;
+export type AuthSignUpMutationError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Create a new user account
+ */
+export const useAuthSignUp = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authSignUp>>,
+    TError,
+    { data: BodyType<AuthSignUpRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof authSignUp>>,
+  TError,
+  { data: BodyType<AuthSignUpRequest> },
+  TContext
+> => {
+  return useMutation(getAuthSignUpMutationOptions(options));
+};
+
+/**
+ * Verifies credentials and starts an authenticated session.
+ * @summary Sign in with email and password
+ */
+export const getAuthSignInUrl = () => {
+  return `/api/auth/signin`;
+};
+
+export const authSignIn = async (
+  authSignInRequest: AuthSignInRequest,
+  options?: RequestInit,
+): Promise<AuthUserResponse> => {
+  return customFetch<AuthUserResponse>(getAuthSignInUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(authSignInRequest),
+  });
+};
+
+export const getAuthSignInMutationOptions = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authSignIn>>,
+    TError,
+    { data: BodyType<AuthSignInRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof authSignIn>>,
+  TError,
+  { data: BodyType<AuthSignInRequest> },
+  TContext
+> => {
+  const mutationKey = ["authSignIn"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof authSignIn>>,
+    { data: BodyType<AuthSignInRequest> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return authSignIn(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AuthSignInMutationResult = NonNullable<
+  Awaited<ReturnType<typeof authSignIn>>
+>;
+export type AuthSignInMutationBody = BodyType<AuthSignInRequest>;
+export type AuthSignInMutationError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Sign in with email and password
+ */
+export const useAuthSignIn = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authSignIn>>,
+    TError,
+    { data: BodyType<AuthSignInRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof authSignIn>>,
+  TError,
+  { data: BodyType<AuthSignInRequest> },
+  TContext
+> => {
+  return useMutation(getAuthSignInMutationOptions(options));
+};
+
+/**
+ * Clears the authentication cookie.
+ * @summary Sign out the current user
+ */
+export const getAuthSignOutUrl = () => {
+  return `/api/auth/signout`;
+};
+
+export const authSignOut = async (options?: RequestInit): Promise<void> => {
+  return customFetch<void>(getAuthSignOutUrl(), {
+    ...options,
+    method: "POST",
+  });
+};
+
+export const getAuthSignOutMutationOptions = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authSignOut>>,
+    TError,
+    void,
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof authSignOut>>,
+  TError,
+  void,
+  TContext
+> => {
+  const mutationKey = ["authSignOut"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof authSignOut>>,
+    void
+  > = () => {
+    return authSignOut(requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AuthSignOutMutationResult = NonNullable<
+  Awaited<ReturnType<typeof authSignOut>>
+>;
+
+export type AuthSignOutMutationError = ErrorType<unknown>;
+
+/**
+ * @summary Sign out the current user
+ */
+export const useAuthSignOut = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authSignOut>>,
+    TError,
+    void,
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof authSignOut>>,
+  TError,
+  void,
+  TContext
+> => {
+  return useMutation(getAuthSignOutMutationOptions(options));
+};
+
+/**
+ * Returns the current user when signed in, otherwise 401.
+ * @summary Get the current authenticated user
+ */
+export const getAuthMeUrl = () => {
+  return `/api/auth/me`;
+};
+
+export const authMe = async (
+  options?: RequestInit,
+): Promise<AuthUserResponse> => {
+  return customFetch<AuthUserResponse>(getAuthMeUrl(), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getAuthMeQueryKey = () => {
+  return [`/api/auth/me`] as const;
+};
+
+export const getAuthMeQueryOptions = <
+  TData = Awaited<ReturnType<typeof authMe>>,
+  TError = ErrorType<ErrorResponse>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof authMe>>, TError, TData>;
+  request?: SecondParameter<typeof customFetch>;
+}) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getAuthMeQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof authMe>>> = ({
+    signal,
+  }) => authMe({ signal, ...requestOptions });
+
+  return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+    Awaited<ReturnType<typeof authMe>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type AuthMeQueryResult = NonNullable<Awaited<ReturnType<typeof authMe>>>;
+export type AuthMeQueryError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Get the current authenticated user
+ */
+
+export function useAuthMe<
+  TData = Awaited<ReturnType<typeof authMe>>,
+  TError = ErrorType<ErrorResponse>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof authMe>>, TError, TData>;
+  request?: SecondParameter<typeof customFetch>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getAuthMeQueryOptions(options);
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
     queryKey: QueryKey;
