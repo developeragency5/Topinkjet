@@ -37,17 +37,25 @@
   }
   if (searchInput) {
     searchInput.addEventListener("input", () => {
-      const q = searchInput.value.trim().toLowerCase();
+      const raw = searchInput.value.trim().toLowerCase();
       const products = (window.TI && window.TI.products) || [];
-      if (!q) { searchResults.innerHTML = ""; return; }
-      const hits = products.filter((p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.brand.toLowerCase().includes(q) ||
-        (p.shortDescription || "").toLowerCase().includes(q)
-      ).slice(0, 8);
+      if (!raw) { searchResults.innerHTML = ""; return; }
+      // Tokenize on whitespace so a query like "hp 9" matches any product
+      // whose searchable text contains BOTH "hp" AND "9", regardless of order.
+      const tokens = raw.split(/\s+/).filter(Boolean);
+      const hits = products.filter((p) => {
+        const hay = [
+          p.name,
+          p.brand,
+          p.sku || "",
+          p.category || "",
+          p.shortDescription || "",
+        ].join(" ").toLowerCase();
+        return tokens.every((t) => hay.includes(t));
+      }).slice(0, 8);
       searchResults.innerHTML = hits.length
-        ? hits.map((p) => `<a href="/product/${p.slug}.html"><img src="/assets/products/${p.image}" alt="${p.name}"/><div><div style="font-weight:600">${p.name}</div><div style="color:#6b7280;font-size:.82rem">$${p.price.toFixed(2)}</div></div></a>`).join("")
-        : `<p style="color:#6b7280;padding:8px">No results for &ldquo;${q}&rdquo;.</p>`;
+        ? hits.map((p) => `<a href="/product/${p.slug}.html"><img src="/assets/products/${p.thumb || p.image}" alt="${p.name}" loading="lazy" decoding="async"/><div><div style="font-weight:600">${p.name}</div><div style="color:#6b7280;font-size:.82rem">$${p.price.toFixed(2)}</div></div></a>`).join("")
+        : `<p style="color:#6b7280;padding:8px">No results for &ldquo;${raw}&rdquo;.</p>`;
     });
   }
   document.addEventListener("keydown", (e) => {
