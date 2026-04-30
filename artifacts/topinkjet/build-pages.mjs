@@ -99,14 +99,16 @@ function footer() {
   <div class="container footer-grid">
     <div class="footer-brand-col">
       <a class="brand-link" href="/" aria-label="TopInkjet home"><img src="/assets/img/logo-light.svg" alt="TopInkjet" width="160" height="36"/></a>
-      <p class="footer-tagline">Premium inkjet printers for US homes and offices. Browse our curated HP lineup to find the model that fits the way you work, study, and create.</p>
-      <p class="footer-contact">
+      <p class="footer-tagline">Premium inkjet printers for US homes and offices.</p>
+      <address class="footer-contact">
         ${esc(BIZ.address.street)}<br/>
-        ${esc(BIZ.address.city)}, ${esc(BIZ.address.state)} ${esc(BIZ.address.zip)}<br/>
-        <a href="tel:${BIZ.phone.replace(/[^0-9+]/g,'')}">${BIZ.phone}</a><br/>
-        Email: <a href="mailto:${BIZ.email}">${BIZ.email}</a>
-      </p>
-      <p class="footer-contact-plain">Reach our US-based support team any business day at <strong>${esc(BIZ.email)}</strong> or call <strong>${esc(BIZ.phone)}</strong>. Email replies within one business day.</p>
+        ${esc(BIZ.address.city)}, ${esc(BIZ.address.state)} ${esc(BIZ.address.zip)}
+      </address>
+      <ul class="footer-contact-links">
+        <li><a href="tel:${BIZ.phone.replace(/[^0-9+]/g,'')}">${esc(BIZ.phone)}</a></li>
+        <li><a href="mailto:${BIZ.email}" class="email-cta">Email us</a></li>
+      </ul>
+      <p class="footer-contact-email"><strong>${esc(BIZ.email)}</strong></p>
     </div>
     <div>
       <h4>Shop</h4>
@@ -141,7 +143,7 @@ function footer() {
   </div>
   <div class="footer-bottom container">
     <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
-    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. Shipping within the United States only — see <a href="/shipping-policy.html">Shipping Policy</a> for transit times. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
+    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
   </div>
 </footer>
 
