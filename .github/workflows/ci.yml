@@ -73,6 +73,29 @@ jobs:
           name: topinkjet-site
           path: site
 
+      - name: Ensure Cloudflare Pages project exists
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -e
+          PROJECT_NAME=topinkjet
+          STATUS=$(curl -s -o /tmp/cf_check.json -w "%{http_code}" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME")
+          if [ "$STATUS" = "200" ]; then
+            echo "Project '$PROJECT_NAME' already exists."
+          else
+            echo "Project '$PROJECT_NAME' not found (HTTP $STATUS). Creating..."
+            curl -fsS -X POST \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -H "Content-Type: application/json" \
+              --data "{\"name\":\"$PROJECT_NAME\",\"production_branch\":\"main\"}" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects" \
+              | tee /tmp/cf_create.json
+            echo "Project '$PROJECT_NAME' created."
+          fi
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
