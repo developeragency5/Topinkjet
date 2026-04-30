@@ -104,11 +104,8 @@ function footer() {
         ${esc(BIZ.address.street)}<br/>
         ${esc(BIZ.address.city)}, ${esc(BIZ.address.state)} ${esc(BIZ.address.zip)}
       </address>
-      <ul class="footer-contact-links">
-        <li><a href="tel:${BIZ.phone.replace(/[^0-9+]/g,'')}">${esc(BIZ.phone)}</a></li>
-        <li><a href="mailto:${BIZ.email}" class="email-cta">Email us</a></li>
-      </ul>
-      <p class="footer-contact-email"><strong>${esc(BIZ.email)}</strong></p>
+      <p class="footer-contact-line"><a href="tel:${BIZ.phone.replace(/[^0-9+]/g,'')}">${esc(BIZ.phone)}</a></p>
+      <p class="footer-contact-line"><strong>${esc(BIZ.email)}</strong></p>
     </div>
     <div>
       <h4>Shop</h4>
@@ -137,16 +134,12 @@ function footer() {
         <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         <li><a href="/do-not-sell-my-personal-info.html">Do Not Sell My Personal Info</a></li>
         <li><a href="/accessibility.html">Accessibility</a></li>
-        <li><a href="/disclaimer.html">Disclaimer</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom container">
     <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
-    <div class="footer-meta">
-      <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
-      <p class="footer-meta-links"><a href="/privacy-policy.html">Privacy</a> <span aria-hidden="true">·</span> <a href="/terms-of-service.html">Terms</a> <span aria-hidden="true">·</span> <a href="/cookie-policy.html">Cookies</a></p>
-    </div>
+    <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
   </div>
 </footer>
 
