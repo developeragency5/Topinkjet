@@ -598,7 +598,8 @@ input[type="date"]:focus, select:focus, textarea:focus {
 .breadcrumbs .sep { color: var(--c-muted); }
 .breadcrumbs a { color: var(--c-accent); }
 .breadcrumbs [aria-current] { color: var(--c-ink-soft); }
-.breadcrumbs .container { padding: 0 24px; }
+/* Breadcrumbs use the standard .container padding (clamp 16–32px) so they
+   align with the rest of the page on every viewport. */
 
 /* Page head */
 .page-head { text-align: left; margin-bottom: 28px; }

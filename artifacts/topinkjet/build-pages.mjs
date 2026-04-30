@@ -327,11 +327,13 @@ function productCard(p) {
 function breadcrumbs(items) {
   return `
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <ol>${items.map((i, idx) =>
-      idx === items.length - 1
-        ? `<li aria-current="page">${esc(i.label)}</li>`
-        : `<li><a href="${i.href}">${esc(i.label)}</a></li>`
-    ).join('<li class="sep" aria-hidden="true">/</li>')}</ol>
+    <div class="container">
+      <ol>${items.map((i, idx) =>
+        idx === items.length - 1
+          ? `<li aria-current="page">${esc(i.label)}</li>`
+          : `<li><a href="${i.href}">${esc(i.label)}</a></li>`
+      ).join('<li class="sep" aria-hidden="true">/</li>')}</ol>
+    </div>
   </nav>`;
 }
 
