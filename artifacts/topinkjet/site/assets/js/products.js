@@ -6,7 +6,7 @@ window.TI = window.TI || {};
 
 window.TI.loadProducts = async function () {
   if (window.TI._products) return window.TI._products;
-  const res = await fetch("/data/products.json", { cache: "no-cache" });
+  const res = await fetch("/data/products.json");
   const data = await res.json();
   window.TI._products = data;
   return data;

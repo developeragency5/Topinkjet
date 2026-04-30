@@ -8,6 +8,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 
 const ROOT = path.resolve("artifacts/topinkjet");
 const SITE = path.join(ROOT, "site");
@@ -19,10 +20,28 @@ function write(rel, content) {
   ensureDir(path.dirname(full));
   fs.writeFileSync(full, content);
 }
-function copyImg(srcAbs, destRel) {
-  const dest = path.join(SITE, destRel);
-  ensureDir(path.dirname(dest));
-  fs.copyFileSync(srcAbs, dest);
+
+// Resize an image with ImageMagick. Skips work if the destination already
+// exists and is newer than the source. The `>` after the resize geometry
+// means "only shrink, never enlarge".
+function resizeImg(srcAbs, destAbs, { maxWidth, quality }) {
+  ensureDir(path.dirname(destAbs));
+  try {
+    const ds = fs.statSync(destAbs);
+    const ss = fs.statSync(srcAbs);
+    if (ds.mtimeMs >= ss.mtimeMs) return;
+  } catch { /* dest missing — fall through and build */ }
+  const args = [
+    srcAbs,
+    "-auto-orient",
+    "-strip",
+    "-background", "white",
+    "-flatten",
+    "-resize", `${maxWidth}x${maxWidth}>`,
+    "-quality", String(quality),
+    destAbs,
+  ];
+  execFileSync("magick", args, { stdio: "pipe" });
 }
 
 // ---------- Product catalog (real HP printers from the attached zips) ----------
@@ -681,22 +700,46 @@ function discoverFolderImages(folder, hardcoded) {
 }
 
 function processImages() {
+  const outDir = path.join(SITE, "assets/products");
+  // Clear stale files so we don't accumulate old originals from previous builds
+  if (fs.existsSync(outDir)) {
+    for (const f of fs.readdirSync(outDir)) {
+      if (!/\.(jpg|webp)$/.test(f)) {
+        try { fs.unlinkSync(path.join(outDir, f)); } catch {}
+      }
+    }
+  }
+  ensureDir(outDir);
+  let resizedCount = 0;
+  let skipCount = 0;
   for (const p of PRODUCTS) {
     const srcs = discoverFolderImages(p.folder, p.images || []);
     p.gallery = [];
+    p.thumbs = [];
     srcs.forEach((src, i) => {
-      const ext = extByPicker(src);
-      const destName = `${p.slug}-${i + 1}${ext}`;
+      const baseName = `${p.slug}-${i + 1}`;
+      const fullDest = path.join(outDir, `${baseName}.jpg`);
+      const thumbDest = path.join(outDir, `${baseName}-thumb.webp`);
       const srcAbs = path.join(SRC_IMG, p.folder, src);
       if (!fs.existsSync(srcAbs)) {
         console.warn("MISSING:", srcAbs);
         return;
       }
-      copyImg(srcAbs, `assets/products/${destName}`);
-      p.gallery.push(destName);
+      // Track whether we did real work so the build log is informative
+      const fullExists = fs.existsSync(fullDest);
+      const thumbExists = fs.existsSync(thumbDest);
+      // Full-size image used on product detail page (max 1200px wide JPG q82)
+      resizeImg(srcAbs, fullDest, { maxWidth: 1200, quality: 82 });
+      // Tiny WebP thumbnail used on every product card grid (480px wide)
+      resizeImg(srcAbs, thumbDest, { maxWidth: 480, quality: 72 });
+      if (fullExists && thumbExists) skipCount++; else resizedCount++;
+      p.gallery.push(`${baseName}.jpg`);
+      p.thumbs.push(`${baseName}-thumb.webp`);
     });
     p.image = p.gallery[0] || `${p.slug}-1.jpg`;
+    p.thumb = p.thumbs[0] || `${p.slug}-1-thumb.webp`;
   }
+  console.log(`[images] resized ${resizedCount}, cached ${skipCount}`);
 }
 
 processImages();
@@ -714,7 +757,9 @@ const productsForJson = PRODUCTS.map((p) => ({
   longDescription: p.long,
   specs: p.specs,
   image: p.image,
+  thumb: p.thumb,
   gallery: p.gallery,
+  thumbs: p.thumbs,
 }));
 write("data/products.json", JSON.stringify(productsForJson, null, 2));
 

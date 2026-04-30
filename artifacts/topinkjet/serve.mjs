@@ -1,7 +1,6 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
-import url from "node:url";
 
 const PORT = Number(process.env.PORT);
 if (!PORT) {
@@ -41,9 +40,24 @@ function send404(res) {
   }
 }
 
+// Cache policy:
+//  - Hashed/long-lived assets (images, fonts) get a 30-day immutable cache
+//    so repeat visits are instant.
+//  - CSS/JS get 1 hour (we don't fingerprint, so we want updates to roll
+//    out within an hour without forcing a hard refresh).
+//  - HTML always revalidates so content edits show up immediately.
+function cacheHeaderFor(ext) {
+  if (ext === ".html") return "public, max-age=0, must-revalidate";
+  if (ext === ".css" || ext === ".js" || ext === ".json") return "public, max-age=3600";
+  if (/^\.(png|jpe?g|gif|webp|avif|svg|ico|woff2?)$/.test(ext)) {
+    return "public, max-age=2592000, immutable";
+  }
+  return "no-cache";
+}
+
 const server = http.createServer((req, res) => {
   try {
-    const parsed = url.parse(req.url || "/");
+    const parsed = new URL(req.url || "/", "http://localhost");
     let pathname = decodeURIComponent(parsed.pathname || "/");
     // strip trailing slash except root
     if (pathname.length > 1 && pathname.endsWith("/")) {
@@ -77,7 +91,7 @@ const server = http.createServer((req, res) => {
     const ct = MIME[ext] || "application/octet-stream";
     res.writeHead(200, {
       "Content-Type": ct,
-      "Cache-Control": "no-cache",
+      "Cache-Control": cacheHeaderFor(ext),
     });
     fs.createReadStream(filePath).pipe(res);
   } catch (err) {

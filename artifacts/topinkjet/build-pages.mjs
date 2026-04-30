@@ -254,7 +254,7 @@ function productCard(p) {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4 6.5 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3C20 4 22.5 8 21.5 12 19 16.5 12 21 12 21z"/></svg>
     </button>
     <a href="/product/${p.slug}.html" class="img-wrap">
-      <img src="/assets/products/${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" width="400" height="300"/>
+      <img src="/assets/products/${esc(p.thumb || p.image)}" alt="${esc(p.name)}" loading="lazy" decoding="async" width="400" height="300"/>
     </a>
     <div class="body">
       <span class="brand">${esc(p.brand)}</span>
@@ -361,7 +361,7 @@ function pageHome(products) {
       </div>
     </div>
     <div class="hero-art">
-      <img src="/assets/products/${esc(heroProduct.image)}" alt="${esc(heroProduct.name)}" loading="eager" width="640" height="520"/>
+      <img src="/assets/products/${esc(heroProduct.image)}" alt="${esc(heroProduct.name)}" loading="eager" decoding="async" fetchpriority="high" width="640" height="520"/>
     </div>
   </div>
 </section>
@@ -389,7 +389,7 @@ function pageHome(products) {
           <p>Reliable, fast, all-in-one inkjets for small and mid-size offices. Auto-duplex, mobile fax, and high-yield options.</p>
           <span class="btn btn-accent">Shop Office</span>
         </div>
-        <div class="cat-img-wrap"><img src="/assets/products/${esc(office.image)}" alt="${esc(office.name)}" loading="lazy"/></div>
+        <div class="cat-img-wrap"><img src="/assets/products/${esc(office.thumb || office.image)}" alt="${esc(office.name)}" loading="lazy" decoding="async" width="400" height="300"/></div>
       </a>
       <a class="cat-card home" href="/category-home-inkjet.html">
         <div class="cat-text">
@@ -398,7 +398,7 @@ function pageHome(products) {
           <p>Compact, quiet, photo-capable printers for homework, hobbies, and hybrid work. Stylish designs that print stunning color.</p>
           <span class="btn btn-accent">Shop Home</span>
         </div>
-        <div class="cat-img-wrap"><img src="/assets/products/${esc(home.image)}" alt="${esc(home.name)}" loading="lazy"/></div>
+        <div class="cat-img-wrap"><img src="/assets/products/${esc(home.thumb || home.image)}" alt="${esc(home.name)}" loading="lazy" decoding="async" width="400" height="300"/></div>
       </a>
     </div>
   </div>
@@ -864,10 +864,13 @@ ${breadcrumbs([
   <div class="container product-page">
     <div class="product-gallery">
       <div class="main-image">
-        <img id="main-product-image" src="/assets/products/${esc(p.gallery[0])}" alt="${esc(p.name)} primary view"/>
+        <img id="main-product-image" src="/assets/products/${esc(p.gallery[0])}" alt="${esc(p.name)} primary view" width="640" height="640" decoding="async" fetchpriority="high"/>
       </div>
       <div class="thumbs">
-        ${p.gallery.map((g, i) => `<button class="thumb${i===0?' active':''}" data-img="/assets/products/${esc(g)}" aria-label="View image ${i+1}"><img src="/assets/products/${esc(g)}" alt="${esc(p.name)} view ${i+1}" loading="lazy"/></button>`).join("")}
+        ${p.gallery.map((g, i) => {
+          const t = (p.thumbs && p.thumbs[i]) || g;
+          return `<button class="thumb${i===0?' active':''}" data-img="/assets/products/${esc(g)}" aria-label="View image ${i+1}"><img src="/assets/products/${esc(t)}" alt="${esc(p.name)} view ${i+1}" loading="lazy" decoding="async" width="80" height="80"/></button>`;
+        }).join("")}
       </div>
     </div>
     <div class="product-info">
