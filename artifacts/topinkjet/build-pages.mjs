@@ -528,12 +528,6 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Shop" }])}
     </div>
     <div class="shop-toolbar">
       <span id="shop-count">${products.length} products</span>
-      <select id="sort">
-        <option value="featured">Sort: Featured</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name">Name: A–Z</option>
-      </select>
     </div>
     <div class="product-grid" id="shop-grid">
       ${products.map(productCard).join("")}
@@ -570,12 +564,6 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: title }])}
     </header>
     <div class="shop-toolbar">
       <span id="shop-count">${list.length} products</span>
-      <select id="sort">
-        <option value="featured">Sort: Featured</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name">Name: A–Z</option>
-      </select>
     </div>
     <div class="product-grid" id="shop-grid">
       ${list.map(productCard).join("")}
