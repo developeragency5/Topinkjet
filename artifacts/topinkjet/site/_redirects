@@ -1,0 +1,5 @@
+# /contact-us.html is served by the static mirror file (returns 200).
+# Cloudflare Pages serves static files before evaluating _redirects, so
+# the .html URL never reaches this rule — we keep the extensionless
+# variant only, which has no static counterpart.
+/contact-us  /contact.html  301
