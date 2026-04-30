@@ -144,10 +144,11 @@ input[type="date"]:focus, select:focus, textarea:focus {
 }
 .brand-link { display: flex; align-items: center; gap: 8px; }
 .brand-link img { height: 36px; }
-.main-nav { display: flex; gap: 4px; justify-content: center; }
+.main-nav { display: flex; gap: 2px; justify-content: center; }
 .main-nav a {
-  padding: 8px 14px; border-radius: var(--radius-pill);
+  padding: 8px 12px; border-radius: var(--radius-pill);
   color: var(--c-ink); font-weight: 500; font-size: .92rem;
+  white-space: nowrap;
 }
 .main-nav a:hover { background: var(--c-blue); text-decoration: none; }
 .main-nav a.active { background: var(--c-lavender); }
@@ -196,13 +197,43 @@ input[type="date"]:focus, select:focus, textarea:focus {
   border: 1px solid var(--c-accent);
 }
 .header-signup:hover { filter: brightness(1.05); }
+.header-account {
+  gap: 8px;
+  padding: 0 14px 0 6px;
+  color: var(--c-ink);
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, .12);
+}
+.header-account:hover { background: var(--c-blue); }
+.header-account-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: #fff;
+  font-size: .78rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.header-account-label { font-weight: 600; }
+.header-signout {
+  color: var(--c-ink-soft);
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, .12);
+  cursor: pointer;
+  font-family: inherit;
+}
+.header-signout:hover { color: var(--c-ink); background: var(--c-blue); }
+@media (max-width: 1100px) {
+  .header-account-label { display: none; }
+  .header-account { padding: 0 6px; }
+}
 @media (max-width: 720px) {
-  .header-signin { display: none; }
+  .header-signin, .header-signout { display: none; }
   .header-signup { padding: 0 12px; height: 36px; font-size: .85rem; }
   .header-auth-group { padding-left: 8px; margin-left: 4px; }
 }
 .menu-toggle { display: none; }
-@media (max-width: 980px) {
+@media (max-width: 1100px) {
   .menu-toggle { display: inline-flex; }
   .main-nav {
     position: absolute; top: var(--header-h); left: 0; right: 0;
