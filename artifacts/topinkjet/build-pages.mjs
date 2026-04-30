@@ -129,7 +129,7 @@ function footer() {
   </div>
   <div class="footer-bottom container">
     <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
-    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. Shipping within the contiguous United States only. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
+    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent reseller and is not affiliated with, endorsed by, or sponsored by HP Inc. HP, DeskJet, OfficeJet, ScanJet, ENVY, Smart Tank, HP+, and HP Wolf Security are trademarks of HP Inc. All other product names and trademarks are the property of their respective owners. Prices and availability are subject to change without notice. Shipping within the United States only — see <a href="/shipping-policy.html">Shipping Policy</a> for transit times. <a href="/disclaimer.html">Read full disclaimer</a>.</p>
   </div>
 </footer>
 
@@ -484,7 +484,7 @@ function pageHome(products) {
     <div class="faq-list">
       <details><summary>Do you ship internationally?</summary><p>TopInkjet ships within the United States only at this time. We deliver to all 50 states, Washington D.C., and APO/FPO/DPO addresses.</p></details>
       <details><summary>How long does shipping take?</summary><p>Standard ground shipping arrives in 3–5 business days, free on every order. Transit time begins once your order has been packed and handed to the carrier — typically within 1–2 business days of order placement.</p></details>
-      <details><summary>Is shipping really free?</summary><p>Yes — every order ships free via Standard ground shipping anywhere in the contiguous United States. There are no hidden surcharges, no minimum spend, and no membership required.</p></details>
+      <details><summary>Is shipping really free?</summary><p>Yes — every order ships free via Standard Ground shipping anywhere in the United States, including all 50 states, Washington D.C., US territories, and APO/FPO/DPO addresses. There are no hidden surcharges, no minimum spend, and no membership required. Transit times to Alaska, Hawaii, US territories, and APO/FPO/DPO are typically extended — see our <a href="/shipping-policy.html">Shipping Policy</a> for details.</p></details>
       <details><summary>Can I return a printer if it's not right?</summary><p>Absolutely. Every printer we sell carries a 30-day return window from the date of delivery. The product must be in resalable condition with original packaging. See the <a href="/return-policy.html">Return Policy</a> for details.</p></details>
       <details><summary>Do I need an account to check out?</summary><p>No. Guest checkout is the default and we never force you to create an account. Creating an account is optional and only saves your shipping address for next time.</p></details>
     </div>
@@ -535,10 +535,23 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Shop" }])}
     </div>
   </div>
 </section>
+
+<section class="kw-block alt">
+  <div class="container">
+    <h2>How to Choose the Right Inkjet Printer</h2>
+    <p>Picking an inkjet printer is mostly a question of how much you actually print each month and what kind of work you do. For light home printing — homework, forms, the occasional photo — an entry-level <a href="/product/hp-deskjet-2827e.html">HP DeskJet 2827e</a> or <a href="/product/hp-deskjet-2855e.html">DeskJet 2855e</a> is usually plenty. They're compact, friendly, and cost less than a tank of gas.</p>
+    <p>For mixed home-office work — call it 100 to 500 pages a month — step up to an <a href="/product/hp-officejet-pro-8125e.html">OfficeJet Pro 8125e</a> for documents or an <a href="/product/hp-envy-inspire-7255e.html">ENVY Inspire 7255e</a> for photo-heavy households. You get a 35-page automatic document feeder, automatic two-sided printing, and a 250-sheet input tray, so you spend a lot less time at the printer.</p>
+    <p>If you print constantly — invoices, contracts, school packets, or a small business — a refillable <a href="/category-home-inkjet.html">HP Smart Tank</a> drops your cost per page to pennies, and an OfficeJet Pro 9000-series like the <a href="/product/hp-officejet-pro-9125e.html">9125e</a> or <a href="/product/hp-officejet-pro-9135e.html">9135e</a> brings business-grade speed and Gigabit Ethernet into the mix. Need full A3 / 11×17 inch tabloid output? The <a href="/product/hp-officejet-pro-9730e-wide-format.html">OfficeJet Pro 9730e</a> is the only printer in our lineup that handles wide-format work.</p>
+    <h2>Inkjet vs. Laser: Why Inkjet Still Wins for Most US Households &amp; Offices</h2>
+    <p>Modern inkjets — especially HP's current OfficeJet Pro and Smart Tank lines — match or beat color lasers on speed, blow them away on color and photo quality, draw far less power, run quieter, and almost always cost less to buy and run. Unless you genuinely print thousands of black-and-white text pages a week, inkjet is the smarter choice in 2026.</p>
+    <h2>Why Buy from TopInkjet?</h2>
+    <p>We carry a tight, intentional catalog — 22 current-generation HP inkjets across two clear categories. Every order ships free via Standard Ground inside the United States, every printer carries a 30-day return window, and our US-based support team is one email away. There's no membership, no hidden fee at checkout, and no upsell on shipping. Just a focused selection of printers we'd recommend to a friend.</p>
+  </div>
+</section>
 `;
   return shell({
     title: "Shop All Inkjet Printers — Office & Home | TopInkjet",
-    description: `Shop our full lineup of ${products.length} HP inkjet printers for office and home. Free US shipping on every order and 30-day returns.`,
+    description: `Shop ${products.length} HP inkjet printers for US offices and homes — DeskJet, ENVY, OfficeJet Pro, and Smart Tank. Free US shipping on every order, 30-day returns, US-based support.`,
     canonical: "/shop.html",
     active: "shop",
     body,
@@ -584,8 +597,8 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: title }])}
 </section>
 `;
   return shell({
-    title: `${title} — TopInkjet`,
-    description: `Shop ${title.toLowerCase()} from TopInkjet. ${list.length} curated models, free US shipping on every order, and 30-day returns.`,
+    title: `${title} — Free US Shipping on All ${list.length} Models | TopInkjet`,
+    description: `Shop ${list.length} ${title.toLowerCase()} ${isOffice ? "for small and mid-size US offices — DeskJet, OfficeJet Pro, and wide-format options" : "for US homes — DeskJet, ENVY, ENVY Inspire, and refillable Smart Tank options"}. Free US shipping on every order, 30-day returns, and US-based support.`,
     canonical: `/category-${category}.html`,
     active: isOffice ? "office" : "home-cat",
     body,
@@ -597,11 +610,198 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: title }])}
   });
 }
 
+// ---------- product page helpers ----------
+function inferProductFamily(p) {
+  const s = p.slug;
+  if (/officejet-pro-9730|9730/.test(s)) return "wide-format-ojp";
+  if (/officejet-pro-91|9110|9125|9135/.test(s)) return "ojp-9000";
+  if (/officejet-pro-81|8125|8135|8139/.test(s)) return "ojp-8000";
+  if (/officejet-80|8015/.test(s)) return "oj-8000";
+  if (/smart-tank/.test(s)) return "smart-tank";
+  if (/envy-inspire/.test(s)) return "envy-inspire";
+  if (/envy/.test(s)) return "envy";
+  if (/deskjet/.test(s)) return "deskjet";
+  return p.category === "office-inkjet" ? "ojp-8000" : "deskjet";
+}
+
+function inferAudience(p) {
+  const fam = inferProductFamily(p);
+  switch (fam) {
+    case "wide-format-ojp":
+      return "architects, real-estate teams, education staff, and finance departments who need full A3 / 11×17 inch tabloid output without the footprint or running costs of a wide-format laser printer";
+    case "ojp-9000":
+      return "demanding small offices that print, scan, copy, and share documents across a team — including those who need Gigabit Ethernet, color touchscreen workflows, and PCL/PostScript drivers for managed environments";
+    case "ojp-8000":
+      return "growing home offices and small teams that print every day and want a true workhorse all-in-one — without the expense, heat, and footprint of a comparable color laser";
+    case "oj-8000":
+      return "value-focused small offices and home offices that need full all-in-one functionality — print, scan, copy, fax — at a friendly price point";
+    case "smart-tank":
+      return "households and home offices that print constantly and want to forget cartridges — refillable ink tanks deliver thousands of pages per refill and the lowest cost per page in any inkjet category";
+    case "envy-inspire":
+    case "envy":
+      return "design-conscious homes and creative households that print photos, school projects, party invitations, and recipes — and want a printer that looks as good on the desk as it prints on the page";
+    case "deskjet":
+      return "students, families, and anyone who wants a friendly, affordable home printer for homework, online forms, the occasional photo, and everyday scanning and copying";
+    default:
+      return "modern US households and offices that need a reliable everyday inkjet";
+  }
+}
+
+function inferUseCases(p) {
+  const fam = inferProductFamily(p);
+  if (fam === "wide-format-ojp") return [
+    "A3 / 11×17 inch tabloid spreadsheets, drawings, and floor plans",
+    "Two-sided document copying and 35-page ADF batch scanning",
+    "Wireless network printing for an entire team",
+    "Mobile fax sent and received from the HP Smart app",
+  ];
+  if (fam === "ojp-9000" || fam === "ojp-8000" || fam === "oj-8000") return [
+    "Daily contracts, invoices, reports, and proposals",
+    "Two-sided document scanning, copying, and (where supported) faxing",
+    "Mobile printing from laptops, tablets, and phones across the office",
+    "Wireless network sharing across multiple users without a print server",
+  ];
+  if (fam === "smart-tank") return [
+    "High-volume household and home-office printing without cartridge runs",
+    "School projects, homework, and worksheets in crisp color",
+    "Receipts, forms, recipes, and digital coupons",
+    "Mobile printing from any phone, tablet, or laptop",
+  ];
+  if (fam === "envy" || fam === "envy-inspire") return [
+    "4×6, 5×7, and borderless 8.5×11 photo printing on glossy paper",
+    "Craft projects, scrapbooking, party invitations, and greeting cards",
+    "Document scanning, copying, and everyday school printing",
+    "Wireless printing from phones and laptops via the HP Smart app",
+  ];
+  return [
+    "Homework, school assignments, and worksheets",
+    "Forms, recipes, digital coupons, and shipping labels",
+    "Occasional 4×6 photo printing",
+    "Mobile printing via the HP Smart app",
+  ];
+}
+
+function inferConsumables(p) {
+  const fam = inferProductFamily(p);
+  if (fam === "smart-tank") {
+    return "Smart Tank models use refillable ink bottles instead of cartridges. A starter kit ships in the box and a single set of refills typically delivers thousands of pages — enough for years of household printing for most users. Replacement bottles are available wherever HP supplies are sold and are dramatically cheaper per page than cartridges.";
+  }
+  return "This printer uses original HP ink cartridges. A starter set ships in the box so you can begin printing during setup. When you need refills, look for the cartridge model number listed in the HP Smart app, on the cartridge itself, or on the HP supplies page. HP+ eligible models also unlock optional Instant Ink — a subscription that automatically ships replacement cartridges before you run out, sized to how much you actually print.";
+}
+
+function inferHighlights(p) {
+  // Pick up to 4 marketable specs as quick highlights
+  const order = ["Functions", "Print Speed", "ADF", "Duplex", "Display", "Connectivity", "Paper Capacity", "Mobile Printing", "Print Quality"];
+  return order.filter((k) => p.specs[k]).slice(0, 4).map((k) => ({ key: k, value: p.specs[k] }));
+}
+
+function inferFeatureBullets(p) {
+  const featureMap = {
+    "Print Speed": (v) => `<strong>${esc(v)}</strong> — keep meetings on schedule and stop waiting on warmup beeps.`,
+    "Print Quality": (v) => `<strong>${esc(v)}</strong> — sharp text, accurate color, and lab-quality photos when you need them.`,
+    "ADF": (v) => `<strong>${esc(v)}</strong> — load a stack and walk away while it scans, copies, and (where supported) faxes hands-free.`,
+    "Duplex": (v) => `<strong>${esc(v)}</strong> — automatically cut paper use in half on every long document.`,
+    "Connectivity": (v) => `<strong>${esc(v)}</strong> — connect to any modern home or office network in minutes.`,
+    "Mobile Printing": (v) => `<strong>${esc(v)}</strong> — print straight from a phone, tablet, or Chromebook over Wi-Fi.`,
+    "Display": (v) => `<strong>${esc(v)}</strong> — change any setting at the device without touching a computer.`,
+    "Paper Capacity": (v) => `<strong>${esc(v)}</strong> — fewer paper-tray reloads and fewer interruptions.`,
+    "Functions": (v) => `<strong>${esc(v)}</strong> — replaces a separate printer, scanner, copier, and (where listed) fax.`,
+    "Page Yield": (v) => `<strong>${esc(v)}</strong> — drop your cost-per-page to a fraction of cartridge pricing.`,
+    "Photo Print": (v) => `<strong>${esc(v)}</strong> — print frame-worthy photos straight from your phone.`,
+    "Borderless": (v) => `<strong>${esc(v)}</strong> — full-bleed photos with no white margins.`,
+    "Ink Tank": (v) => `<strong>${esc(v)}</strong> — refillable tanks instead of cartridges keep cost-per-page low.`,
+    "Max Paper Size": (v) => `<strong>${esc(v)}</strong> — supports oversized documents most desktop printers can't handle.`,
+  };
+  const out = [];
+  for (const [k, v] of Object.entries(p.specs)) {
+    if (featureMap[k]) out.push(featureMap[k](v));
+  }
+  return out.slice(0, 6);
+}
+
+function inferOverviewCopy(p) {
+  const fam = inferProductFamily(p);
+  const cat = p.category === "office-inkjet" ? "office" : "home";
+  const para2 = (() => {
+    if (fam === "wide-format-ojp") return `Wide-format printing has historically meant heavy laser MFPs, expensive toner, and a dedicated equipment closet. The ${esc(p.name)} brings full A3 / 11×17 inch output back to the desktop, paired with a duplex automatic document feeder, dual paper trays, and a color touchscreen — at a fraction of the cost-per-page of a comparable color laser.`;
+    if (fam === "ojp-9000") return `Built for offices that take printing seriously, the ${esc(p.name)} pairs business-grade speed with the security and management features modern IT teams expect. Native dual-band Wi-Fi, a 250-sheet input tray, automatic two-sided printing, and a duplex automatic document feeder mean fewer interruptions and more finished work.`;
+    if (fam === "ojp-8000" || fam === "oj-8000") return `The ${esc(p.name)} is engineered for the way real small offices and home offices actually work today — a mix of email, PDFs, contracts, scanning, and the occasional fax. Wireless setup over the HP Smart app takes about five minutes, and the printer is ready to share across every device on your network.`;
+    if (fam === "smart-tank") return `Smart Tank flips the inkjet economics on its head. Instead of buying cartridges every few months, you fill the tanks once and print for what HP estimates is up to two years of typical home use before refilling. The result is dramatically lower cost-per-page than any cartridge-based printer in the same class.`;
+    if (fam === "envy" || fam === "envy-inspire") return `The ENVY series is the photo-and-creativity flagship of the HP home lineup. Color reproduction is tuned for portraits, landscapes, and craft projects, and the included Smart app makes it effortless to send a photo from your phone and have it print at the highest quality the paper will allow.`;
+    return `Set up the ${esc(p.name)} in about five minutes with the HP Smart app, then print, scan, and copy from any phone, tablet, or laptop on your network. Dual-band Wi-Fi keeps the connection rock-solid, and the included starter ink lets you print right out of the box.`;
+  })();
+  const para3 = cat === "office"
+    ? `Every order ships free via Standard Ground inside the United States, with a 30-day return window and the full HP manufacturer warranty. Our team is US-based and reachable by email any day of the week — see the <a href="/contact-us.html">Contact page</a> for details.`
+    : `Every order ships free via Standard Ground inside the United States, backed by our 30-day return window and the full HP manufacturer warranty. Need help choosing or have a question after delivery? Our US-based support team is one email away — see the <a href="/contact-us.html">Contact page</a>.`;
+  return [esc(p.long), para2, para3];
+}
+
+function inferWhatsInBox(p) {
+  const fam = inferProductFamily(p);
+  const isTank = fam === "smart-tank";
+  const list = [
+    `${p.name}`,
+    `Original HP setup ink ${isTank ? "kit (bottles)" : "cartridges"}`,
+    `Power cord (US plug)`,
+    `Quick-start setup guide`,
+    `Software & driver download instructions`,
+  ];
+  // Add a phone cord on fax-capable models
+  const fns = (p.specs["Functions"] || "").toLowerCase();
+  if (fns.includes("fax")) list.push(`Phone cord (for fax line)`);
+  return list;
+}
+
+function makeProductFaq(p) {
+  const isTank = inferProductFamily(p) === "smart-tank";
+  return [
+    {
+      q: `Does the ${p.name} come with ink in the box?`,
+      a: isTank
+        ? `Yes — every HP Smart Tank ship from our US warehouse with a starter ink kit (bottles) so you can fill the tanks during setup and start printing right away. Refill bottles are widely available and last for thousands of pages.`
+        : `Yes. Every printer ships with a starter set of original HP ink cartridges so you can complete wireless setup and print immediately. When the starters run low, install standard HP cartridges or, on HP+ eligible models, enroll in optional Instant Ink for automatic refills.`,
+    },
+    {
+      q: `Will the ${p.name} work with my Mac, iPhone, Android phone, or Chromebook?`,
+      a: `Yes. The ${esc(p.name)} supports Apple AirPrint for iPhone, iPad, and macOS; Mopria for Android; the HP Smart app on iOS and Android; and standard drivers for macOS, Windows 10/11, and ChromeOS. Wi-Fi Direct lets phones print without a router when needed.`,
+    },
+    {
+      q: `Is wireless setup straightforward, or do I need a USB cable?`,
+      a: `Setup is wireless and typically takes under five minutes. Install the HP Smart app on your phone, follow the prompts, and the app pairs the printer with your Wi-Fi network. A USB 2.0 port is included if you prefer a wired connection — but no USB cable is required for normal use.`,
+    },
+    {
+      q: `What does shipping cost on the ${p.name}?`,
+      a: `Shipping is completely free. Every TopInkjet order ships free via Standard Ground inside the United States — no minimum spend, no membership, no hidden surcharges. Standard Ground typically delivers in 3–5 business days. See our <a href="/shipping-policy.html">Shipping Policy</a> for details.`,
+    },
+    {
+      q: `Can I return the ${p.name} if it isn't right for me?`,
+      a: `Yes. You have 30 days from delivery to return any printer for a full refund of the product price, as long as it's in resalable condition with the original packaging and accessories. Read the full <a href="/return-policy.html">Return Policy</a> for instructions and exceptions.`,
+    },
+    {
+      q: `Is the ${p.name} backed by a warranty?`,
+      a: `Yes. Every printer ships with the full HP manufacturer warranty (typically a 1-year limited hardware warranty). Registration is optional, and HP customer support is reachable directly through the HP Smart app and the HP support site if anything ever goes wrong.`,
+    },
+    {
+      q: `Does TopInkjet ship outside the United States?`,
+      a: `No — TopInkjet currently ships within the United States only, including all 50 states, Washington D.C., and APO/FPO/DPO addresses. We do not ship internationally at this time.`,
+    },
+  ];
+}
+
 function pageProduct(p, allProducts) {
   const related = allProducts
     .filter((x) => x.category === p.category && x.id !== p.id)
     .slice(0, 4);
   const catTitle = p.category === "office-inkjet" ? "Office Inkjet" : "Home Inkjet";
+  const highlights = inferHighlights(p);
+  const features = inferFeatureBullets(p);
+  const useCases = inferUseCases(p);
+  const audience = inferAudience(p);
+  const consumables = inferConsumables(p);
+  const overview = inferOverviewCopy(p);
+  const whatsInBox = inferWhatsInBox(p);
+  const faqs = makeProductFaq(p);
+
   const productJsonLd = `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
@@ -620,7 +820,34 @@ function pageProduct(p, allProducts) {
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
       "seller": { "@type": "Organization", "name": "TopInkjet" },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "DAY" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      }
     },
+  })}</script>`;
+  const faqJsonLd = `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a.replace(/<[^>]+>/g, "") }
+    }))
   })}</script>`;
   const breadJsonLd = breadcrumbJsonLd([
     { label: "Home", href: "/" },
@@ -665,34 +892,96 @@ ${breadcrumbs([
       </div>
       <ul class="ship-bullets">
         <li>✓ Ships from our US warehouse</li>
-        <li>✓ Free Standard Shipping on every order</li>
+        <li>✓ Free Standard Shipping on every order (3–5 business days)</li>
         <li>✓ 30-Day Returns — see <a href="/return-policy.html">Return Policy</a></li>
         <li>✓ Backed by the full manufacturer warranty</li>
+        <li>✓ Secure US checkout — all major cards & digital wallets</li>
       </ul>
+      ${highlights.length ? `<div class="hl-strip" aria-label="Quick highlights">
+        ${highlights.map((h) => `<div class="hl-pill"><span class="hl-key">${esc(h.key)}</span><span class="hl-val">${esc(h.value)}</span></div>`).join("")}
+      </div>` : ""}
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container product-tabs">
-    <article>
-      <h2>Description</h2>
-      <p>${esc(p.long)}</p>
+    <article class="prod-section">
+      <h2>Overview</h2>
+      ${overview.map((para) => `<p>${para}</p>`).join("\n      ")}
     </article>
-    <article>
+
+    ${features.length ? `<article class="prod-section">
+      <h2>Key Features &amp; Benefits</h2>
+      <ul class="feature-list">
+        ${features.map((f) => `<li>${f}</li>`).join("")}
+      </ul>
+    </article>` : ""}
+
+    <article class="prod-section">
+      <h2>Who It's For</h2>
+      <p>The ${esc(p.name)} is designed for ${audience}.</p>
+      <h3>Common Use Cases</h3>
+      <ul class="use-list">
+        ${useCases.map((u) => `<li>${esc(u)}</li>`).join("")}
+      </ul>
+    </article>
+
+    <article class="prod-section">
+      <h2>Set Up in Three Steps</h2>
+      <ol class="setup-grid">
+        <li class="setup-card"><div class="setup-num">1</div><h3>Unbox &amp; Power On</h3><p>Remove all the orange protective tape, plug in the power cord, and turn on the printer. Load a few sheets of letter paper into the input tray.</p></li>
+        <li class="setup-card"><div class="setup-num">2</div><h3>Open the HP Smart App</h3><p>Download the free HP Smart app on iOS, Android, macOS, or Windows. The app will detect your new printer over Bluetooth Low Energy and walk you through Wi-Fi setup.</p></li>
+        <li class="setup-card"><div class="setup-num">3</div><h3>Install Ink &amp; Align</h3><p>Insert the included starter ${inferProductFamily(p) === "smart-tank" ? "ink bottles into the tanks" : "cartridges"}, print and scan the alignment page when prompted, and you're ready to print from any device on the network.</p></li>
+      </ol>
+    </article>
+
+    <article class="prod-section">
+      <h2>Connectivity &amp; Mobile Printing</h2>
+      <p>The ${esc(p.name)} connects with ${esc(p.specs["Connectivity"] || "dual-band Wi-Fi, Wi-Fi Direct, and USB 2.0")}, so it integrates seamlessly into any modern home or office network. Mobile printing is supported through ${esc(p.specs["Mobile Printing"] || "the HP Smart app, AirPrint, and Mopria")}, which means iPhone, iPad, Android, Chromebook, macOS, and Windows users can all print without installing custom drivers in most cases. Wi-Fi Direct lets phones connect to the printer without a router — useful in shared workspaces, classrooms, or anywhere guest devices need to print.</p>
+    </article>
+
+    <article class="prod-section">
       <h2>Specifications</h2>
       <table class="spec-table">
         <tbody>
           ${Object.entries(p.specs).map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}
           <tr><th scope="row">SKU</th><td>${esc(p.sku)}</td></tr>
+          <tr><th scope="row">Manufacturer Part Number</th><td>${esc(p.sku)}</td></tr>
+          <tr><th scope="row">Brand</th><td>${esc(p.brand)}</td></tr>
           <tr><th scope="row">Category</th><td>${catTitle}</td></tr>
+          <tr><th scope="row">Country of Sale</th><td>United States only</td></tr>
         </tbody>
       </table>
     </article>
-    <article>
-      <h2>Shipping & Returns</h2>
-      <p>Free Standard Ground Shipping (3–5 business days) on every order. Transit time begins once your order has been packed and handed to the carrier — typically within 1–2 business days of order placement. We ship within the United States only. 30-day returns from the date of delivery — see our <a href="/return-policy.html">Return Policy</a> for details.</p>
-      <p>Return any printer within 30 days of delivery for a full refund of the product price. The product must be in resalable condition with original packaging and accessories. See our <a href="/return-policy.html">Return Policy</a> and <a href="/refund-policy.html">Refund Policy</a> for full details.</p>
+
+    <article class="prod-section">
+      <h2>What's in the Box</h2>
+      <ul class="box-list">
+        ${whatsInBox.map((it) => `<li>${esc(it)}</li>`).join("")}
+      </ul>
+    </article>
+
+    <article class="prod-section">
+      <h2>Ink &amp; Supplies</h2>
+      <p>${consumables}</p>
+    </article>
+
+    <article class="prod-section">
+      <h2>Shipping, Returns &amp; Warranty</h2>
+      <h3>Free US Shipping on Every Order</h3>
+      <p>The ${esc(p.name)} ships free via Standard Ground inside the United States. Standard Ground transit is typically 3–5 business days after dispatch, and we hand orders to the carrier within 1–2 business days of order placement. We deliver to all 50 states, Washington D.C., and APO/FPO/DPO addresses. We do not currently ship internationally.</p>
+      <h3>30-Day Returns</h3>
+      <p>Return any printer within 30 days of delivery for a full refund of the product price. The product must be in resalable condition with original packaging and all accessories. Email us through the <a href="/contact-us.html">Contact page</a> to start a return — we reply within one business day. Read the full <a href="/return-policy.html">Return Policy</a> and <a href="/refund-policy.html">Refund Policy</a> for details.</p>
+      <h3>Manufacturer Warranty</h3>
+      <p>Every ${esc(p.brand)} printer we sell is backed by the full ${esc(p.brand)} manufacturer warranty (typically a 1-year limited hardware warranty). HP customer support is reachable directly through the HP Smart app and the HP support website. Warranty registration is optional but recommended.</p>
+    </article>
+
+    <article class="prod-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        ${faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${f.a}</p></details>`).join("")}
+      </div>
     </article>
   </div>
 </section>
@@ -706,14 +995,23 @@ ${breadcrumbs([
   </div>
 </section>
 `;
+  // Pick the shortest title template that fits within ~65 chars without truncation
+  const titleCandidates = [
+    `${p.name} — Free US Shipping | TopInkjet`,
+    `${p.name} | TopInkjet`,
+  ];
+  const finalTitle = titleCandidates.find((t) => t.length <= 65) || titleCandidates[titleCandidates.length - 1];
+  // Build a description that ends naturally at a sentence boundary, not a hard cut
+  const fullDesc = `${p.short} Free US shipping on every order, 30-day returns, US-based support.`;
+  const finalDesc = fullDesc.length <= 160 ? fullDesc : `${p.short} Free US shipping on every order. 30-day returns.`;
   return shell({
-    title: `${p.name} — ${money(p.price)} | TopInkjet`.slice(0, 60),
-    description: `${p.short} Ships within the US. Free standard shipping on every order.`.slice(0, 160),
+    title: finalTitle,
+    description: finalDesc,
     canonical: `/product/${p.slug}.html`,
     active: p.category === "office-inkjet" ? "office" : "home-cat",
     body,
     ogImage: "/assets/products/" + p.image,
-    jsonld: productJsonLd + breadJsonLd,
+    jsonld: productJsonLd + faqJsonLd + breadJsonLd,
     extraJs: `<script src="/assets/js/product.js" defer></script>`,
   });
 }
@@ -1192,7 +1490,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }])}
     <p>Every printer in our lineup has been evaluated against four criteria: real-world reliability, total cost of ownership, customer support reputation, and how well the on-paper specs match real performance. We're particularly fans of the HP OfficeJet Pro and Smart Tank lines because they consistently score well on all four.</p>
     <p>If you'd like a personal recommendation, our <a href="/contact.html">support team</a> is happy to help. Tell us what you print, how often, and what you'd like to spend, and we'll point you at one of the two or three models that actually fit.</p>
     <h2>How we ship</h2>
-    <p>Every order ships from our US warehouse via free Standard Ground Shipping with UPS or FedEx and typically arrives in 3–5 business days anywhere in the contiguous United States. We do not currently ship internationally and we do not offer paid expedited or overnight upgrades — ground shipping is included free with every order.</p>
+    <p>Every order ships from our US warehouse via free Standard Ground Shipping with UPS or FedEx and typically arrives in 3–5 business days inside the contiguous United States. We also deliver to Alaska, Hawaii, US territories, and APO/FPO/DPO addresses with extended transit times — see our <a href="/shipping-policy.html">Shipping Policy</a> for the full schedule. We do not currently ship internationally and we do not offer paid expedited or overnight upgrades — ground shipping is included free with every order.</p>
     <h2>Get in touch</h2>
     <p>You can reach us at <a href="mailto:${BIZ.email}">${BIZ.email}</a>, by phone at <a href="tel:${BIZ.phone.replace(/[^0-9+]/g,"")}">${BIZ.phone}</a>, or through the <a href="/contact.html">contact form</a>. We answer every message Monday through Friday during business hours.</p>
   </div>
@@ -1253,7 +1551,7 @@ function pageFaq() {
     ["When will my order ship?", "Most orders are packed and handed to the carrier within 1–2 business days from our US warehouse. Orders placed on weekends or US federal holidays begin processing the next business day. You'll receive a tracking email as soon as your printer ships."],
     ["How long does delivery take?", "Standard ground shipping arrives in 3–5 business days, free on every order. Delivery times exclude the day of shipment, weekends, and US federal holidays. Most orders are packed and handed to the carrier within 1–2 business days of order placement."],
     ["What carriers do you use?", "We ship via UPS Ground, UPS 2-Day Air, UPS Next Day Air, FedEx Ground, FedEx 2Day, and FedEx Standard Overnight depending on package size and destination. You'll receive a tracking number by email when your order ships."],
-    ["Is shipping really free?", "Yes. Every order ships free via Standard ground shipping anywhere in the contiguous United States — no minimum spend required. Alaska, Hawaii, and APO/FPO addresses are also eligible but may take additional transit time."],
+    ["Is shipping really free?", "Yes. Every order ships free via Standard Ground shipping anywhere in the United States — all 50 states, Washington D.C., US territories, and APO/FPO/DPO addresses — with no minimum spend required. Transit times to Alaska, Hawaii, US territories, and APO/FPO/DPO are typically extended; see the Shipping Policy for the full schedule."],
     ["Can I return a printer if I don't love it?", "Absolutely. You have 30 days from the date of delivery to return any printer in resalable condition with original packaging and accessories for a full refund of the product price. See our <a href=\"/return-policy.html\">Return Policy</a> for the full process."],
     ["Do you offer a warranty?", "Yes — every printer we sell carries the full manufacturer's warranty (typically 1 year limited hardware warranty for HP printers). For warranty service, contact the manufacturer directly using the documentation included in the box."],
     ["Do I have to create an account to check out?", "No. Guest checkout is the default and works without ever creating an account. Creating an account is optional and only saves your shipping address and order history for next time."],
@@ -1522,7 +1820,7 @@ function pageRefund() {
 function pageShipping() {
   return legalShell(
     "Shipping Policy",
-    "TopInkjet ships within the contiguous United States only with free Standard Ground Shipping on every order. Processing times, carriers, and delivery preferences explained.",
+    "TopInkjet ships within the United States only — all 50 states, D.C., US territories, and APO/FPO/DPO — with free Standard Ground Shipping on every order. Processing times, carriers, and delivery preferences explained.",
     "shipping-policy",
     `
 <p>This Shipping Policy explains where we ship, when your order will leave our warehouse, how long it takes to arrive, what it costs, and what to do if anything goes wrong in transit.</p>
