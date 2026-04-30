@@ -402,7 +402,7 @@ function pageHome(products) {
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">The Smarter Way to Buy a Printer</span>
-      <h1>If You Can Dream It, We Can Print It.</h1>
+      <h1>If You Can <span class="hero-accent">Dream&nbsp;It</span>, We Can <span class="hero-accent">Print&nbsp;It</span>.</h1>
       <p class="lead">Powerful office printers. Smart home companions. Built for speed, designed for life — one click is all it takes.</p>
       <div class="hero-ctas">
         <a class="btn btn-accent btn-lg" href="/category-office-inkjet.html">Shop Office Printers</a>
