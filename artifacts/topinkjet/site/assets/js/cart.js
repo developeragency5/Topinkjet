@@ -1,8 +1,7 @@
 // Cart logic — uses localStorage. Exposes window.TI.cart helpers used by main.js.
+// Standard ground shipping is FREE on every order; there are no paid shipping tiers.
 window.TI = window.TI || {};
 const CART_KEY = "ti_cart_v1";
-const SHIPPING_FREE_THRESHOLD = 99;
-const SHIPPING_RATES = { standard: 9.99, expedited: 19.99, express: 34.99 };
 const TAX_RATE = 0.08;
 
 function read() {
@@ -39,16 +38,14 @@ window.TI.cart = {
   subtotal() {
     return read().reduce((s, i) => s + (Number(i.qty) || 0) * (Number(i.price) || 0), 0);
   },
-  shipping(method = "standard") {
-    if (this.subtotal() === 0) return 0;
-    if (method === "standard" && this.subtotal() >= SHIPPING_FREE_THRESHOLD) return 0;
-    return SHIPPING_RATES[method] ?? SHIPPING_RATES.standard;
+  shipping() {
+    return 0; // Standard ground always FREE.
   },
   tax() {
     return Math.round(this.subtotal() * TAX_RATE * 100) / 100;
   },
-  total(method = "standard") {
-    return Math.round((this.subtotal() + this.shipping(method) + this.tax()) * 100) / 100;
+  total() {
+    return Math.round((this.subtotal() + this.tax()) * 100) / 100;
   },
   add(productOrId, qty = 1) {
     const product = resolveProduct(productOrId);
@@ -89,7 +86,5 @@ window.TI.cart = {
   },
   clear() { write([]); },
   has(id) { return read().some((i) => i.id === id); },
-  rates: SHIPPING_RATES,
-  freeThreshold: SHIPPING_FREE_THRESHOLD,
   taxRate: TAX_RATE,
 };

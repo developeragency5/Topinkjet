@@ -3,26 +3,26 @@
 <head>
 <meta charset="utf-8"/>
 <title>Secure Checkout — TopInkjet</title>
-<meta name="description" content="Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99."/>
+<meta name="description" content="Complete your TopInkjet order with our secure 5-step checkout. Free standard US shipping on every order."/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#5b3df5"/>
 <link rel="canonical" href="https://topinkjet.com/checkout.html"/>
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg"/>
 <meta property="og:title" content="Secure Checkout — TopInkjet"/>
-<meta property="og:description" content="Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99."/>
+<meta property="og:description" content="Complete your TopInkjet order with our secure 5-step checkout. Free standard US shipping on every order."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://topinkjet.com/checkout.html"/>
 <meta property="og:image" content="https://topinkjet.com/assets/img/logo.svg"/>
 <meta property="og:site_name" content="TopInkjet"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Secure Checkout — TopInkjet"/>
-<meta name="twitter:description" content="Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99."/>
+<meta name="twitter:description" content="Complete your TopInkjet order with our secure 5-step checkout. Free standard US shipping on every order."/>
 <meta name="twitter:image" content="https://topinkjet.com/assets/img/logo.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/css/styles.css"/>
-<link rel="stylesheet" href="/assets/css/checkout.css"/>
+<link rel="stylesheet" href="/assets/css/checkout.css?v=3"/>
 
 </head>
 <body>
@@ -75,36 +75,46 @@
   <div class="container">
     <h1>Secure Checkout</h1>
     <p class="lead">Guest checkout — no account required. <a href="/account/sign-in.html">Already have an account? Sign in</a> (optional).</p>
-    <div class="progress-bar" role="list">
-      <div class="progress-step active" data-step="1" role="listitem"><span class="num">1</span><br/><span class="label">Contact</span></div>
-      <div class="progress-step" data-step="2" role="listitem"><span class="num">2</span><br/><span class="label">Shipping</span></div>
-      <div class="progress-step" data-step="3" role="listitem"><span class="num">3</span><br/><span class="label">Method</span></div>
-      <div class="progress-step" data-step="4" role="listitem"><span class="num">4</span><br/><span class="label">Payment</span></div>
-      <div class="progress-step" data-step="5" role="listitem"><span class="num">5</span><br/><span class="label">Review</span></div>
-    </div>
+    <ol class="progress-bar" role="list">
+      <li class="progress-step active" data-step="1"><span class="num">1</span><span class="label">Contact</span></li>
+      <li class="progress-step" data-step="2"><span class="num">2</span><span class="label">Address</span></li>
+      <li class="progress-step" data-step="3"><span class="num">3</span><span class="label">Delivery</span></li>
+      <li class="progress-step" data-step="4"><span class="num">4</span><span class="label">Payment</span></li>
+      <li class="progress-step" data-step="5"><span class="num">5</span><span class="label">Review</span></li>
+    </ol>
 
     <div class="checkout-layout">
       <form id="checkout-form" novalidate>
         <!-- STEP 1 -->
         <section class="checkout-step active" data-step="1">
-          <h2>Step 1 — Contact Info</h2>
-          <p class="step-sub">We use this to send your order confirmation and shipping updates.</p>
+          <header class="step-head">
+            <span class="step-badge">1</span>
+            <div>
+              <h2>Contact Info</h2>
+              <p class="step-sub">We use this to send your order confirmation and shipping updates.</p>
+            </div>
+          </header>
           <div class="form-grid">
-            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email" data-validate="email"/><small class="field-error" data-error-for="email"></small></label>
-            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name" data-validate="name"/><small class="field-error" data-error-for="fullName"></small></label>
+            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email" data-validate="email" placeholder="you@example.com"/><small class="field-error" data-error-for="email"></small></label>
+            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name" data-validate="name" placeholder="Jane Doe"/><small class="field-error" data-error-for="fullName"></small></label>
             <label><span>Phone (US) <em>*</em></span><input type="tel" name="phone" required placeholder="(555) 555-1234" autocomplete="tel" maxlength="14" inputmode="numeric" data-validate="phone"/><small class="field-error" data-error-for="phone"></small></label>
           </div>
-          <div class="step-actions"><span></span><button class="btn btn-accent btn-lg" type="button" data-next="2">Continue to Shipping</button></div>
+          <div class="step-actions"><span></span><button class="btn btn-accent btn-lg" type="button" data-next="2">Continue to Address</button></div>
         </section>
 
         <!-- STEP 2 -->
         <section class="checkout-step" data-step="2">
-          <h2>Step 2 — Shipping Address</h2>
-          <p class="step-sub">United States only. We verify the address before continuing.</p>
+          <header class="step-head">
+            <span class="step-badge">2</span>
+            <div>
+              <h2>Shipping Address</h2>
+              <p class="step-sub">United States only. We verify the address before continuing.</p>
+            </div>
+          </header>
           <div class="form-grid">
             <label class="span-2"><span>Street Address <em>*</em></span><input type="text" name="street" required autocomplete="address-line1" placeholder="123 Main St" data-validate="street"/><small class="field-error" data-error-for="street"></small></label>
-            <label class="span-2"><span>Apt / Suite (optional)</span><input type="text" name="apt" autocomplete="address-line2"/></label>
-            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2" data-validate="city"/><small class="field-error" data-error-for="city"></small></label>
+            <label class="span-2"><span>Apt / Suite (optional)</span><input type="text" name="apt" autocomplete="address-line2" placeholder="Apt 4B"/></label>
+            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2" data-validate="city" placeholder="Austin"/><small class="field-error" data-error-for="city"></small></label>
             <label><span>State <em>*</em></span>
               <select name="state" required autocomplete="address-level1" data-validate="state">
                 <option value="">Select…</option>
@@ -122,16 +132,65 @@
           </div>
         </section>
 
-        <!-- STEP 3 -->
+        <!-- STEP 3 — Delivery Preferences -->
         <section class="checkout-step" data-step="3">
-          <h2>Step 3 — Shipping Method</h2>
-          <p class="step-sub">Choose how fast you'd like your printer to arrive.</p>
-          <div class="shipping-options">
-            <label class="shipping-option selected"><input type="radio" name="shipping" value="standard" checked/><div><div class="name">Standard Shipping</div><div class="desc">3–5 business days</div></div><div class="price" data-shipping-price="standard">$9.99</div></label>
-            <label class="shipping-option"><input type="radio" name="shipping" value="expedited"/><div><div class="name">Expedited Shipping</div><div class="desc">2 business days</div></div><div class="price">$19.99</div></label>
-            <label class="shipping-option"><input type="radio" name="shipping" value="express"/><div><div class="name">Express Shipping</div><div class="desc">1 business day</div></div><div class="price">$34.99</div></label>
+          <header class="step-head">
+            <span class="step-badge">3</span>
+            <div>
+              <h2>Delivery Preferences</h2>
+              <p class="step-sub">Free standard ground shipping (3–5 business days) on every order. Tell us how you'd like it delivered.</p>
+            </div>
+          </header>
+
+          <div class="free-ship-banner">
+            <span class="fs-icon" aria-hidden="true">🚚</span>
+            <div>
+              <strong>Standard Ground Shipping — FREE</strong>
+              <span>Arrives in 3–5 business days. Tracked end-to-end via the carrier.</span>
+            </div>
           </div>
-          <p class="ship-note">Standard Shipping is free on orders $99 and over.</p>
+
+          <fieldset class="delivery-fieldset">
+            <legend>How should we deliver?</legend>
+            <div class="delivery-options">
+              <label class="delivery-option selected">
+                <input type="radio" name="deliveryMethod" value="leave-at-door" checked/>
+                <div class="opt-icon" aria-hidden="true">📦</div>
+                <div class="opt-body">
+                  <div class="opt-name">Leave at door</div>
+                  <div class="opt-desc">Driver leaves the package at your front door. No signature needed.</div>
+                </div>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="deliveryMethod" value="signature-required"/>
+                <div class="opt-icon" aria-hidden="true">✍️</div>
+                <div class="opt-body">
+                  <div class="opt-name">Signature required</div>
+                  <div class="opt-desc">An adult must sign on delivery. More secure for higher-value orders.</div>
+                </div>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="deliveryMethod" value="hold-at-location"/>
+                <div class="opt-icon" aria-hidden="true">🏪</div>
+                <div class="opt-body">
+                  <div class="opt-name">Hold at carrier location</div>
+                  <div class="opt-desc">We'll route the package to a nearby carrier facility for in-person pickup.</div>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="block-field">
+            <span>Delivery instructions (optional)</span>
+            <textarea name="deliveryInstructions" rows="3" maxlength="240" placeholder="e.g. Gate code 1234. Leave by side garage door."></textarea>
+            <small class="field-hint">Up to 240 characters. Shared with the carrier on the shipping label.</small>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="smsNotify"/>
+            <span>Text me tracking updates at the phone number above (US carrier rates may apply).</span>
+          </label>
+
           <div class="step-actions">
             <button class="btn btn-outline" type="button" data-prev="2">Back</button>
             <button class="btn btn-accent btn-lg" type="button" data-next="4">Continue to Payment</button>
@@ -140,10 +199,15 @@
 
         <!-- STEP 4 -->
         <section class="checkout-step" data-step="4">
-          <h2>Step 4 — Payment</h2>
-          <p class="step-sub">Encrypted at the browser. Your card is never stored on our servers.</p>
+          <header class="step-head">
+            <span class="step-badge">4</span>
+            <div>
+              <h2>Payment</h2>
+              <p class="step-sub">Validated in the browser. Your card is never transmitted in this demo.</p>
+            </div>
+          </header>
           <div class="form-grid">
-            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name" data-validate="name"/><small class="field-error" data-error-for="cardName"></small></label>
+            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name" data-validate="name" placeholder="Jane Doe"/><small class="field-error" data-error-for="cardName"></small></label>
             <label class="span-2"><span>Card Number <em>*</em></span>
               <div class="card-row">
                 <input type="text" name="cardNumber" required inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23" data-validate="cardNumber"/>
@@ -152,7 +216,7 @@
               <small class="field-error" data-error-for="cardNumber"></small>
             </label>
             <label><span>Expiry (MM/YY) <em>*</em></span><input type="text" name="cardExpiry" required placeholder="08/29" maxlength="5" autocomplete="cc-exp" inputmode="numeric" data-validate="cardExpiry"/><small class="field-error" data-error-for="cardExpiry"></small></label>
-            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required maxlength="4" autocomplete="cc-csc" inputmode="numeric" data-validate="cardCvv"/><small class="field-error" data-error-for="cardCvv"></small></label>
+            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required maxlength="4" autocomplete="cc-csc" inputmode="numeric" data-validate="cardCvv" placeholder="123"/><small class="field-error" data-error-for="cardCvv"></small></label>
           </div>
           <p class="disclosure">This is a demonstration storefront. Form data is validated locally and stored in your browser only — no card information is transmitted to any server.</p>
           <div class="step-actions">
@@ -163,8 +227,13 @@
 
         <!-- STEP 5 -->
         <section class="checkout-step" data-step="5">
-          <h2>Step 5 — Review &amp; Place Order</h2>
-          <p class="step-sub">Confirm everything looks right before placing your order.</p>
+          <header class="step-head">
+            <span class="step-badge">5</span>
+            <div>
+              <h2>Review &amp; Place Order</h2>
+              <p class="step-sub">Confirm everything looks right before placing your order.</p>
+            </div>
+          </header>
           <div class="review-section">
             <h3>Contact <a href="#" data-edit="1">Edit</a></h3>
             <p id="rev-contact"></p>
@@ -174,8 +243,8 @@
             <p id="rev-address"></p>
           </div>
           <div class="review-section">
-            <h3>Shipping Method <a href="#" data-edit="3">Edit</a></h3>
-            <p id="rev-shipping"></p>
+            <h3>Delivery <a href="#" data-edit="3">Edit</a></h3>
+            <p id="rev-delivery"></p>
           </div>
           <div class="review-section">
             <h3>Payment <a href="#" data-edit="4">Edit</a></h3>
@@ -195,12 +264,19 @@
 
       <aside class="cart-summary checkout-summary" id="checkout-summary">
         <h3>Order Summary</h3>
-        <div id="checkout-items"></div>
-        <hr/>
-        <div class="row"><span>Subtotal</span><strong id="co-subtotal">$0.00</strong></div>
-        <div class="row"><span>Shipping</span><strong id="co-shipping">$0.00</strong></div>
-        <div class="row"><span>Tax (8%)</span><strong id="co-tax">$0.00</strong></div>
-        <div class="row total"><span>Total</span><strong id="co-total">$0.00</strong></div>
+        <div id="checkout-items" class="co-items"></div>
+        <div class="co-empty" id="co-empty" hidden>Your cart is empty. <a href="/shop.html">Add a printer</a> to continue.</div>
+        <div class="free-ship-pill" aria-hidden="true">
+          <span>🚚</span>
+          <span>Free standard shipping included</span>
+        </div>
+        <div class="co-totals">
+          <div class="row"><span>Subtotal</span><strong id="co-subtotal">$0.00</strong></div>
+          <div class="row"><span>Shipping</span><strong id="co-shipping" class="co-free">FREE</strong></div>
+          <div class="row"><span>Tax (8%)</span><strong id="co-tax">$0.00</strong></div>
+          <div class="row total"><span>Total</span><strong id="co-total">$0.00</strong></div>
+        </div>
+        <p class="co-fineprint">Taxes calculated at 8% for demo purposes. Real sales tax depends on your shipping state.</p>
       </aside>
     </div>
   </div>
@@ -323,12 +399,12 @@
   </div>
 </div>
 
-<script src="/assets/js/catalog.js" defer></script>
+<script src="/assets/js/catalog.js?v=3" defer></script>
 <script src="/assets/js/products.js" defer></script>
-<script src="/assets/js/cart.js" defer></script>
-<script src="/assets/js/wishlist.js" defer></script>
+<script src="/assets/js/cart.js?v=3" defer></script>
+<script src="/assets/js/wishlist.js?v=3" defer></script>
 <script src="/assets/js/cookie-consent.js" defer></script>
-<script src="/assets/js/main.js" defer></script>
-<script src="/assets/js/avs.js" defer></script><script src="/assets/js/checkout.js" defer></script>
+<script src="/assets/js/main.js?v=3" defer></script>
+<script src="/assets/js/avs.js?v=3" defer></script><script src="/assets/js/checkout.js?v=3" defer></script>
 </body>
 </html>

@@ -67,8 +67,8 @@
   function updateSummary(subtotal) {
     const sub = Number.isFinite(subtotal) ? subtotal : 0;
     const tax = +(sub * 0.08).toFixed(2);
-    const shipping = sub === 0 ? 0 : (sub >= 99 ? 0 : 9.99);
-    const total = sub + tax + shipping;
+    const shipping = 0; // Standard ground always FREE.
+    const total = sub + tax;
     document.getElementById("cart-subtotal").textContent = fmt(sub);
     document.getElementById("cart-tax").textContent = fmt(tax);
     document.getElementById("cart-shipping").textContent = shipping === 0 && sub > 0 ? "FREE" : fmt(shipping);

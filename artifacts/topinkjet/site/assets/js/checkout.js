@@ -1,11 +1,13 @@
 // checkout.js — 5-step checkout flow controller with inline blur validation.
+// Steps: 1 Contact · 2 Shipping Address · 3 Delivery Preferences · 4 Payment · 5 Review.
+// Standard ground shipping is FREE on every order; no paid shipping options.
 (function () {
   "use strict";
   const form = document.getElementById("checkout-form");
   if (!form) return;
   const products = () => window.TI.products || [];
   const cart = () => (window.TI.cart && window.TI.cart.read()) || [];
-  const fmt = (n) => "$" + n.toFixed(2);
+  const fmt = (n) => "$" + (Number.isFinite(n) ? n : 0).toFixed(2);
 
   // ----- Step navigation -----
   let currentStep = 1;
@@ -220,7 +222,6 @@
   form.querySelectorAll("[data-validate]").forEach((field) => {
     field.addEventListener("blur", () => validateField(field));
     field.addEventListener("input", () => {
-      // Clear error as the user fixes it; don't show new errors until next blur.
       if (field.classList.contains("invalid")) {
         const kind = field.getAttribute("data-validate");
         if (kind && VALIDATORS[kind] && !VALIDATORS[kind](field.value)) showError(field, "");
@@ -268,22 +269,33 @@
       status.textContent = "✓ Address verified.";
       return true;
     }
-    if (step === 3) return !!form.querySelector('input[name="shipping"]:checked');
+    if (step === 3) {
+      // Delivery method has a default selected, so this just confirms a value is set.
+      return !!form.querySelector('input[name="deliveryMethod"]:checked');
+    }
     if (step === 4) return validateFieldsInStep(4);
     return true;
   }
 
-  // ----- Shipping option selection -----
-  document.querySelectorAll(".shipping-option").forEach((opt) => {
+  // ----- Delivery option selection (visual only) -----
+  document.querySelectorAll(".delivery-option").forEach((opt) => {
     opt.addEventListener("click", () => {
-      document.querySelectorAll(".shipping-option").forEach((o) => o.classList.remove("selected"));
+      document.querySelectorAll(".delivery-option").forEach((o) => o.classList.remove("selected"));
       opt.classList.add("selected");
       const radio = opt.querySelector("input");
       if (radio) radio.checked = true;
-      updateSummary();
     });
   });
-  form.addEventListener("change", updateSummary);
+  // Keep visual selection in sync if user uses keyboard / screen reader.
+  form.addEventListener("change", (e) => {
+    if (e.target && e.target.name === "deliveryMethod") {
+      document.querySelectorAll(".delivery-option").forEach((o) => {
+        const r = o.querySelector('input[name="deliveryMethod"]');
+        o.classList.toggle("selected", !!(r && r.checked));
+      });
+    }
+    updateSummary();
+  });
 
   // ----- Form helpers -----
   function readForm() {
@@ -297,22 +309,24 @@
     });
     return data;
   }
-  function getShippingCost(method, subtotal) {
-    if (method === "expedited") return 19.99;
-    if (method === "express") return 34.99;
-    return subtotal >= 99 ? 0 : 9.99;
-  }
 
   function safeQty(q) { return Math.max(0, Math.floor(Number(q)) || 0); }
   function safePrice(p) { const n = Number(p); return Number.isFinite(n) ? n : 0; }
 
+  const DELIVERY_LABELS = {
+    "leave-at-door": "Leave at door (no signature)",
+    "signature-required": "Signature required",
+    "hold-at-location": "Hold at carrier location for pickup",
+  };
+
   function updateSummary() {
     const list = document.getElementById("checkout-items");
+    const empty = document.getElementById("co-empty");
     if (!list) return;
     const c = cart();
     const ps = products();
     let subtotal = 0;
-    list.innerHTML = c
+    const html = c
       .map((item) => {
         const p = ps.find((x) => x.id === item.id);
         if (!p) return "";
@@ -321,22 +335,25 @@
         subtotal += lineTotal;
         return `
       <div class="co-line">
-        <img src="/assets/products/${p.image}" alt="${p.name}"/>
-        <div>
+        <img src="/assets/products/${p.image}" alt=""/>
+        <div class="co-line-body">
           <div class="name">${p.name}</div>
           <div class="meta">Qty ${q}</div>
         </div>
-        <div>${fmt(lineTotal)}</div>
+        <div class="co-line-price">${fmt(lineTotal)}</div>
       </div>`;
       })
       .join("");
-    const data = readForm();
-    const shipping = subtotal > 0 ? getShippingCost(data.shipping || "standard", subtotal) : 0;
+    list.innerHTML = html;
+    if (empty) empty.hidden = c.length > 0;
     const tax = +(subtotal * 0.08).toFixed(2);
-    const total = subtotal + shipping + tax;
+    const total = subtotal + tax; // shipping is always free
     document.getElementById("co-subtotal").textContent = fmt(subtotal);
-    document.getElementById("co-shipping").textContent =
-      shipping === 0 && subtotal > 0 ? "FREE" : fmt(shipping);
+    const shipEl = document.getElementById("co-shipping");
+    if (shipEl) {
+      shipEl.textContent = "FREE";
+      shipEl.classList.add("co-free");
+    }
     document.getElementById("co-tax").textContent = fmt(tax);
     document.getElementById("co-total").textContent = fmt(total);
   }
@@ -348,7 +365,6 @@
     lines.forEach((line, i) => {
       if (i > 0) targetEl.appendChild(document.createElement("br"));
       if (Array.isArray(line)) {
-        // Each segment is either a string (textNode) or { strong: "..." }
         line.forEach((seg) => {
           if (typeof seg === "string") {
             targetEl.appendChild(document.createTextNode(seg));
@@ -376,12 +392,15 @@
       `${d.city || ""}, ${d.state || ""} ${d.zip || ""}`,
       "United States",
     ]);
-    const shipText = {
-      standard: "Standard (3–5 business days)",
-      expedited: "Expedited (2 business days)",
-      express: "Express (1 business day)",
-    };
-    document.getElementById("rev-shipping").textContent = shipText[d.shipping || "standard"];
+    const deliveryLines = [
+      "Free Standard Ground (3–5 business days)",
+      DELIVERY_LABELS[d.deliveryMethod] || DELIVERY_LABELS["leave-at-door"],
+    ];
+    if (d.deliveryInstructions && d.deliveryInstructions.trim()) {
+      deliveryLines.push("Notes: " + d.deliveryInstructions.trim());
+    }
+    if (d.smsNotify) deliveryLines.push("SMS tracking updates: yes");
+    renderLines(document.getElementById("rev-delivery"), deliveryLines);
     const digits = (d.cardNumber || "").replace(/\D/g, "");
     const last4 = digits.slice(-4);
     const brand = detectBrand(digits);
@@ -409,17 +428,12 @@
       alert("Your cart is empty.");
       return;
     }
-    // Final guard: re-validate every step before writing the order, in case
-    // the user reached step 5 with stale fields (e.g. via deep link / back button).
-    for (const step of [1, 2, 4]) {
+    // Final guard: re-validate every step before writing the order.
+    for (const step of [1, 2, 3, 4]) {
       if (!validateStep(step)) {
         showStep(step);
         return;
       }
-    }
-    if (!form.querySelector('input[name="shipping"]:checked')) {
-      showStep(3);
-      return;
     }
     const ps = products();
     let subtotal = 0;
@@ -434,9 +448,9 @@
         return { id: p.id, slug: p.slug, name: p.name, price, qty: q, image: p.image };
       })
       .filter(Boolean);
-    const shipping = getShippingCost(d.shipping || "standard", subtotal);
+    const shipping = 0; // Standard ground always free.
     const tax = +(subtotal * 0.08).toFixed(2);
-    const total = subtotal + shipping + tax;
+    const total = subtotal + tax;
     const orderNum = "TI-" + Math.random().toString(36).slice(2, 10).toUpperCase();
     const order = {
       number: orderNum,
@@ -450,7 +464,12 @@
         zip: d.zip,
         country: "United States",
       },
-      shippingMethod: d.shipping || "standard",
+      delivery: {
+        method: d.deliveryMethod || "leave-at-door",
+        methodLabel: DELIVERY_LABELS[d.deliveryMethod] || DELIVERY_LABELS["leave-at-door"],
+        instructions: (d.deliveryInstructions || "").trim(),
+        smsNotify: !!d.smsNotify,
+      },
       shipping,
       subtotal,
       tax,
@@ -465,7 +484,6 @@
     } catch (e) {
       /* ignore */
     }
-    // Clear cart through the cart API so other listeners (badge, drawer) update.
     if (window.TI.cart && typeof window.TI.cart.clear === "function") {
       window.TI.cart.clear();
     } else {

@@ -236,12 +236,12 @@ ${header(active)}
 ${body}
 </main>
 ${footer()}
-<script src="/assets/js/catalog.js" defer></script>
+<script src="/assets/js/catalog.js?v=3" defer></script>
 <script src="/assets/js/products.js" defer></script>
-<script src="/assets/js/cart.js" defer></script>
-<script src="/assets/js/wishlist.js" defer></script>
+<script src="/assets/js/cart.js?v=3" defer></script>
+<script src="/assets/js/wishlist.js?v=3" defer></script>
 <script src="/assets/js/cookie-consent.js" defer></script>
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v=3" defer></script>
 ${extraJs}
 </body>
 </html>`;
@@ -356,7 +356,7 @@ function pageHome(products) {
         <a class="btn btn-outline btn-lg" href="/category-home-inkjet.html">Shop Home Printers</a>
       </div>
       <div class="hero-mini">
-        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.5h11v9h-11z"/><path d="M13.5 10.5h4l4 4v2h-8z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg><span class="mp-text">Free US shipping <strong>over&nbsp;$99</strong></span></span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.5h11v9h-11z"/><path d="M13.5 10.5h4l4 4v2h-8z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg><span class="mp-text">Free US shipping <strong>on&nbsp;every&nbsp;order</strong></span></span>
         <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 1 0 2.4-5.7"/><path d="M3 4v5h5"/></svg><span class="mp-text"><strong>30-day</strong> easy returns</span></span>
         <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="mp-text"><strong>Secure</strong> US&nbsp;checkout</span></span>
       </div>
@@ -369,7 +369,7 @@ function pageHome(products) {
 
 <section class="section section-tight">
   <div class="container trust-strip">
-    <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div><h3>Free US Shipping</h3><p>On orders $99 and over.</p></div>
+    <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div><h3>Free US Shipping</h3><p>Standard ground free on every order.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-6h6"/></svg></div><h3>30-Day Returns</h3><p>Hassle-free return window.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.6 5.3 5.9.9-4.3 4.2 1 5.9L12 15.5 6.8 18.3l1-5.9L3.5 8.2l5.9-.9z"/></svg></div><h3>Focused Catalog</h3><p>A tight HP inkjet lineup.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Secure Checkout</h3><p>256-bit encrypted payments.</p></div>
@@ -447,7 +447,7 @@ function pageHome(products) {
   <div class="container">
     <h2>Office &amp; Home Inkjets, Carefully Curated</h2>
     <p>Every printer in our lineup is a current-generation HP inkjet — DeskJet, ENVY, OfficeJet Pro, or Smart Tank — chosen for the way real US homes and offices actually print today. Auto-duplex, mobile printing from the HP Smart app, and wireless setup come standard across the catalog. Step up the range and you add a 35-sheet automatic document feeder, mobile fax, and refillable ink tanks that last up to two years.</p>
-    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet experience: free US shipping over $99, 30-day returns, and US-based customer support.</p>
+    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet experience: free US shipping on every order, 30-day returns, and US-based customer support.</p>
   </div>
 </section>
 
@@ -484,8 +484,8 @@ function pageHome(products) {
     <div class="section-head"><h2>Frequently Asked Questions</h2><p class="lead">Quick answers to the most common questions before you buy.</p></div>
     <div class="faq-list">
       <details><summary>Do you ship internationally?</summary><p>TopInkjet ships within the United States only at this time. We deliver to all 50 states, Washington D.C., and APO/FPO/DPO addresses.</p></details>
-      <details><summary>How long does shipping take?</summary><p>Standard ground shipping arrives in 3–5 business days. Expedited shipping arrives in 2 business days, and Express in 1 business day. Transit times begin once your order has been packed and handed to the carrier.</p></details>
-      <details><summary>Is shipping really free over $99?</summary><p>Yes — every order over $99 ships free via Standard ground shipping anywhere in the contiguous United States. There are no hidden surcharges and no membership required.</p></details>
+      <details><summary>How long does shipping take?</summary><p>Standard ground shipping arrives in 3–5 business days, free on every order. Transit time begins once your order has been packed and handed to the carrier — typically within 1–2 business days of order placement.</p></details>
+      <details><summary>Is shipping really free?</summary><p>Yes — every order ships free via Standard ground shipping anywhere in the contiguous United States. There are no hidden surcharges, no minimum spend, and no membership required.</p></details>
       <details><summary>Can I return a printer if it's not right?</summary><p>Absolutely. Every printer we sell carries a 30-day return window from the date of delivery. The product must be in resalable condition with original packaging. See the <a href="/return-policy.html">Return Policy</a> for details.</p></details>
       <details><summary>Do I need an account to check out?</summary><p>No. Guest checkout is the default and we never force you to create an account. Creating an account is optional and only saves your shipping address for next time.</p></details>
     </div>
@@ -495,7 +495,7 @@ function pageHome(products) {
 `;
   return shell({
     title: "TopInkjet — Office & Home Inkjet Printers, Free US Shipping",
-    description: "Premium HP inkjet printers for US homes and offices. Focused catalog, free US shipping over $99, 30-day returns, and US-based customer support.",
+    description: "Premium HP inkjet printers for US homes and offices. Focused catalog, free US shipping on every order, 30-day returns, and US-based customer support.",
     canonical: "/",
     body,
     active: "home",
@@ -539,7 +539,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Shop" }])}
 `;
   return shell({
     title: "Shop All Inkjet Printers — Office & Home | TopInkjet",
-    description: `Shop our full lineup of ${products.length} HP inkjet printers for office and home. Free US shipping over $99 and 30-day returns.`,
+    description: `Shop our full lineup of ${products.length} HP inkjet printers for office and home. Free US shipping on every order and 30-day returns.`,
     canonical: "/shop.html",
     active: "shop",
     body,
@@ -586,7 +586,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: title }])}
 `;
   return shell({
     title: `${title} — TopInkjet`,
-    description: `Shop ${title.toLowerCase()} from TopInkjet. ${list.length} curated models, free US shipping over $99, and 30-day returns.`,
+    description: `Shop ${title.toLowerCase()} from TopInkjet. ${list.length} curated models, free US shipping on every order, and 30-day returns.`,
     canonical: `/category-${category}.html`,
     active: isOffice ? "office" : "home-cat",
     body,
@@ -650,7 +650,7 @@ ${breadcrumbs([
       <p class="lead">${esc(p.short)}</p>
       <div class="price-block">
         <span class="price-big">${money(p.price)}</span>
-        <span class="price-meta">USD · Free US shipping over $99</span>
+        <span class="price-meta">USD · Free US shipping on every order</span>
       </div>
       <div class="qty-row">
         <label for="qty">Qty</label>
@@ -666,7 +666,7 @@ ${breadcrumbs([
       </div>
       <ul class="ship-bullets">
         <li>✓ Ships from our US warehouse</li>
-        <li>✓ Free Standard Shipping over $99</li>
+        <li>✓ Free Standard Shipping on every order</li>
         <li>✓ 30-Day Returns — see <a href="/return-policy.html">Return Policy</a></li>
         <li>✓ Backed by the full manufacturer warranty</li>
       </ul>
@@ -692,7 +692,7 @@ ${breadcrumbs([
     </article>
     <article>
       <h2>Shipping & Returns</h2>
-      <p>Free Standard Shipping (3–5 business days) on all orders $99 and above. Expedited (2 business days) and Express (1 business day) options are available at checkout. Transit times begin once your order has been handed to the carrier. We ship within the United States only.</p>
+      <p>Free Standard Ground Shipping (3–5 business days) on every order. Transit time begins once your order has been packed and handed to the carrier — typically within 1–2 business days of order placement. We ship within the United States only. 30-day returns from the date of delivery — see our <a href="/return-policy.html">Return Policy</a> for details.</p>
       <p>Return any printer within 30 days of delivery for a full refund of the product price. The product must be in resalable condition with original packaging and accessories. See our <a href="/return-policy.html">Return Policy</a> and <a href="/refund-policy.html">Refund Policy</a> for full details.</p>
     </article>
   </div>
@@ -709,7 +709,7 @@ ${breadcrumbs([
 `;
   return shell({
     title: `${p.name} — ${money(p.price)} | TopInkjet`.slice(0, 60),
-    description: `${p.short} Ships within the US. Free US shipping over $99.`.slice(0, 160),
+    description: `${p.short} Ships within the US. Free standard shipping on every order.`.slice(0, 160),
     canonical: `/product/${p.slug}.html`,
     active: p.category === "office-inkjet" ? "office" : "home-cat",
     body,
@@ -747,9 +747,9 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart" }])}
         <h3>Order Summary</h3>
         <div class="row"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
         <div class="row"><span>Estimated Tax (8%)</span><strong id="cart-tax">$0.00</strong></div>
-        <div class="row"><span>Shipping</span><strong id="cart-shipping">$0.00</strong></div>
+        <div class="row"><span>Shipping</span><strong id="cart-shipping" class="co-free">FREE</strong></div>
         <div class="row total"><span>Total</span><strong id="cart-total">$0.00</strong></div>
-        <p class="ship-note">Free Standard Shipping on orders $99 and over.</p>
+        <p class="ship-note">🚚 Free Standard Ground Shipping on every order.</p>
         <a class="btn btn-accent btn-block btn-lg" href="/checkout.html">Proceed to Checkout</a>
         <a class="btn btn-outline btn-block" href="/shop.html">Continue Shopping</a>
       </aside>
@@ -768,7 +768,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart" }])}
     description: "Review the items in your TopInkjet shopping cart and proceed to secure checkout.",
     canonical: "/cart.html",
     body,
-    extraJs: `<script src="/assets/js/cart-page.js" defer></script>`,
+    extraJs: `<script src="/assets/js/cart-page.js?v=3" defer></script>`,
   });
 }
 
@@ -821,36 +821,46 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
   <div class="container">
     <h1>Secure Checkout</h1>
     <p class="lead">Guest checkout — no account required. <a href="/account/sign-in.html">Already have an account? Sign in</a> (optional).</p>
-    <div class="progress-bar" role="list">
-      <div class="progress-step active" data-step="1" role="listitem"><span class="num">1</span><br/><span class="label">Contact</span></div>
-      <div class="progress-step" data-step="2" role="listitem"><span class="num">2</span><br/><span class="label">Shipping</span></div>
-      <div class="progress-step" data-step="3" role="listitem"><span class="num">3</span><br/><span class="label">Method</span></div>
-      <div class="progress-step" data-step="4" role="listitem"><span class="num">4</span><br/><span class="label">Payment</span></div>
-      <div class="progress-step" data-step="5" role="listitem"><span class="num">5</span><br/><span class="label">Review</span></div>
-    </div>
+    <ol class="progress-bar" role="list">
+      <li class="progress-step active" data-step="1"><span class="num">1</span><span class="label">Contact</span></li>
+      <li class="progress-step" data-step="2"><span class="num">2</span><span class="label">Address</span></li>
+      <li class="progress-step" data-step="3"><span class="num">3</span><span class="label">Delivery</span></li>
+      <li class="progress-step" data-step="4"><span class="num">4</span><span class="label">Payment</span></li>
+      <li class="progress-step" data-step="5"><span class="num">5</span><span class="label">Review</span></li>
+    </ol>
 
     <div class="checkout-layout">
       <form id="checkout-form" novalidate>
         <!-- STEP 1 -->
         <section class="checkout-step active" data-step="1">
-          <h2>Step 1 — Contact Info</h2>
-          <p class="step-sub">We use this to send your order confirmation and shipping updates.</p>
+          <header class="step-head">
+            <span class="step-badge">1</span>
+            <div>
+              <h2>Contact Info</h2>
+              <p class="step-sub">We use this to send your order confirmation and shipping updates.</p>
+            </div>
+          </header>
           <div class="form-grid">
-            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email" data-validate="email"/><small class="field-error" data-error-for="email"></small></label>
-            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name" data-validate="name"/><small class="field-error" data-error-for="fullName"></small></label>
+            <label class="span-2"><span>Email <em>*</em></span><input type="email" name="email" required autocomplete="email" data-validate="email" placeholder="you@example.com"/><small class="field-error" data-error-for="email"></small></label>
+            <label><span>Full Name <em>*</em></span><input type="text" name="fullName" required autocomplete="name" data-validate="name" placeholder="Jane Doe"/><small class="field-error" data-error-for="fullName"></small></label>
             <label><span>Phone (US) <em>*</em></span><input type="tel" name="phone" required placeholder="(555) 555-1234" autocomplete="tel" maxlength="14" inputmode="numeric" data-validate="phone"/><small class="field-error" data-error-for="phone"></small></label>
           </div>
-          <div class="step-actions"><span></span><button class="btn btn-accent btn-lg" type="button" data-next="2">Continue to Shipping</button></div>
+          <div class="step-actions"><span></span><button class="btn btn-accent btn-lg" type="button" data-next="2">Continue to Address</button></div>
         </section>
 
         <!-- STEP 2 -->
         <section class="checkout-step" data-step="2">
-          <h2>Step 2 — Shipping Address</h2>
-          <p class="step-sub">United States only. We verify the address before continuing.</p>
+          <header class="step-head">
+            <span class="step-badge">2</span>
+            <div>
+              <h2>Shipping Address</h2>
+              <p class="step-sub">United States only. We verify the address before continuing.</p>
+            </div>
+          </header>
           <div class="form-grid">
             <label class="span-2"><span>Street Address <em>*</em></span><input type="text" name="street" required autocomplete="address-line1" placeholder="123 Main St" data-validate="street"/><small class="field-error" data-error-for="street"></small></label>
-            <label class="span-2"><span>Apt / Suite (optional)</span><input type="text" name="apt" autocomplete="address-line2"/></label>
-            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2" data-validate="city"/><small class="field-error" data-error-for="city"></small></label>
+            <label class="span-2"><span>Apt / Suite (optional)</span><input type="text" name="apt" autocomplete="address-line2" placeholder="Apt 4B"/></label>
+            <label><span>City <em>*</em></span><input type="text" name="city" required autocomplete="address-level2" data-validate="city" placeholder="Austin"/><small class="field-error" data-error-for="city"></small></label>
             <label><span>State <em>*</em></span>
               <select name="state" required autocomplete="address-level1" data-validate="state">
                 <option value="">Select…</option>
@@ -868,16 +878,65 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
           </div>
         </section>
 
-        <!-- STEP 3 -->
+        <!-- STEP 3 — Delivery Preferences -->
         <section class="checkout-step" data-step="3">
-          <h2>Step 3 — Shipping Method</h2>
-          <p class="step-sub">Choose how fast you'd like your printer to arrive.</p>
-          <div class="shipping-options">
-            <label class="shipping-option selected"><input type="radio" name="shipping" value="standard" checked/><div><div class="name">Standard Shipping</div><div class="desc">3–5 business days</div></div><div class="price" data-shipping-price="standard">$9.99</div></label>
-            <label class="shipping-option"><input type="radio" name="shipping" value="expedited"/><div><div class="name">Expedited Shipping</div><div class="desc">2 business days</div></div><div class="price">$19.99</div></label>
-            <label class="shipping-option"><input type="radio" name="shipping" value="express"/><div><div class="name">Express Shipping</div><div class="desc">1 business day</div></div><div class="price">$34.99</div></label>
+          <header class="step-head">
+            <span class="step-badge">3</span>
+            <div>
+              <h2>Delivery Preferences</h2>
+              <p class="step-sub">Free standard ground shipping (3–5 business days) on every order. Tell us how you'd like it delivered.</p>
+            </div>
+          </header>
+
+          <div class="free-ship-banner">
+            <span class="fs-icon" aria-hidden="true">🚚</span>
+            <div>
+              <strong>Standard Ground Shipping — FREE</strong>
+              <span>Arrives in 3–5 business days. Tracked end-to-end via the carrier.</span>
+            </div>
           </div>
-          <p class="ship-note">Standard Shipping is free on orders $99 and over.</p>
+
+          <fieldset class="delivery-fieldset">
+            <legend>How should we deliver?</legend>
+            <div class="delivery-options">
+              <label class="delivery-option selected">
+                <input type="radio" name="deliveryMethod" value="leave-at-door" checked/>
+                <div class="opt-icon" aria-hidden="true">📦</div>
+                <div class="opt-body">
+                  <div class="opt-name">Leave at door</div>
+                  <div class="opt-desc">Driver leaves the package at your front door. No signature needed.</div>
+                </div>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="deliveryMethod" value="signature-required"/>
+                <div class="opt-icon" aria-hidden="true">✍️</div>
+                <div class="opt-body">
+                  <div class="opt-name">Signature required</div>
+                  <div class="opt-desc">An adult must sign on delivery. More secure for higher-value orders.</div>
+                </div>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="deliveryMethod" value="hold-at-location"/>
+                <div class="opt-icon" aria-hidden="true">🏪</div>
+                <div class="opt-body">
+                  <div class="opt-name">Hold at carrier location</div>
+                  <div class="opt-desc">We'll route the package to a nearby carrier facility for in-person pickup.</div>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="block-field">
+            <span>Delivery instructions (optional)</span>
+            <textarea name="deliveryInstructions" rows="3" maxlength="240" placeholder="e.g. Gate code 1234. Leave by side garage door."></textarea>
+            <small class="field-hint">Up to 240 characters. Shared with the carrier on the shipping label.</small>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="smsNotify"/>
+            <span>Text me tracking updates at the phone number above (US carrier rates may apply).</span>
+          </label>
+
           <div class="step-actions">
             <button class="btn btn-outline" type="button" data-prev="2">Back</button>
             <button class="btn btn-accent btn-lg" type="button" data-next="4">Continue to Payment</button>
@@ -886,10 +945,15 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
 
         <!-- STEP 4 -->
         <section class="checkout-step" data-step="4">
-          <h2>Step 4 — Payment</h2>
-          <p class="step-sub">Encrypted at the browser. Your card is never stored on our servers.</p>
+          <header class="step-head">
+            <span class="step-badge">4</span>
+            <div>
+              <h2>Payment</h2>
+              <p class="step-sub">Validated in the browser. Your card is never transmitted in this demo.</p>
+            </div>
+          </header>
           <div class="form-grid">
-            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name" data-validate="name"/><small class="field-error" data-error-for="cardName"></small></label>
+            <label class="span-2"><span>Name on Card <em>*</em></span><input type="text" name="cardName" required autocomplete="cc-name" data-validate="name" placeholder="Jane Doe"/><small class="field-error" data-error-for="cardName"></small></label>
             <label class="span-2"><span>Card Number <em>*</em></span>
               <div class="card-row">
                 <input type="text" name="cardNumber" required inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23" data-validate="cardNumber"/>
@@ -898,7 +962,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
               <small class="field-error" data-error-for="cardNumber"></small>
             </label>
             <label><span>Expiry (MM/YY) <em>*</em></span><input type="text" name="cardExpiry" required placeholder="08/29" maxlength="5" autocomplete="cc-exp" inputmode="numeric" data-validate="cardExpiry"/><small class="field-error" data-error-for="cardExpiry"></small></label>
-            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required maxlength="4" autocomplete="cc-csc" inputmode="numeric" data-validate="cardCvv"/><small class="field-error" data-error-for="cardCvv"></small></label>
+            <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required maxlength="4" autocomplete="cc-csc" inputmode="numeric" data-validate="cardCvv" placeholder="123"/><small class="field-error" data-error-for="cardCvv"></small></label>
           </div>
           <p class="disclosure">This is a demonstration storefront. Form data is validated locally and stored in your browser only — no card information is transmitted to any server.</p>
           <div class="step-actions">
@@ -909,8 +973,13 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
 
         <!-- STEP 5 -->
         <section class="checkout-step" data-step="5">
-          <h2>Step 5 — Review &amp; Place Order</h2>
-          <p class="step-sub">Confirm everything looks right before placing your order.</p>
+          <header class="step-head">
+            <span class="step-badge">5</span>
+            <div>
+              <h2>Review &amp; Place Order</h2>
+              <p class="step-sub">Confirm everything looks right before placing your order.</p>
+            </div>
+          </header>
           <div class="review-section">
             <h3>Contact <a href="#" data-edit="1">Edit</a></h3>
             <p id="rev-contact"></p>
@@ -920,8 +989,8 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
             <p id="rev-address"></p>
           </div>
           <div class="review-section">
-            <h3>Shipping Method <a href="#" data-edit="3">Edit</a></h3>
-            <p id="rev-shipping"></p>
+            <h3>Delivery <a href="#" data-edit="3">Edit</a></h3>
+            <p id="rev-delivery"></p>
           </div>
           <div class="review-section">
             <h3>Payment <a href="#" data-edit="4">Edit</a></h3>
@@ -941,12 +1010,19 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
 
       <aside class="cart-summary checkout-summary" id="checkout-summary">
         <h3>Order Summary</h3>
-        <div id="checkout-items"></div>
-        <hr/>
-        <div class="row"><span>Subtotal</span><strong id="co-subtotal">$0.00</strong></div>
-        <div class="row"><span>Shipping</span><strong id="co-shipping">$0.00</strong></div>
-        <div class="row"><span>Tax (8%)</span><strong id="co-tax">$0.00</strong></div>
-        <div class="row total"><span>Total</span><strong id="co-total">$0.00</strong></div>
+        <div id="checkout-items" class="co-items"></div>
+        <div class="co-empty" id="co-empty" hidden>Your cart is empty. <a href="/shop.html">Add a printer</a> to continue.</div>
+        <div class="free-ship-pill" aria-hidden="true">
+          <span>🚚</span>
+          <span>Free standard shipping included</span>
+        </div>
+        <div class="co-totals">
+          <div class="row"><span>Subtotal</span><strong id="co-subtotal">$0.00</strong></div>
+          <div class="row"><span>Shipping</span><strong id="co-shipping" class="co-free">FREE</strong></div>
+          <div class="row"><span>Tax (8%)</span><strong id="co-tax">$0.00</strong></div>
+          <div class="row total"><span>Total</span><strong id="co-total">$0.00</strong></div>
+        </div>
+        <p class="co-fineprint">Taxes calculated at 8% for demo purposes. Real sales tax depends on your shipping state.</p>
       </aside>
     </div>
   </div>
@@ -954,11 +1030,11 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
 `;
   return shell({
     title: "Secure Checkout — TopInkjet",
-    description: "Complete your TopInkjet order with our secure 5-step checkout. Free US shipping on orders over $99.",
+    description: "Complete your TopInkjet order with our secure 5-step checkout. Free standard US shipping on every order.",
     canonical: "/checkout.html",
     body,
-    extraCss: `<link rel="stylesheet" href="/assets/css/checkout.css"/>`,
-    extraJs: `<script src="/assets/js/avs.js" defer></script><script src="/assets/js/checkout.js" defer></script>`,
+    extraCss: `<link rel="stylesheet" href="/assets/css/checkout.css?v=3"/>`,
+    extraJs: `<script src="/assets/js/avs.js?v=3" defer></script><script src="/assets/js/checkout.js?v=3" defer></script>`,
   });
 }
 
@@ -981,11 +1057,15 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Order Confirmation" }])}
         <p id="confirm-email"></p>
       </div>
       <div class="card">
+        <h3>Delivery</h3>
+        <div id="confirm-delivery" class="confirm-delivery"></div>
+      </div>
+      <div class="card span-2">
         <h3>Order Details</h3>
         <ul id="confirm-items"></ul>
         <hr/>
         <div class="row"><span>Subtotal</span><strong id="confirm-subtotal">$0.00</strong></div>
-        <div class="row"><span>Shipping</span><strong id="confirm-shipping">$0.00</strong></div>
+        <div class="row"><span>Shipping</span><strong id="confirm-shipping" class="co-free">FREE</strong></div>
         <div class="row"><span>Tax</span><strong id="confirm-tax">$0.00</strong></div>
         <div class="row total"><span>Total</span><strong id="confirm-total">$0.00</strong></div>
       </div>
@@ -1003,7 +1083,8 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Order Confirmation" }])}
     description: "Your order has been received. Thank you for shopping with TopInkjet.",
     canonical: "/order-confirmation.html",
     body,
-    extraJs: `<script src="/assets/js/order-confirmation.js" defer></script>`,
+    extraCss: `<link rel="stylesheet" href="/assets/css/checkout.css?v=3"/>`,
+    extraJs: `<script src="/assets/js/order-confirmation.js?v=3" defer></script>`,
   });
 }
 
@@ -1103,7 +1184,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }])}
     <p>Three principles guide every decision we make:</p>
     <ul>
       <li><strong>Real specs, real photos.</strong> We list every product with the manufacturer's actual specifications and the actual product images. No exaggeration, no stock photos that don't match what's in the box.</li>
-      <li><strong>Honest pricing.</strong> Our prices include shipping over $99, and we never raise the price you see at checkout. No surprise "shipping protection" bumps. No mandatory upsells.</li>
+      <li><strong>Honest pricing.</strong> Free standard shipping is included on every order, and we never raise the price you see at checkout. No surprise "shipping protection" bumps. No mandatory upsells.</li>
       <li><strong>Attentive service.</strong> If you call or email, you reach someone who actually knows the products. Not a bot. Not an offshore call center reading scripts.</li>
     </ul>
     <h2>Who we serve</h2>
@@ -1112,7 +1193,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }])}
     <p>Every printer in our lineup has been evaluated against four criteria: real-world reliability, total cost of ownership, customer support reputation, and how well the on-paper specs match real performance. We're particularly fans of the HP OfficeJet Pro and Smart Tank lines because they consistently score well on all four.</p>
     <p>If you'd like a personal recommendation, our <a href="/contact.html">support team</a> is happy to help. Tell us what you print, how often, and what you'd like to spend, and we'll point you at one of the two or three models that actually fit.</p>
     <h2>How we ship</h2>
-    <p>Every order ships from our US warehouse. Standard ground orders typically arrive in 3–5 business days anywhere in the contiguous United States. We work with UPS and FedEx for ground service and offer 1-day and 2-day expedited options at checkout. We do not currently ship internationally.</p>
+    <p>Every order ships from our US warehouse via free Standard Ground Shipping with UPS or FedEx and typically arrives in 3–5 business days anywhere in the contiguous United States. We do not currently ship internationally and we do not offer paid expedited or overnight upgrades — ground shipping is included free with every order.</p>
     <h2>Get in touch</h2>
     <p>You can reach us at <a href="mailto:${BIZ.email}">${BIZ.email}</a>, by phone at <a href="tel:${BIZ.phone.replace(/[^0-9+]/g,"")}">${BIZ.phone}</a>, or through the <a href="/contact.html">contact form</a>. We answer every message Monday through Friday during business hours.</p>
   </div>
@@ -1171,9 +1252,9 @@ function pageFaq() {
   const qa = [
     ["Do you ship internationally?", "TopInkjet ships within the United States only — all 50 states, Washington D.C., and APO/FPO/DPO addresses. We do not currently ship to Canada, Mexico, or any international destination."],
     ["When will my order ship?", "Most orders are packed and handed to the carrier within 1–2 business days from our US warehouse. Orders placed on weekends or US federal holidays begin processing the next business day. You'll receive a tracking email as soon as your printer ships."],
-    ["How long does delivery take?", "Standard ground shipping arrives in 3–5 business days. Expedited shipping arrives in 2 business days. Express arrives in 1 business day. Delivery times exclude the day of shipment, weekends, and holidays."],
+    ["How long does delivery take?", "Standard ground shipping arrives in 3–5 business days, free on every order. Delivery times exclude the day of shipment, weekends, and US federal holidays. Most orders are packed and handed to the carrier within 1–2 business days of order placement."],
     ["What carriers do you use?", "We ship via UPS Ground, UPS 2-Day Air, UPS Next Day Air, FedEx Ground, FedEx 2Day, and FedEx Standard Overnight depending on package size and destination. You'll receive a tracking number by email when your order ships."],
-    ["Is shipping really free over $99?", "Yes. Every order with a subtotal of $99.00 or more before tax qualifies for free Standard ground shipping anywhere in the contiguous United States. Alaska, Hawaii, and APO/FPO addresses are also eligible but may take additional transit time."],
+    ["Is shipping really free?", "Yes. Every order ships free via Standard ground shipping anywhere in the contiguous United States — no minimum spend required. Alaska, Hawaii, and APO/FPO addresses are also eligible but may take additional transit time."],
     ["Can I return a printer if I don't love it?", "Absolutely. You have 30 days from the date of delivery to return any printer in resalable condition with original packaging and accessories for a full refund of the product price. See our <a href=\"/return-policy.html\">Return Policy</a> for the full process."],
     ["Do you offer a warranty?", "Yes — every printer we sell carries the full manufacturer's warranty (typically 1 year limited hardware warranty for HP printers). For warranty service, contact the manufacturer directly using the documentation included in the box."],
     ["Do I have to create an account to check out?", "No. Guest checkout is the default and works without ever creating an account. Creating an account is optional and only saves your shipping address and order history for next time."],
@@ -1403,7 +1484,7 @@ function pageRefund() {
 <ul>
   <li>The full price you paid for the product.</li>
   <li>The full sales tax associated with the product.</li>
-  <li>The original outbound shipping cost <em>only</em> if you paid for it (orders that received free shipping over $99 do not have an outbound shipping cost to refund).</li>
+  <li>Outbound shipping: not applicable — every TopInkjet order ships free via Standard Ground Shipping, so there is no outbound shipping charge to refund.</li>
 </ul>
 <p>For a return due to damage, defect, or our shipping error, we refund 100% of the product price, all related sales tax, the original outbound shipping cost, and any return shipping cost you incurred.</p>
 
@@ -1442,7 +1523,7 @@ function pageRefund() {
 function pageShipping() {
   return legalShell(
     "Shipping Policy",
-    "TopInkjet ships within the United States only. Free Standard Shipping over $99. Processing times and carriers explained.",
+    "TopInkjet ships within the contiguous United States only with free Standard Ground Shipping on every order. Processing times, carriers, and delivery preferences explained.",
     "shipping-policy",
     `
 <p>This Shipping Policy explains where we ship, when your order will leave our warehouse, how long it takes to arrive, what it costs, and what to do if anything goes wrong in transit.</p>
@@ -1454,23 +1535,24 @@ function pageShipping() {
 <p>Most orders are picked, packed, and handed to the carrier within 1–2 business days from our US warehouse, Monday through Friday. Orders placed on weekends or US federal holidays begin processing the next business day. You will receive a tracking email as soon as your printer ships.</p>
 <p>If your order requires additional verification (for example, a billing address that does not match the card on file), we may delay shipment until we can confirm the order with you. We'll email you within one business day if this happens.</p>
 
-<h2>Shipping Methods, Costs, and Timing</h2>
-<p>Estimated delivery times below are <em>in addition to</em> processing time and exclude weekends and holidays. They are estimates from our carrier partners and are not guaranteed.</p>
+<h2>Shipping Method, Cost, and Timing</h2>
+<p>We currently offer one shipping option: <strong>Standard Ground Shipping</strong>, which is free on every order with no minimum spend. Estimated delivery times below are <em>in addition to</em> processing time and exclude weekends and US federal holidays. They are estimates from our carrier partners and are not guaranteed.</p>
 <table class="spec-table">
   <thead><tr><th>Method</th><th>Estimated Delivery</th><th>Cost</th></tr></thead>
   <tbody>
-    <tr><td>Standard Shipping</td><td>3–5 business days</td><td>$9.99 (FREE on orders $99+)</td></tr>
-    <tr><td>Expedited Shipping</td><td>2 business days</td><td>$19.99</td></tr>
-    <tr><td>Express Shipping</td><td>1 business day</td><td>$34.99</td></tr>
+    <tr><td>Standard Ground Shipping</td><td>3–5 business days</td><td>FREE on every order</td></tr>
   </tbody>
 </table>
-<p>Free Standard Shipping is automatically applied at checkout to any order with a subtotal of $99.00 or more before tax. The free shipping promotion applies to standard ground service only; expedited and express upgrades remain at their listed prices.</p>
+<p>Free Standard Ground Shipping is automatically applied at checkout to every order — there is no minimum spend, no membership required, and no surprise fees added later in the flow.</p>
 
 <h2>Carriers</h2>
-<p>We work with two primary carriers: UPS (Ground, 2-Day Air, Next Day Air) and FedEx (Ground, 2Day, Standard Overnight). The carrier and service used for your order depends on package size, weight, and destination. You will receive a shipment confirmation email containing your tracking number when your order leaves our warehouse.</p>
+<p>We work with two primary carriers: UPS (Ground) and FedEx (Ground). The carrier used for your order depends on package size, weight, and destination. You will receive a shipment confirmation email containing your tracking number when your order leaves our warehouse.</p>
+
+<h2>Delivery Preferences</h2>
+<p>At checkout you can choose how the package should be handed over: leave at door (the default for most addresses), signature required (for added security), or hold at the carrier's nearest pickup location. You may also leave free-text delivery instructions for the driver and opt in to SMS tracking updates.</p>
 
 <h2>Alaska, Hawaii, US Territories, and APO/FPO</h2>
-<p>Free Standard Shipping over $99 applies to Alaska, Hawaii, US Territories, and APO/FPO/DPO addresses, but transit times are typically extended:</p>
+<p>Free Standard Ground Shipping applies to Alaska, Hawaii, US Territories, and APO/FPO/DPO addresses, but transit times are typically extended:</p>
 <ul>
   <li><strong>Alaska and Hawaii:</strong> add 2–4 business days to standard ground transit.</li>
   <li><strong>US Territories:</strong> add 5–10 business days; some routes use US Postal Service for the final leg.</li>
