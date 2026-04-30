@@ -2,6 +2,7 @@
 // Every visible string and every internal link is in the raw HTML output.
 
 const SITE_URL = "https://topinkjet.com";
+const ASSET_VERSION = String(Math.floor(Date.now() / 1000));
 const BIZ = {
   name: "TopInkjet",
   tagline: "If you can dream it, we can print it.",
@@ -224,8 +225,8 @@ function shell({ title, description, canonical, body, extraCss = "", extraJs = "
 <meta name="twitter:image" content="${SITE_URL}${ogImage}"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/css/styles.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/styles.css?v=${ASSET_VERSION}"/>
 ${extraCss}
 ${jsonld}
 </head>

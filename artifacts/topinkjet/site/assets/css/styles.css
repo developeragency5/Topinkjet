@@ -25,35 +25,53 @@
   --container: 1200px;
   --header-h: 76px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Fluid root font size: 16px on small phones → 17.5px on large desktops.
+     Every rem in the stylesheet scales smoothly with viewport width. */
+  font-size: clamp(16px, 0.4vw + 14.7px, 17.5px);
+  -webkit-text-size-adjust: 100%;
+}
 body {
   font-family: var(--font);
   background: var(--c-bg);
   color: var(--c-ink);
-  font-size: 16px;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';  /* nicer Inter glyphs */
+  text-rendering: optimizeLegibility;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--c-accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 button { font-family: inherit; cursor: pointer; }
-h1, h2, h3, h4 { font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 14px; color: var(--c-ink); }
-h1 { font-size: clamp(2rem, 4vw, 3rem); }
-h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
-h3 { font-size: 1.2rem; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+  margin: 0 0 14px;
+  color: var(--c-ink);
+  font-feature-settings: 'ss01';
+}
+h1 { font-size: clamp(2.25rem, 5vw + 0.5rem, 4.25rem); letter-spacing: -0.028em; line-height: 1.05; }
+h2 { font-size: clamp(1.75rem, 2.4vw + 0.75rem, 2.6rem); }
+h3 { font-size: clamp(1.1rem, 0.4vw + 1rem, 1.3rem); letter-spacing: -0.015em; }
+h4 { font-size: 1.05rem; }
 p { margin: 0 0 14px; }
 :focus-visible { outline: 3px solid var(--c-accent-soft); outline-offset: 2px; border-radius: 4px; }
 
-/* Layout */
-.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
-.narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-.narrowest { max-width: 520px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 72px 0; }
-.section-tight { padding: 48px 0; }
+/* Layout — fluid horizontal padding (16px on small phones → 32px on desktop) */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(16px, 2.5vw, 32px); }
+.narrow { max-width: 880px; margin: 0 auto; padding: 0 clamp(16px, 2.5vw, 32px); }
+.narrowest { max-width: 520px; margin: 0 auto; padding: 0 clamp(16px, 2.5vw, 32px); }
+.section { padding: clamp(48px, 7vw, 88px) 0; }
+.section-tight { padding: clamp(32px, 5vw, 56px) 0; }
 .section-soft { background: var(--c-blue); }
 
 /* Global form-control focus polish */
@@ -224,17 +242,26 @@ input[type="date"]:focus, select:focus, textarea:focus {
 
 /* Hero */
 .hero {
-  background: linear-gradient(135deg, var(--c-blue) 0%, var(--c-lavender) 50%, var(--c-cream) 100%);
-  padding: 80px 0;
+  background:
+    radial-gradient(1100px 520px at 85% 18%, rgba(229, 209, 250, .55) 0%, transparent 60%),
+    radial-gradient(900px 420px at 8% 90%, rgba(255, 244, 210, .55) 0%, transparent 60%),
+    linear-gradient(135deg, var(--c-blue) 0%, var(--c-lavender) 55%, #f6efff 100%);
+  padding: clamp(56px, 8vw, 120px) 0 clamp(48px, 7vw, 100px);
 }
 .hero-grid {
   display: grid; grid-template-columns: 1.05fr .95fr;
-  gap: 48px; align-items: center;
+  gap: clamp(28px, 4vw, 56px); align-items: center;
 }
-.hero h1 { margin-bottom: 18px; }
-.hero p.lead { font-size: 1.18rem; }
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-.hero-mini { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+.hero h1 {
+  margin-bottom: 20px;
+  /* Slightly larger and tighter than the global h1 for hero impact */
+  font-size: clamp(2.5rem, 5.6vw + 0.3rem, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.034em;
+}
+.hero p.lead { font-size: clamp(1.05rem, 0.4vw + 1rem, 1.28rem); max-width: 540px; line-height: 1.55; }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: clamp(24px, 3vw, 36px); }
+.hero-mini { display: flex; gap: 10px; flex-wrap: wrap; margin-top: clamp(22px, 2.5vw, 32px); }
 .mini-pill {
   display: inline-flex; align-items: center; gap: 9px;
   background: #fff;
@@ -262,8 +289,16 @@ input[type="date"]:focus, select:focus, textarea:focus {
   .mini-pill svg { width: 16px; height: 16px; }
 }
 .hero-art { display: grid; place-items: center; }
-.hero-art img { max-height: 460px; }
-@media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
+.hero-art img {
+  max-height: clamp(320px, 48vw, 600px);
+  width: auto;
+  filter: drop-shadow(0 30px 50px rgba(15, 23, 42, .12));
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero p.lead { max-width: 100%; }
+  .hero-art img { max-height: clamp(260px, 50vw, 420px); }
+}
 
 /* Trust strip */
 .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -316,8 +351,18 @@ input[type="date"]:focus, select:focus, textarea:focus {
 /* Product grid + cards */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 22px;
+  /* Fluid track: stays >=240px on tablet/desktop, allows tight 2-up at 360-480px */
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: clamp(14px, 2vw, 24px);
+}
+@media (max-width: 480px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .product-card .img-wrap { height: 140px; padding: 12px; }
+  .product-card .body { padding: 12px; }
+  .product-card a.title { font-size: .92rem; min-height: 2.4em; }
+  .product-card .price { font-size: 1.05rem; }
+  .product-card .actions { flex-direction: column; gap: 6px; }
+  .product-card .actions .btn { width: 100%; padding: 9px 8px; font-size: .82rem; white-space: normal; }
 }
 .product-card {
   position: relative;
@@ -584,7 +629,7 @@ input[type="date"]:focus, select:focus, textarea:focus {
 }
 
 /* Product detail page */
-.product-page { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; margin: 24px 0 56px; }
+.product-page { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 4vw, 56px); margin: 24px 0 56px; }
 .product-gallery .main-image {
   background: var(--c-blue); border-radius: 22px;
   aspect-ratio: 4/3; display: grid; place-items: center;
