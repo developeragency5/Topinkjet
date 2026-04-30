@@ -154,7 +154,7 @@
       });
     }
 
-    ["zip", "billingZip"].forEach((name) => {
+    ["zip"].forEach((name) => {
       const el = form.elements[name];
       if (!el) return;
       el.addEventListener("input", () => {
@@ -303,6 +303,9 @@
     return subtotal >= 99 ? 0 : 9.99;
   }
 
+  function safeQty(q) { return Math.max(0, Math.floor(Number(q)) || 0); }
+  function safePrice(p) { const n = Number(p); return Number.isFinite(n) ? n : 0; }
+
   function updateSummary() {
     const list = document.getElementById("checkout-items");
     if (!list) return;
@@ -313,20 +316,22 @@
       .map((item) => {
         const p = ps.find((x) => x.id === item.id);
         if (!p) return "";
-        subtotal += p.price * item.qty;
+        const q = safeQty(item.qty);
+        const lineTotal = safePrice(p.price) * q;
+        subtotal += lineTotal;
         return `
       <div class="co-line">
         <img src="/assets/products/${p.image}" alt="${p.name}"/>
         <div>
           <div class="name">${p.name}</div>
-          <div class="meta">Qty ${item.qty}</div>
+          <div class="meta">Qty ${q}</div>
         </div>
-        <div>${fmt(p.price * item.qty)}</div>
+        <div>${fmt(lineTotal)}</div>
       </div>`;
       })
       .join("");
     const data = readForm();
-    const shipping = getShippingCost(data.shipping || "standard", subtotal);
+    const shipping = subtotal > 0 ? getShippingCost(data.shipping || "standard", subtotal) : 0;
     const tax = +(subtotal * 0.08).toFixed(2);
     const total = subtotal + shipping + tax;
     document.getElementById("co-subtotal").textContent = fmt(subtotal);
@@ -382,7 +387,6 @@
     const brand = detectBrand(digits);
     renderLines(document.getElementById("rev-payment"), [
       [`${brand} ending in `, { strong: `•••• ${last4}` }],
-      `Billing ZIP: ${d.billingZip || ""}`,
     ]);
     const list = document.getElementById("rev-items");
     list.innerHTML = "";
@@ -390,8 +394,9 @@
     cart().forEach((item) => {
       const p = ps.find((x) => x.id === item.id);
       if (!p) return;
+      const q = safeQty(item.qty);
       const li = document.createElement("li");
-      li.textContent = `${p.name} — Qty ${item.qty} — ${fmt(p.price * item.qty)}`;
+      li.textContent = `${p.name} — Qty ${q} — ${fmt(safePrice(p.price) * q)}`;
       list.appendChild(li);
     });
   }
@@ -422,8 +427,11 @@
       .map((item) => {
         const p = ps.find((x) => x.id === item.id);
         if (!p) return null;
-        subtotal += p.price * item.qty;
-        return { id: p.id, slug: p.slug, name: p.name, price: p.price, qty: item.qty, image: p.image };
+        const q = safeQty(item.qty);
+        if (q <= 0) return null;
+        const price = safePrice(p.price);
+        subtotal += price * q;
+        return { id: p.id, slug: p.slug, name: p.name, price, qty: q, image: p.image };
       })
       .filter(Boolean);
     const shipping = getShippingCost(d.shipping || "standard", subtotal);

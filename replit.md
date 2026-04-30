@@ -25,3 +25,15 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## TopInkjet Artifact (artifacts/topinkjet)
+
+US-only static ecommerce site for HP inkjet printers — pure HTML/CSS/vanilla JS.
+
+- **Build**: `node artifacts/topinkjet/build-site.mjs` (regenerates `site/` from `build-pages.mjs` + product catalog).
+- **Dev workflow**: `artifacts/topinkjet: web` serves `site/`.
+- **Catalog**: 22 SKUs (11 office, 11 home), defined inline in `build-site.mjs`.
+- **Cart/wishlist state**: localStorage only (`ti_cart_v1`, `ti_wishlist_v1`).
+- **5-step checkout**: Contact → Shipping (with AVS) → Method → Payment → Review (no Billing ZIP, no separate billing address).
+- **Forbidden copy** (do NOT reintroduce): "same-day dispatch", "2 PM Central" cutoff, "we'd buy ourselves", fake reviews/ratings, urgency scarcity, "HP authorized" claims, blog content.
+- **Defensive numerics**: `cart.js`, `cart-page.js`, `checkout.js`, `main.js` all coerce `qty`/`price` via `safeQty`/`safePrice` to prevent `$NaN` when localStorage is corrupted from older versions.

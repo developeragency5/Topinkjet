@@ -100,16 +100,18 @@
     body.innerHTML = cart.map((item) => {
       const p = products.find((x) => x.id === item.id);
       if (!p) return "";
-      subtotal += p.price * item.qty;
-      totalItems += item.qty;
+      const q = Math.max(0, Math.floor(Number(item.qty)) || 0);
+      const price = Number.isFinite(Number(p.price)) ? Number(p.price) : 0;
+      subtotal += price * q;
+      totalItems += q;
       return `
         <div class="drawer-line">
           <img src="/assets/products/${p.image}" alt="${p.name}"/>
           <div>
             <div class="name">${p.name}</div>
-            <div class="meta">Qty ${item.qty}</div>
+            <div class="meta">Qty ${q}</div>
           </div>
-          <div class="price">$${(p.price * item.qty).toFixed(2)}</div>
+          <div class="price">$${(price * q).toFixed(2)}</div>
         </div>`;
     }).join("");
     if (sub) sub.textContent = "$" + subtotal.toFixed(2);

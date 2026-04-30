@@ -54,8 +54,6 @@ function header(active = "") {
       <button class="icon-btn" id="search-toggle" aria-label="Search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       </button>
-      <a class="header-auth-btn header-signin" href="/account/sign-in.html">Sign In</a>
-      <a class="header-auth-btn header-signup" href="/account/sign-up.html">Sign Up</a>
       <a class="icon-btn" href="/wishlist.html" aria-label="Wishlist">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.5 8 3 4 6.5 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3C20 4 22.5 8 21.5 12 19 16.5 12 21 12 21z"/></svg>
         <span class="cart-badge" id="wishlist-badge" data-count="0">0</span>
@@ -64,6 +62,10 @@ function header(active = "") {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l3 12h11l3-9H7"/><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/></svg>
         <span class="cart-badge" id="cart-badge" data-count="0">0</span>
       </a>
+      <span class="header-auth-group">
+        <a class="header-auth-btn header-signin" href="/account/sign-in.html">Sign In</a>
+        <a class="header-auth-btn header-signup" href="/account/sign-up.html">Sign Up</a>
+      </span>
       <button class="menu-toggle icon-btn" id="menu-toggle" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -356,7 +358,7 @@ function pageHome(products) {
       <div class="hero-mini">
         <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.5h11v9h-11z"/><path d="M13.5 10.5h4l4 4v2h-8z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg><span class="mp-text">Free US shipping <strong>over&nbsp;$99</strong></span></span>
         <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 1 0 2.4-5.7"/><path d="M3 4v5h5"/></svg><span class="mp-text"><strong>30-day</strong> easy returns</span></span>
-        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span class="mp-text"><strong>Same-day</strong> US&nbsp;dispatch</span></span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="mp-text"><strong>Secure</strong> US&nbsp;checkout</span></span>
       </div>
     </div>
     <div class="hero-art">
@@ -369,7 +371,7 @@ function pageHome(products) {
   <div class="container trust-strip">
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div><h3>Free US Shipping</h3><p>On orders $99 and over.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-6h6"/></svg></div><h3>30-Day Returns</h3><p>Hassle-free return window.</p></div>
-    <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.6 5.3 5.9.9-4.3 4.2 1 5.9L12 15.5 6.8 18.3l1-5.9L3.5 8.2l5.9-.9z"/></svg></div><h3>Curated Lineup</h3><p>Only printers we'd buy ourselves.</p></div>
+    <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.6 5.3 5.9.9-4.3 4.2 1 5.9L12 15.5 6.8 18.3l1-5.9L3.5 8.2l5.9-.9z"/></svg></div><h3>Focused Catalog</h3><p>A tight HP inkjet lineup.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Secure Checkout</h3><p>256-bit encrypted payments.</p></div>
   </div>
 </section>
@@ -445,7 +447,7 @@ function pageHome(products) {
   <div class="container">
     <h2>Office &amp; Home Inkjets, Carefully Curated</h2>
     <p>Every printer in our lineup is a current-generation HP inkjet — DeskJet, ENVY, OfficeJet Pro, or Smart Tank — chosen for the way real US homes and offices actually print today. Auto-duplex, mobile printing from the HP Smart app, and wireless setup come standard across the catalog. Step up the range and you add a 35-sheet automatic document feeder, mobile fax, and refillable ink tanks that last up to two years.</p>
-    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet experience: free US shipping over $99, 30-day returns, and same-day US dispatch on orders placed by 2 PM Central.</p>
+    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet experience: free US shipping over $99, 30-day returns, and US-based customer support.</p>
   </div>
 </section>
 
@@ -465,8 +467,8 @@ function pageHome(products) {
       </li>
       <li class="how-card">
         <div class="how-num">03</div>
-        <h3>Same-Day Dispatch</h3>
-        <p>Orders placed by 2 PM Central ship the same business day with full UPS or FedEx tracking sent to your inbox.</p>
+        <h3>Tracked US Shipping</h3>
+        <p>We pack your order and email UPS or FedEx tracking as soon as your printer leaves our US warehouse.</p>
       </li>
       <li class="how-card">
         <div class="how-num">04</div>
@@ -482,7 +484,7 @@ function pageHome(products) {
     <div class="section-head"><h2>Frequently Asked Questions</h2><p class="lead">Quick answers to the most common questions before you buy.</p></div>
     <div class="faq-list">
       <details><summary>Do you ship internationally?</summary><p>TopInkjet ships within the United States only at this time. We deliver to all 50 states, Washington D.C., and APO/FPO/DPO addresses.</p></details>
-      <details><summary>How long does shipping take?</summary><p>Standard ground shipping arrives in 3–5 business days. Expedited shipping arrives in 2 business days, and Express in 1 business day. Orders placed before 2 PM Central ship the same business day.</p></details>
+      <details><summary>How long does shipping take?</summary><p>Standard ground shipping arrives in 3–5 business days. Expedited shipping arrives in 2 business days, and Express in 1 business day. Transit times begin once your order has been packed and handed to the carrier.</p></details>
       <details><summary>Is shipping really free over $99?</summary><p>Yes — every order over $99 ships free via Standard ground shipping anywhere in the contiguous United States. There are no hidden surcharges and no membership required.</p></details>
       <details><summary>Can I return a printer if it's not right?</summary><p>Absolutely. Every printer we sell carries a 30-day return window from the date of delivery. The product must be in resalable condition with original packaging. See the <a href="/return-policy.html">Return Policy</a> for details.</p></details>
       <details><summary>Do I need an account to check out?</summary><p>No. Guest checkout is the default and we never force you to create an account. Creating an account is optional and only saves your shipping address for next time.</p></details>
@@ -493,7 +495,7 @@ function pageHome(products) {
 `;
   return shell({
     title: "TopInkjet — Office & Home Inkjet Printers, Free US Shipping",
-    description: "Premium HP inkjet printers for US homes and offices. Curated lineup, free shipping over $99, 30-day returns, and same-day US dispatch.",
+    description: "Premium HP inkjet printers for US homes and offices. Focused catalog, free US shipping over $99, 30-day returns, and US-based customer support.",
     canonical: "/",
     body,
     active: "home",
@@ -690,7 +692,7 @@ ${breadcrumbs([
     </article>
     <article>
       <h2>Shipping & Returns</h2>
-      <p>Free Standard Shipping (3–5 business days) on all orders $99 and above. Expedited (2 business days) and Express (1 business day) options are available at checkout. Orders placed by 2 PM Central ship the same business day. We ship within the United States only.</p>
+      <p>Free Standard Shipping (3–5 business days) on all orders $99 and above. Expedited (2 business days) and Express (1 business day) options are available at checkout. Transit times begin once your order has been handed to the carrier. We ship within the United States only.</p>
       <p>Return any printer within 30 days of delivery for a full refund of the product price. The product must be in resalable condition with original packaging and accessories. See our <a href="/return-policy.html">Return Policy</a> and <a href="/refund-policy.html">Refund Policy</a> for full details.</p>
     </article>
   </div>
@@ -858,7 +860,6 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
             </label>
             <label><span>ZIP Code <em>*</em></span><input type="text" name="zip" required placeholder="78758" autocomplete="postal-code" maxlength="10" inputmode="numeric" data-validate="zip"/><small class="field-error" data-error-for="zip"></small></label>
             <label><span>Country</span><input type="text" name="country" value="United States" readonly disabled/></label>
-            <label class="span-2 inline"><input type="checkbox" name="billingSame" checked/> Billing address same as shipping</label>
           </div>
           <div class="address-status" id="address-status" role="status"></div>
           <div class="step-actions">
@@ -898,7 +899,6 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Cart", href: "/cart.html"
             </label>
             <label><span>Expiry (MM/YY) <em>*</em></span><input type="text" name="cardExpiry" required placeholder="08/29" maxlength="5" autocomplete="cc-exp" inputmode="numeric" data-validate="cardExpiry"/><small class="field-error" data-error-for="cardExpiry"></small></label>
             <label><span>CVV <em>*</em></span><input type="text" name="cardCvv" required maxlength="4" autocomplete="cc-csc" inputmode="numeric" data-validate="cardCvv"/><small class="field-error" data-error-for="cardCvv"></small></label>
-            <label><span>Billing ZIP <em>*</em></span><input type="text" name="billingZip" required maxlength="10" inputmode="numeric" data-validate="zip"/><small class="field-error" data-error-for="billingZip"></small></label>
           </div>
           <p class="disclosure">This is a demonstration storefront. Form data is validated locally and stored in your browser only — no card information is transmitted to any server.</p>
           <div class="step-actions">
@@ -1098,7 +1098,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }])}
     <span class="eyebrow">About TopInkjet</span>
     <h1>A focused inkjet store, built for US buyers.</h1>
     <p class="lead">We started TopInkjet in 2019 because buying a printer had quietly become miserable. Endless model numbers, bait-and-switch pricing, and websites that hid the only specs that actually mattered. We thought small-business buyers, parents, and home-office workers deserved a simpler, more honest place to shop.</p>
-    <p>TopInkjet is an independent US retailer that carries a tightly curated lineup of office and home inkjet printers. We don't list every printer ever made. We pick a manageable number of models that genuinely earn a place in the lineup — typically the ones we'd buy ourselves — and stand behind every one with attentive US-based customer service.</p>
+    <p>TopInkjet is an independent US retailer that carries a tightly focused catalog of office and home inkjet printers. We don't list every printer ever made — we keep the lineup small so it stays easy to compare, and we back every model with attentive US-based customer service.</p>
     <h2>What we believe</h2>
     <p>Three principles guide every decision we make:</p>
     <ul>
@@ -1170,7 +1170,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Contact" }])}
 function pageFaq() {
   const qa = [
     ["Do you ship internationally?", "TopInkjet ships within the United States only — all 50 states, Washington D.C., and APO/FPO/DPO addresses. We do not currently ship to Canada, Mexico, or any international destination."],
-    ["When will my order ship?", "Orders placed before 2 PM Central Monday through Friday ship the same business day from our US warehouse. Orders placed after 2 PM, on weekends, or on US federal holidays ship the next business day."],
+    ["When will my order ship?", "Most orders are packed and handed to the carrier within 1–2 business days from our US warehouse. Orders placed on weekends or US federal holidays begin processing the next business day. You'll receive a tracking email as soon as your printer ships."],
     ["How long does delivery take?", "Standard ground shipping arrives in 3–5 business days. Expedited shipping arrives in 2 business days. Express arrives in 1 business day. Delivery times exclude the day of shipment, weekends, and holidays."],
     ["What carriers do you use?", "We ship via UPS Ground, UPS 2-Day Air, UPS Next Day Air, FedEx Ground, FedEx 2Day, and FedEx Standard Overnight depending on package size and destination. You'll receive a tracking number by email when your order ships."],
     ["Is shipping really free over $99?", "Yes. Every order with a subtotal of $99.00 or more before tax qualifies for free Standard ground shipping anywhere in the contiguous United States. Alaska, Hawaii, and APO/FPO addresses are also eligible but may take additional transit time."],
@@ -1451,7 +1451,7 @@ function pageShipping() {
 <p>TopInkjet ships within the United States only — to all 50 states, the District of Columbia, US territories (Puerto Rico, US Virgin Islands, Guam, American Samoa, and the Northern Mariana Islands), and APO/FPO/DPO military addresses. We do not currently ship to Canada, Mexico, or any other international destination.</p>
 
 <h2>Order Processing</h2>
-<p>Orders placed before 2:00 PM Central Time, Monday through Friday, ship the same business day. Orders placed after 2:00 PM Central, on weekends, or on US federal holidays ship the next business day. We do not process or ship orders on Saturday, Sunday, or US federal holidays.</p>
+<p>Most orders are picked, packed, and handed to the carrier within 1–2 business days from our US warehouse, Monday through Friday. Orders placed on weekends or US federal holidays begin processing the next business day. You will receive a tracking email as soon as your printer ships.</p>
 <p>If your order requires additional verification (for example, a billing address that does not match the card on file), we may delay shipment until we can confirm the order with you. We'll email you within one business day if this happens.</p>
 
 <h2>Shipping Methods, Costs, and Timing</h2>
