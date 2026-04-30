@@ -117,14 +117,19 @@
   }
   window.TI.renderDrawer = renderDrawer;
 
+  function safeCount(n) {
+    const v = Math.max(0, Math.floor(Number(n)));
+    return Number.isFinite(v) ? v : 0;
+  }
   function updateBadges() {
     const cart = window.TI.cart && window.TI.cart.read ? window.TI.cart.read() : [];
     const wishlist = window.TI.wishlist && window.TI.wishlist.read ? window.TI.wishlist.read() : [];
-    const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+    const cartCount = safeCount(cart.reduce((s, i) => s + (Number(i.qty) || 0), 0));
+    const wishCount = safeCount(wishlist.length);
     const cb = document.getElementById("cart-badge");
     const wb = document.getElementById("wishlist-badge");
     if (cb) { cb.textContent = String(cartCount); cb.dataset.count = String(cartCount); }
-    if (wb) { wb.textContent = String(wishlist.length); wb.dataset.count = String(wishlist.length); }
+    if (wb) { wb.textContent = String(wishCount); wb.dataset.count = String(wishCount); }
   }
   window.TI.updateBadges = updateBadges;
 

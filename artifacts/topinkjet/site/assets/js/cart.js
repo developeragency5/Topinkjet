@@ -6,8 +6,18 @@ const SHIPPING_RATES = { standard: 9.99, expedited: 19.99, express: 34.99 };
 const TAX_RATE = 0.08;
 
 function read() {
-  try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); }
-  catch (e) { return []; }
+  try {
+    const raw = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .filter((i) => i && typeof i === "object" && typeof i.id === "string")
+      .map((i) => ({
+        ...i,
+        qty: Math.max(0, Math.floor(Number(i.qty)) || 0),
+        price: Number.isFinite(Number(i.price)) ? Number(i.price) : 0,
+      }))
+      .filter((i) => i.qty > 0);
+  } catch (e) { return []; }
 }
 function write(items) {
   localStorage.setItem(CART_KEY, JSON.stringify(items));
@@ -24,10 +34,10 @@ window.TI.cart = {
   list() { return read(); },
   read() { return read(); },
   count() {
-    return read().reduce((s, i) => s + i.qty, 0);
+    return read().reduce((s, i) => s + (Number(i.qty) || 0), 0);
   },
   subtotal() {
-    return read().reduce((s, i) => s + i.qty * i.price, 0);
+    return read().reduce((s, i) => s + (Number(i.qty) || 0) * (Number(i.price) || 0), 0);
   },
   shipping(method = "standard") {
     if (this.subtotal() === 0) return 0;
@@ -43,26 +53,28 @@ window.TI.cart = {
   add(productOrId, qty = 1) {
     const product = resolveProduct(productOrId);
     if (!product) return;
+    const safeQty = Math.max(1, Math.floor(Number(qty)) || 1);
     const items = read();
     const existing = items.find((i) => i.id === product.id);
-    if (existing) existing.qty += qty;
+    if (existing) existing.qty = (Number(existing.qty) || 0) + safeQty;
     else items.push({
       id: product.id,
       slug: product.slug,
       name: product.name,
       image: product.image,
-      price: product.price,
+      price: Number(product.price) || 0,
       brand: product.brand,
-      qty,
+      qty: safeQty,
     });
     write(items);
   },
   setQty(id, qty) {
+    const safeQty = Math.max(0, Math.floor(Number(qty)) || 0);
     let items = read();
-    if (qty <= 0) items = items.filter((i) => i.id !== id);
+    if (safeQty <= 0) items = items.filter((i) => i.id !== id);
     else {
       const it = items.find((i) => i.id === id);
-      if (it) it.qty = qty;
+      if (it) it.qty = safeQty;
     }
     write(items);
   },

@@ -151,7 +151,10 @@ input[type="date"]:focus, select:focus, textarea:focus {
   font-size: .68rem; font-weight: 700;
   display: inline-flex; align-items: center; justify-content: center;
 }
-.cart-badge[data-count="0"] { display: none; }
+.cart-badge[data-count="0"],
+.cart-badge[data-count=""],
+.cart-badge[data-count="NaN"],
+.cart-badge:empty { display: none; }
 .header-auth-btn {
   display: inline-flex; align-items: center; justify-content: center;
   height: 38px; padding: 0 16px;
