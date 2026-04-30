@@ -84,9 +84,9 @@ function footer() {
   return `
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div>
+    <div class="footer-brand-col">
       <a class="brand-link" href="/" aria-label="TopInkjet home"><img src="/assets/img/logo-light.svg" alt="TopInkjet" width="160" height="36"/></a>
-      <p class="footer-tagline">Premium inkjet printers for US homes and offices. Curated, dispatched, and supported from Austin, Texas.</p>
+      <p class="footer-tagline">Premium inkjet printers for US homes and offices. Browse our curated HP lineup to find the model that fits the way you work, study, and create.</p>
       <p class="footer-contact">
         ${esc(BIZ.address.street)}<br/>
         ${esc(BIZ.address.city)}, ${esc(BIZ.address.state)} ${esc(BIZ.address.zip)}<br/>
@@ -128,7 +128,7 @@ function footer() {
   </div>
   <div class="footer-bottom container">
     <p class="copyright">&copy; ${new Date().getFullYear()} TopInkjet. All rights reserved.</p>
-    <p class="disclaimer">TopInkjet is an independent retailer. Brand names and logos are the property of their respective owners and are used for descriptive purposes only. All prices are in USD. Shipping within the United States only.</p>
+    <p class="disclaimer"><strong>Disclaimer:</strong> TopInkjet is an independent retailer. Brand names and logos are the property of their respective owners and are used for descriptive purposes only. All prices are in USD. Shipping within the United States only.</p>
   </div>
 </footer>
 
@@ -356,7 +356,7 @@ function pageHome(products) {
       <div class="hero-mini">
         <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.5h11v9h-11z"/><path d="M13.5 10.5h4l4 4v2h-8z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg><span class="mp-text">Free US shipping <strong>over&nbsp;$99</strong></span></span>
         <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 1 0 2.4-5.7"/><path d="M3 4v5h5"/></svg><span class="mp-text"><strong>30-day</strong> easy returns</span></span>
-        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 4 5v6c0 5 3.5 9 8 10.5 4.5-1.5 8-5.5 8-10.5V5z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg><span class="mp-text"><strong>Authorized</strong> HP&nbsp;retailer</span></span>
+        <span class="mini-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span class="mp-text"><strong>Same-day</strong> US&nbsp;dispatch</span></span>
       </div>
     </div>
     <div class="hero-art">
@@ -369,7 +369,7 @@ function pageHome(products) {
   <div class="container trust-strip">
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div><h3>Free US Shipping</h3><p>On orders $99 and over.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-6h6"/></svg></div><h3>30-Day Returns</h3><p>Hassle-free return window.</p></div>
-    <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3z"/></svg></div><h3>US-Based Support</h3><p>Real humans, every weekday.</p></div>
+    <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.6 5.3 5.9.9-4.3 4.2 1 5.9L12 15.5 6.8 18.3l1-5.9L3.5 8.2l5.9-.9z"/></svg></div><h3>Curated Lineup</h3><p>Only printers we'd buy ourselves.</p></div>
     <div class="trust-card"><div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Secure Checkout</h3><p>256-bit encrypted payments.</p></div>
   </div>
 </section>
@@ -403,9 +403,9 @@ function pageHome(products) {
   </div>
 </section>
 
-<section class="section section-soft">
+<section class="section section-featured">
   <div class="container">
-    <div class="section-head"><h2>Featured Printers</h2><p class="lead">A handpicked selection of best-in-class inkjets across both categories.</p></div>
+    <div class="section-head"><span class="eyebrow">Featured</span><h2>Featured Printers</h2><p class="lead">A handpicked selection of best-in-class inkjets across both categories.</p></div>
     <div class="product-grid">
       ${featured.map(productCard).join("")}
     </div>
@@ -413,7 +413,7 @@ function pageHome(products) {
   </div>
 </section>
 
-<section class="section section-soft" id="buying-guide">
+<section class="section section-cream" id="buying-guide">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Buying Guide</span>
@@ -445,21 +445,35 @@ function pageHome(products) {
   <div class="container">
     <h2>Office &amp; Home Inkjets, Carefully Curated</h2>
     <p>Every printer in our lineup is a current-generation HP inkjet — DeskJet, ENVY, OfficeJet Pro, or Smart Tank — chosen for the way real US homes and offices actually print today. Auto-duplex, mobile printing from the HP Smart app, and wireless setup come standard across the catalog. Step up the range and you add a 35-sheet automatic document feeder, mobile fax, and refillable ink tanks that last up to two years.</p>
-    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet promise: free US shipping over $99, 30-day returns, and a real human in Austin on the phone.</p>
+    <p>Browse the focused <a href="/category-office-inkjet.html">Office Inkjet collection</a> for desk-side workhorses, or the <a href="/category-home-inkjet.html">Home Inkjet collection</a> for compact, photo-friendly all-in-ones. Either way you get the same TopInkjet experience: free US shipping over $99, 30-day returns, and same-day US dispatch on orders placed by 2 PM Central.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="section-head"><h2>Why Choose TopInkjet</h2><p class="lead">Six promises we make to every customer, every order.</p></div>
-    <div class="why-grid">
-      <div class="why-card"><div class="ti">✓</div><h3>Genuine Inventory</h3><p>Every printer we sell ships factory-sealed from authorized US distribution.</p></div>
-      <div class="why-card"><div class="ti">✓</div><h3>Fast US Dispatch</h3><p>Orders placed by 2 PM Central ship the same business day.</p></div>
-      <div class="why-card"><div class="ti">✓</div><h3>30-Day Returns</h3><p>Change your mind within 30 days for a full refund. No restocking gotchas.</p></div>
-      <div class="why-card"><div class="ti">✓</div><h3>Real Human Support</h3><p>US-based phone, chat, and email support every weekday from Austin, Texas.</p></div>
-      <div class="why-card"><div class="ti">✓</div><h3>Secure Payments</h3><p>256-bit TLS, PCI-compliant checkout, and no surprise fees.</p></div>
-      <div class="why-card"><div class="ti">✓</div><h3>Curated Lineup</h3><p>We carry only printers we'd buy ourselves. No filler, no clearance bait.</p></div>
-    </div>
+    <div class="section-head"><span class="eyebrow">How It Works</span><h2>Shopping TopInkjet, Step by Step</h2><p class="lead">A clean, four-step path from picking a printer to printing your first page.</p></div>
+    <ol class="how-grid">
+      <li class="how-card">
+        <div class="how-num">01</div>
+        <h3>Pick Your Tier</h3>
+        <p>Use the buying guide to match a printer to how much you actually print each month — light, mixed, or heavy.</p>
+      </li>
+      <li class="how-card">
+        <div class="how-num">02</div>
+        <h3>Order Securely</h3>
+        <p>Guest checkout, no required account. PCI-compliant 256-bit encrypted payments with all major US cards and digital wallets.</p>
+      </li>
+      <li class="how-card">
+        <div class="how-num">03</div>
+        <h3>Same-Day Dispatch</h3>
+        <p>Orders placed by 2 PM Central ship the same business day with full UPS or FedEx tracking sent to your inbox.</p>
+      </li>
+      <li class="how-card">
+        <div class="how-num">04</div>
+        <h3>Print with Confidence</h3>
+        <p>Set up in minutes with the HP Smart app, backed by the full manufacturer warranty and our 30-day return window.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -472,7 +486,6 @@ function pageHome(products) {
       <details><summary>Is shipping really free over $99?</summary><p>Yes — every order over $99 ships free via Standard ground shipping anywhere in the contiguous United States. There are no hidden surcharges and no membership required.</p></details>
       <details><summary>Can I return a printer if it's not right?</summary><p>Absolutely. Every printer we sell carries a 30-day return window from the date of delivery. The product must be in resalable condition with original packaging. See the <a href="/return-policy.html">Return Policy</a> for details.</p></details>
       <details><summary>Do I need an account to check out?</summary><p>No. Guest checkout is the default and we never force you to create an account. Creating an account is optional and only saves your shipping address for next time.</p></details>
-      <details><summary>Are these printers brand new?</summary><p>Every printer we ship is brand new, factory sealed, and sourced from authorized US distribution. We do not sell refurbished, open-box, or grey-market inventory.</p></details>
     </div>
   </div>
 </section>
@@ -480,7 +493,7 @@ function pageHome(products) {
 `;
   return shell({
     title: "TopInkjet — Office & Home Inkjet Printers, Free US Shipping",
-    description: "Premium HP inkjet printers for US homes and offices. Curated lineup, free shipping over $99, 30-day returns, and real human support.",
+    description: "Premium HP inkjet printers for US homes and offices. Curated lineup, free shipping over $99, 30-day returns, and same-day US dispatch.",
     canonical: "/",
     body,
     active: "home",
@@ -662,10 +675,10 @@ ${breadcrumbs([
         <button class="btn btn-outline btn-lg" data-wishlist-toggle="${esc(p.id)}">♡ Add to Wishlist</button>
       </div>
       <ul class="ship-bullets">
-        <li>✓ Ships factory-sealed from Austin, TX</li>
+        <li>✓ Ships from our US warehouse</li>
         <li>✓ Free Standard Shipping over $99</li>
         <li>✓ 30-Day Returns — see <a href="/return-policy.html">Return Policy</a></li>
-        <li>✓ Genuine US-distribution inventory</li>
+        <li>✓ Backed by the full manufacturer warranty</li>
       </ul>
     </div>
   </div>
@@ -706,7 +719,7 @@ ${breadcrumbs([
 `;
   return shell({
     title: `${p.name} — ${money(p.price)} | TopInkjet`.slice(0, 60),
-    description: `${p.short} Ships from Austin, TX. Free US shipping over $99.`.slice(0, 160),
+    description: `${p.short} Ships within the US. Free US shipping over $99.`.slice(0, 160),
     canonical: `/product/${p.slug}.html`,
     active: p.category === "office-inkjet" ? "office" : "home-cat",
     body,
@@ -1095,15 +1108,15 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }])}
 <section class="section">
   <div class="container narrow">
     <span class="eyebrow">About TopInkjet</span>
-    <h1>A focused inkjet store, made in Texas.</h1>
+    <h1>A focused inkjet store, built for US buyers.</h1>
     <p class="lead">We started TopInkjet in 2019 because buying a printer had quietly become miserable. Endless model numbers, bait-and-switch pricing, and websites that hid the only specs that actually mattered. We thought small-business buyers, parents, and home-office workers deserved a simpler, more honest place to shop.</p>
-    <p>TopInkjet is an independent US retailer, headquartered in Austin, Texas, that carries a tightly curated lineup of office and home inkjet printers. We don't list every printer ever made. We pick a manageable number of models that genuinely earn a place in the lineup — typically the ones we'd buy ourselves — and stand behind every one with real US-based human support.</p>
+    <p>TopInkjet is an independent US retailer that carries a tightly curated lineup of office and home inkjet printers. We don't list every printer ever made. We pick a manageable number of models that genuinely earn a place in the lineup — typically the ones we'd buy ourselves — and stand behind every one with attentive US-based customer service.</p>
     <h2>What we believe</h2>
     <p>Three principles guide every decision we make:</p>
     <ul>
       <li><strong>Real specs, real photos.</strong> We list every product with the manufacturer's actual specifications and the actual product images. No exaggeration, no stock photos that don't match what's in the box.</li>
       <li><strong>Honest pricing.</strong> Our prices include shipping over $99, and we never raise the price you see at checkout. No surprise "shipping protection" bumps. No mandatory upsells.</li>
-      <li><strong>Human support.</strong> If you call or email, you talk to someone in Austin who actually knows the products. Not a bot. Not an offshore call center reading scripts.</li>
+      <li><strong>Attentive service.</strong> If you call or email, you reach someone who actually knows the products. Not a bot. Not an offshore call center reading scripts.</li>
     </ul>
     <h2>Who we serve</h2>
     <p>Our customers are split roughly in half: small offices and home offices that need a workhorse for daily document work, and households that want a reliable printer for homework, photos, and the occasional paperwork run. We've designed our two main categories — Office Inkjet and Home Inkjet — to make finding the right printer painless for either group.</p>
@@ -1111,15 +1124,15 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }])}
     <p>Every printer in our lineup has been evaluated against four criteria: real-world reliability, total cost of ownership, customer support reputation, and how well the on-paper specs match real performance. We're particularly fans of the HP OfficeJet Pro and Smart Tank lines because they consistently score well on all four.</p>
     <p>If you'd like a personal recommendation, our <a href="/contact.html">support team</a> is happy to help. Tell us what you print, how often, and what you'd like to spend, and we'll point you at one of the two or three models that actually fit.</p>
     <h2>How we ship</h2>
-    <p>Every order ships from our Austin, TX warehouse. Standard ground orders typically arrive in 3–5 business days anywhere in the contiguous United States. We work with UPS and FedEx for ground service and offer 1-day and 2-day expedited options at checkout. We do not currently ship internationally.</p>
+    <p>Every order ships from our US warehouse. Standard ground orders typically arrive in 3–5 business days anywhere in the contiguous United States. We work with UPS and FedEx for ground service and offer 1-day and 2-day expedited options at checkout. We do not currently ship internationally.</p>
     <h2>Get in touch</h2>
     <p>You can reach us at <a href="mailto:${BIZ.email}">${BIZ.email}</a>, by phone at <a href="tel:${BIZ.phone.replace(/[^0-9+]/g,"")}">${BIZ.phone}</a>, or through the <a href="/contact.html">contact form</a>. We answer every message Monday through Friday during business hours.</p>
   </div>
 </section>
 `;
   return shell({
-    title: "About TopInkjet — Curated Inkjet Printers from Austin, TX",
-    description: "TopInkjet is an independent US retailer based in Austin, Texas, focused on a curated lineup of office and home inkjet printers.",
+    title: "About TopInkjet — Curated US Inkjet Printer Retailer",
+    description: "TopInkjet is an independent US retailer focused on a curated lineup of office and home inkjet printers.",
     canonical: "/about.html",
     body,
     active: "about",
@@ -1134,7 +1147,7 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Contact" }])}
     <div>
       <span class="eyebrow">Contact TopInkjet</span>
       <h1>We're here to help.</h1>
-      <p class="lead">Questions about a product, an order, or a return? Drop us a line and a real human will reply.</p>
+      <p class="lead">Questions about a product, an order, or a return? Drop us a line and a member of our team will reply within one business day.</p>
       <h3>Email</h3>
       <p><a href="mailto:${BIZ.email}">${BIZ.email}</a></p>
       <h3>Phone</h3>
@@ -1169,18 +1182,17 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Contact" }])}
 function pageFaq() {
   const qa = [
     ["Do you ship internationally?", "TopInkjet ships within the United States only — all 50 states, Washington D.C., and APO/FPO/DPO addresses. We do not currently ship to Canada, Mexico, or any international destination."],
-    ["When will my order ship?", "Orders placed before 2 PM Central Monday through Friday ship the same business day from our Austin, Texas warehouse. Orders placed after 2 PM, on weekends, or on US federal holidays ship the next business day."],
+    ["When will my order ship?", "Orders placed before 2 PM Central Monday through Friday ship the same business day from our US warehouse. Orders placed after 2 PM, on weekends, or on US federal holidays ship the next business day."],
     ["How long does delivery take?", "Standard ground shipping arrives in 3–5 business days. Expedited shipping arrives in 2 business days. Express arrives in 1 business day. Delivery times exclude the day of shipment, weekends, and holidays."],
     ["What carriers do you use?", "We ship via UPS Ground, UPS 2-Day Air, UPS Next Day Air, FedEx Ground, FedEx 2Day, and FedEx Standard Overnight depending on package size and destination. You'll receive a tracking number by email when your order ships."],
     ["Is shipping really free over $99?", "Yes. Every order with a subtotal of $99.00 or more before tax qualifies for free Standard ground shipping anywhere in the contiguous United States. Alaska, Hawaii, and APO/FPO addresses are also eligible but may take additional transit time."],
     ["Can I return a printer if I don't love it?", "Absolutely. You have 30 days from the date of delivery to return any printer in resalable condition with original packaging and accessories for a full refund of the product price. See our <a href=\"/return-policy.html\">Return Policy</a> for the full process."],
-    ["Are your printers brand new?", "Every printer we sell is brand new, factory sealed, and sourced exclusively through authorized US distribution. We do not sell refurbished, open-box, recertified, or grey-market inventory."],
     ["Do you offer a warranty?", "Yes — every printer we sell carries the full manufacturer's warranty (typically 1 year limited hardware warranty for HP printers). For warranty service, contact the manufacturer directly using the documentation included in the box."],
     ["Do I have to create an account to check out?", "No. Guest checkout is the default and works without ever creating an account. Creating an account is optional and only saves your shipping address and order history for next time."],
     ["What payment methods do you accept?", "We accept Visa, Mastercard, American Express, Discover, Apple Pay, and Google Pay. All payments are processed through encrypted, PCI-compliant infrastructure."],
     ["Do you charge sales tax?", "Yes. As a US retailer, we are required to collect sales tax in states where we have nexus. Tax is calculated at checkout based on your shipping address."],
     ["Can I cancel my order?", "If your order has not yet shipped, contact us right away at <a href=\"mailto:${BIZ.email}\">${BIZ.email}</a> and we'll cancel it. Once an order has shipped, you'll need to follow the return process after delivery."],
-    ["Do you price match competitors?", "We don't currently offer formal price matching, but if you find a major US retailer offering the same factory-sealed product at a lower advertised price, email us and we'll do our best to make it right."],
+    ["Do you price match competitors?", "We don't currently offer formal price matching, but if you find a major US retailer offering the same product at a lower advertised price, email us and we'll do our best to make it right."],
     ["What if my printer arrives damaged?", "If your shipment arrives with visible carrier damage, photograph the box and contents and email us within 48 hours. We'll arrange a free replacement and a return label for the damaged unit."],
     ["How do I track my order?", "Your shipping confirmation email contains a tracking link. You can also sign in to your <a href=\"/account/dashboard.html\">account dashboard</a> to view tracking for any order placed while signed in."],
     ["Do you sell ink cartridges or paper?", "Not at this time. We focus exclusively on printer hardware. For ink, we recommend purchasing genuine OEM cartridges directly from the manufacturer or an authorized retailer."],
@@ -1361,13 +1373,13 @@ function pageReturn() {
 <p>We do not currently process direct exchanges. To swap a printer for a different model, please return the original printer for a refund and place a new order for the model you want. This way you have the new printer in hand before the refund is finalized.</p>
 
 <h2>International Returns</h2>
-<p>TopInkjet ships within the United States only. If a product was shipped to a US address and you have moved internationally, you are responsible for returning the product to our Austin, TX warehouse at your own expense; we will refund the product price upon receipt and inspection.</p>
+<p>TopInkjet ships within the United States only. If a product was shipped to a US address and you have moved internationally, you are responsible for returning the product to our US warehouse at your own expense; we will refund the product price upon receipt and inspection.</p>
 
 <h2>Damaged or Defective on Arrival</h2>
 <p>If your shipment arrives with carrier damage to the box or product, photograph the damage and contact us within 48 hours at <a href="mailto:${BIZ.email}">${BIZ.email}</a>. We'll arrange a prepaid return label and ship a replacement immediately, no questions asked.</p>
 
 <h2>Questions</h2>
-<p>If you have any question about your specific return, email <a href="mailto:${BIZ.email}">${BIZ.email}</a> or call <a href="tel:${BIZ.phone.replace(/[^0-9+]/g,"")}">${BIZ.phone}</a> during business hours (${BIZ.hours}). A real human will respond within one business day.</p>
+<p>If you have any question about your specific return, email <a href="mailto:${BIZ.email}">${BIZ.email}</a> or call <a href="tel:${BIZ.phone.replace(/[^0-9+]/g,"")}">${BIZ.phone}</a> during business hours (${BIZ.hours}). We will respond within one business day.</p>
 `
   );
 }
@@ -1673,7 +1685,7 @@ function pageDisclaimer() {
 <p>The information on topinkjet.com is provided in good faith for general informational and commercial purposes. By using the site, you acknowledge the following disclosures.</p>
 
 <h2>Independent Retailer</h2>
-<p>TopInkjet is an independent United States retailer headquartered in Austin, Texas. We are not owned by, operated by, or affiliated with any printer manufacturer. The products we sell are sourced through authorized US distribution channels.</p>
+<p>TopInkjet is an independent United States retailer. We are not owned by, operated by, or affiliated with any printer manufacturer. The products we sell are sourced through US distribution channels.</p>
 
 <h2>Brand Names and Trademarks</h2>
 <p>Brand names, model numbers, logos, and other trademarks used throughout topinkjet.com are the property of their respective owners and are used for descriptive and identification purposes only. Their use does not imply any sponsorship, endorsement, partnership, or affiliation between TopInkjet and any trademark holder.</p>
@@ -1711,146 +1723,6 @@ function pageDisclaimer() {
   );
 }
 
-// ----- Blog -----
-function pageBlogIndex(posts) {
-  const body = `
-${breadcrumbs([{ label: "Home", href: "/" }, { label: "Blog" }])}
-<section class="section">
-  <div class="container narrow">
-    <span class="eyebrow">TopInkjet Blog</span>
-    <h1>Printer Buying Guides & Insights</h1>
-    <p class="lead">Practical, US-focused articles on choosing, using, and getting more out of your inkjet printer.</p>
-    <div class="blog-list">
-      ${posts.map((p) => `
-      <article class="blog-card">
-        <a href="/blog/${p.slug}.html"><h2>${esc(p.title)}</h2></a>
-        <p class="meta">${esc(p.date)} · ${esc(p.readTime)} read</p>
-        <p>${esc(p.excerpt)}</p>
-        <a class="btn btn-outline btn-sm" href="/blog/${p.slug}.html">Read more →</a>
-      </article>
-      `).join("")}
-    </div>
-  </div>
-</section>
-`;
-  return shell({
-    title: "Blog — Inkjet Printer Buying Guides | TopInkjet",
-    description: "Read TopInkjet's printer buying guides, comparisons, and how-to articles to choose the right inkjet printer for your office or home.",
-    canonical: "/blog.html",
-    body,
-    active: "blog",
-  });
-}
-
-function pageBlogPost(post) {
-  const body = `
-${breadcrumbs([{ label: "Home", href: "/" }, { label: "Blog", href: "/blog.html" }, { label: post.title }])}
-<section class="section">
-  <div class="container narrow blog-post">
-    <span class="eyebrow">${esc(post.category)}</span>
-    <h1>${esc(post.title)}</h1>
-    <p class="meta">By ${esc(post.author)} · ${esc(post.date)} · ${esc(post.readTime)} read</p>
-    ${post.body}
-    <hr/>
-    <p><a class="btn btn-outline" href="/blog.html">← Back to all posts</a></p>
-  </div>
-</section>
-`;
-  return shell({
-    title: `${post.title} — TopInkjet Blog`,
-    description: post.excerpt,
-    canonical: `/blog/${post.slug}.html`,
-    body,
-    active: "blog",
-  });
-}
-
-const BLOG_POSTS = [
-  {
-    slug: "choosing-an-inkjet-2026",
-    title: "Choosing an Inkjet Printer in 2026: A Plain-English Guide",
-    excerpt: "Cartridge or refillable tank? Compact or all-in-one? Here's the simple way to choose your next inkjet.",
-    date: "January 12, 2026",
-    readTime: "5 min",
-    category: "Buying Guide",
-    author: "TopInkjet Team",
-    body: `
-<p>Inkjet printers have changed more in the last three years than in the previous ten. Refillable Smart Tank designs have demolished cost-per-page expectations, OfficeJet Pro models have closed the gap on text crispness, and ENVY Inspire all-in-ones now produce truly photo-grade output at home. The catch is that all of those choices live under the same word — "inkjet" — and the right pick comes down to one honest question: how much do you actually print?</p>
-
-<h2>Pick by Volume First</h2>
-<p>Under 100 pages a month, an entry-level model like the <a href="/product/hp-deskjet-2855e.html">HP DeskJet 2855e</a> is the right answer. Between 100 and 500 pages a month, the mid-range ENVY and OfficeJet families balance purchase price with reasonable supply cost. Above 500 pages a month, refillable Smart Tank designs like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> pay back the higher hardware price in supply savings within months.</p>
-
-<h2>Then Pick by What You Print</h2>
-<p>Photos and crafts? Look at the ENVY Inspire family — every model includes a dedicated photo tray. Long PDFs that you scan and copy regularly? You want a 35-sheet automatic document feeder; a duplex ADF on the <a href="/product/hp-officejet-pro-9125e.html">OfficeJet Pro 9125e</a> can scan two-sided documents in a single pass. Still need fax? Mobile fax via the HP Smart app routes faxes through your phone — no landline required.</p>
-
-<h2>Don't Forget the Room</h2>
-<p>Office printers belong on a wired Ethernet jack wherever possible — it's faster, more reliable, and survives router reboots. Home printers benefit from quiet operation and a clean design that won't clash with the rest of the room. Match the printer to the space, the volume, and the work — and you'll dodge the regret most printer buyers feel six months in.</p>
-
-<p>Need a personal recommendation? Our <a href="/contact.html">US-based support team</a> is happy to help you choose.</p>
-`
-  },
-  {
-    slug: "small-office-printer-checklist",
-    title: "The Small-Office Printer Checklist: 7 Things That Actually Matter",
-    excerpt: "Forget the spec-sheet wars. Here are the seven features that actually matter when buying a printer for a small office.",
-    date: "December 4, 2025",
-    readTime: "6 min",
-    category: "Office",
-    author: "TopInkjet Team",
-    body: `
-<p>Most small offices buy a printer in a panic — the old one died, you Googled, and you bought whatever Amazon ranked first. Here's a calmer checklist of the seven things that actually matter for an office printer in 2026, in roughly the order you should think about them.</p>
-
-<h2>1. Monthly Volume</h2>
-<p>Be honest about how many pages your office actually prints. If it's under 500, almost any modern inkjet works. Above 1,000, look at high-yield supplies. Above 2,500, a refillable Smart Tank like the <a href="/product/hp-smart-tank-7301.html">HP Smart Tank 7301</a> drops your supply cost to pennies per page.</p>
-
-<h2>2. Auto-Duplex</h2>
-<p>Automatic two-sided printing should be a hard requirement, not a nice-to-have. It saves paper, reduces filing, and makes long documents readable. Every office printer in our lineup includes auto-duplex.</p>
-
-<h2>3. Automatic Document Feeder (ADF)</h2>
-<p>If you ever scan or copy multi-page documents, a 35-sheet ADF transforms how you work with paper. Step up to a duplex ADF — like the one on the <a href="/product/hp-officejet-pro-9125e.html">HP OfficeJet Pro 9125e</a> — and you can scan two-sided documents in a single pass.</p>
-
-<h2>4. Wired Networking</h2>
-<p>Wi-Fi is great for setup, but a Gigabit Ethernet jack is what your printer should plug into for daily use. It's faster, more reliable, and doesn't fall off the network when your router reboots.</p>
-
-<h2>5. Mobile Printing</h2>
-<p>Your team will print from phones and tablets whether you plan for it or not. Pick a printer that supports AirPrint, Mopria, and the manufacturer's mobile app out of the box.</p>
-
-<h2>6. Total Cost of Ownership</h2>
-<p>Compare the cost of supplies for the volume you actually print over three years, not the sticker price of the printer. A $250 printer with cheap supplies will beat a $150 printer with expensive supplies in a year for most offices.</p>
-
-<h2>7. Real Support</h2>
-<p>When the printer breaks at 4:55 PM on a Friday with payroll due, you want a real person on the phone — not a chatbot loop. Buy from a retailer (like us) that publishes a real US phone number on every page.</p>
-
-<p>Use this checklist for your next printer purchase and you'll dodge 90% of the regret most people experience six months in. If you'd like a personal recommendation, our <a href="/contact.html">support team</a> is always happy to help.</p>
-`
-  },
-  {
-    slug: "smart-tank-vs-cartridge",
-    title: "Smart Tank vs Cartridge: Is Cartridge-Free Printing Worth It?",
-    excerpt: "Refillable ink tank printers cost more upfront but promise dramatically lower cost per page. Here's the real math.",
-    date: "November 18, 2025",
-    readTime: "5 min",
-    category: "Home",
-    author: "TopInkjet Team",
-    body: `
-<p>Cartridge-free Smart Tank printers have become genuinely mainstream. The pitch is compelling: pay more upfront, but get up to two years of ink in the box and supply costs that drop to pennies per page. Is the math actually in your favor? Almost certainly yes — but only if you print enough.</p>
-
-<h2>The Hardware Premium</h2>
-<p>A cartridge-free Smart Tank printer costs roughly 50–100% more than a comparable cartridge model. The <a href="/product/hp-smart-tank-5101.html">HP Smart Tank 5101</a> at $199 sits in roughly the same feature class as a $130–$150 cartridge inkjet.</p>
-
-<h2>The Supply Savings</h2>
-<p>Where Smart Tank wins is in supply cost. A typical color cartridge inkjet costs about $0.18 per color page in OEM supplies. A refillable Smart Tank delivers roughly $0.01 per color page. That's an 18× advantage. If you print 100 color pages a month, you save about $17 a month — or $204 a year — in supplies. The Smart Tank pays back its hardware premium in roughly six months at that volume.</p>
-
-<h2>When Smart Tank Wins</h2>
-<p>If you print more than 50 mixed pages a month, Smart Tank wins on three-year total cost. If you print more than 100 pages a month, it wins decisively. If you print fewer than 30 pages a month, a regular cartridge printer will be cheaper over three years simply because you'll never use the ink that comes with the Smart Tank.</p>
-
-<h2>The Other Benefits</h2>
-<p>Cost isn't the only reason to consider Smart Tank. The refillable design eliminates "I'm out of ink" panic right before a meeting. The bottles are easier to recycle than cartridges. And the modern Smart Tank designs (like the <a href="/product/hp-smart-tank-7001.html">7001</a>) are genuinely good-looking devices that fit anywhere.</p>
-
-<p>Bottom line: if you print regularly, refillable Smart Tank is the smart pick. If you print rarely, stay with a basic cartridge model and don't lock up extra cash in ink you'll never use.</p>
-`
-  },
-];
 
 // ----- 404 -----
 function page404() {
