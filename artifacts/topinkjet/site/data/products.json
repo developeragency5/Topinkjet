@@ -174,7 +174,7 @@
     "price": 299.99,
     "sku": "4V2L4A",
     "shortDescription": "Single-function color inkjet with PDL (PCL/PostScript) page-description language support for managed offices.",
-    "longDescription": "The HP OfficeJet Pro 9110b is a print-only color inkjet built for managed office environments. PCL and PostScript emulation make it a drop-in replacement for legacy laser fleets, while a 250-sheet input tray and automatic two-sided printing keep it productive. Native dual-band Wi-Fi and Gigabit Ethernet round out the connectivity options.",
+    "longDescription": "The HP OfficeJet Pro 9110b is a print-only color inkjet built for managed office environments. PCL and PostScript emulation make it a drop-in replacement for legacy office print fleets, while a 250-sheet input tray and automatic two-sided printing keep it productive. Native dual-band Wi-Fi and Gigabit Ethernet round out the connectivity options.",
     "specs": {
       "Functions": "Print only",
       "Print Speed": "Up to 25 ppm black / 20 ppm color",

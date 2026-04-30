@@ -603,8 +603,6 @@ ${breadcrumbs([{ label: "Home", href: "/" }, { label: "Shop" }])}
     <p>Picking an inkjet printer is mostly a question of how much you actually print each month and what kind of work you do. For light home printing — homework, forms, the occasional photo — an entry-level <a href="/product/hp-deskjet-2827e.html">HP DeskJet 2827e</a> or <a href="/product/hp-deskjet-2855e.html">DeskJet 2855e</a> is usually plenty. They're compact, friendly, and cost less than a tank of gas.</p>
     <p>For mixed home-office work — call it 100 to 500 pages a month — step up to an <a href="/product/hp-officejet-pro-8125e.html">OfficeJet Pro 8125e</a> for documents or an <a href="/product/hp-envy-inspire-7255e.html">ENVY Inspire 7255e</a> for photo-heavy households. You get a 35-page automatic document feeder, automatic two-sided printing, and a 250-sheet input tray, so you spend a lot less time at the printer.</p>
     <p>If you print constantly — invoices, contracts, school packets, or a small business — a refillable <a href="/category-home-inkjet.html">HP Smart Tank</a> drops your cost per page to pennies, and an OfficeJet Pro 9000-series like the <a href="/product/hp-officejet-pro-9125e.html">9125e</a> or <a href="/product/hp-officejet-pro-9135e.html">9135e</a> brings business-grade speed and Gigabit Ethernet into the mix. Need full A3 / 11×17 inch tabloid output? The <a href="/product/hp-officejet-pro-9730e-wide-format.html">OfficeJet Pro 9730e</a> is the only printer in our lineup that handles wide-format work.</p>
-    <h2>Inkjet vs. Laser: Why Inkjet Still Wins for Most US Households &amp; Offices</h2>
-    <p>Modern inkjets — especially HP's current OfficeJet Pro and Smart Tank lines — match or beat color lasers on speed, blow them away on color and photo quality, draw far less power, run quieter, and almost always cost less to buy and run. Unless you genuinely print thousands of black-and-white text pages a week, inkjet is the smarter choice in 2026.</p>
     <h2>Why Buy from TopInkjet?</h2>
     <p>We carry a tight, intentional catalog — 22 current-generation HP inkjets across two clear categories. Every order ships free via Standard Ground inside the United States, every printer carries a 30-day return window, and our US-based support team is one email away. There's no membership, no hidden fee at checkout, and no upsell on shipping. Just a focused selection of printers we'd recommend to a friend.</p>
   </div>
@@ -689,11 +687,11 @@ function inferAudience(p) {
   const fam = inferProductFamily(p);
   switch (fam) {
     case "wide-format-ojp":
-      return "architects, real-estate teams, education staff, and finance departments who need full A3 / 11×17 inch tabloid output without the footprint or running costs of a wide-format laser printer";
+      return "architects, real-estate teams, education staff, and finance departments who need full A3 / 11×17 inch tabloid output in a compact, desktop-friendly footprint";
     case "ojp-9000":
       return "demanding small offices that print, scan, copy, and share documents across a team — including those who need Gigabit Ethernet, color touchscreen workflows, and PCL/PostScript drivers for managed environments";
     case "ojp-8000":
-      return "growing home offices and small teams that print every day and want a true workhorse all-in-one — without the expense, heat, and footprint of a comparable color laser";
+      return "growing home offices and small teams that print every day and want a true workhorse all-in-one in a compact, energy-efficient design";
     case "oj-8000":
       return "value-focused small offices and home offices that need full all-in-one functionality — print, scan, copy, fax — at a friendly price point";
     case "smart-tank":
@@ -784,7 +782,7 @@ function inferOverviewCopy(p) {
   const fam = inferProductFamily(p);
   const cat = p.category === "office-inkjet" ? "office" : "home";
   const para2 = (() => {
-    if (fam === "wide-format-ojp") return `Wide-format printing has historically meant heavy laser MFPs, expensive toner, and a dedicated equipment closet. The ${esc(p.name)} brings full A3 / 11×17 inch output back to the desktop, paired with a duplex automatic document feeder, dual paper trays, and a color touchscreen — at a fraction of the cost-per-page of a comparable color laser.`;
+    if (fam === "wide-format-ojp") return `Wide-format printing has historically meant heavy MFPs and a dedicated equipment closet. The ${esc(p.name)} brings full A3 / 11×17 inch output back to the desktop, paired with a duplex automatic document feeder, dual paper trays, and a color touchscreen — all in a footprint that fits next to your monitor.`;
     if (fam === "ojp-9000") return `Built for offices that take printing seriously, the ${esc(p.name)} pairs business-grade speed with the security and management features modern IT teams expect. Native dual-band Wi-Fi, a 250-sheet input tray, automatic two-sided printing, and a duplex automatic document feeder mean fewer interruptions and more finished work.`;
     if (fam === "ojp-8000" || fam === "oj-8000") return `The ${esc(p.name)} is engineered for the way real small offices and home offices actually work today — a mix of email, PDFs, contracts, scanning, and the occasional fax. Wireless setup over the HP Smart app takes about five minutes, and the printer is ready to share across every device on your network.`;
     if (fam === "smart-tank") return `Smart Tank flips the inkjet economics on its head. Instead of buying cartridges every few months, you fill the tanks once and print for what HP estimates is up to two years of typical home use before refilling. The result is dramatically lower cost-per-page than any cartridge-based printer in the same class.`;
